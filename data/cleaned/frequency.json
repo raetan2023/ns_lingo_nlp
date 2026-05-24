@@ -1,0 +1,802 @@
+[
+  {
+    "term": "pes",
+    "count": 57
+  },
+  {
+    "term": "enlistment",
+    "count": 42
+  },
+  {
+    "term": "bmt",
+    "count": 33
+  },
+  {
+    "term": "any",
+    "count": 32
+  },
+  {
+    "term": "go",
+    "count": 29
+  },
+  {
+    "term": "there",
+    "count": 28
+  },
+  {
+    "term": "letter",
+    "count": 28
+  },
+  {
+    "term": "before",
+    "count": 23
+  },
+  {
+    "term": "may",
+    "count": 23
+  },
+  {
+    "term": "training",
+    "count": 23
+  },
+  {
+    "term": "ippt",
+    "count": 22
+  },
+  {
+    "term": "after",
+    "count": 21
+  },
+  {
+    "term": "only",
+    "count": 19
+  },
+  {
+    "term": "enlisting",
+    "count": 19
+  },
+  {
+    "term": "first",
+    "count": 19
+  },
+  {
+    "term": "now",
+    "count": 18
+  },
+  {
+    "term": "time",
+    "count": 18
+  },
+  {
+    "term": "batch",
+    "count": 18
+  },
+  {
+    "term": "no",
+    "count": 18
+  },
+  {
+    "term": "ns",
+    "count": 17
+  },
+  {
+    "term": "their",
+    "count": 17
+  },
+  {
+    "term": "hi",
+    "count": 17
+  },
+  {
+    "term": "all",
+    "count": 16
+  },
+  {
+    "term": "intake",
+    "count": 16
+  },
+  {
+    "term": "them",
+    "count": 16
+  },
+  {
+    "term": "need",
+    "count": 16
+  },
+  {
+    "term": "unit",
+    "count": 16
+  },
+  {
+    "term": "pop",
+    "count": 16
+  },
+  {
+    "term": "am",
+    "count": 15
+  },
+  {
+    "term": "should",
+    "count": 15
+  },
+  {
+    "term": "date",
+    "count": 15
+  },
+  {
+    "term": "likely",
+    "count": 15
+  },
+  {
+    "term": "one",
+    "count": 15
+  },
+  {
+    "term": "ptp",
+    "count": 15
+  },
+  {
+    "term": "would",
+    "count": 15
+  },
+  {
+    "term": "day",
+    "count": 15
+  },
+  {
+    "term": "about",
+    "count": 14
+  },
+  {
+    "term": "up",
+    "count": 14
+  },
+  {
+    "term": "12",
+    "count": 14
+  },
+  {
+    "term": "because",
+    "count": 14
+  },
+  {
+    "term": "bp",
+    "count": 14
+  },
+  {
+    "term": "too",
+    "count": 13
+  },
+  {
+    "term": "pcc",
+    "count": 13
+  },
+  {
+    "term": "appointment",
+    "count": 13
+  },
+  {
+    "term": "i'm",
+    "count": 13
+  },
+  {
+    "term": "think",
+    "count": 13
+  },
+  {
+    "term": "more",
+    "count": 13
+  },
+  {
+    "term": "aug",
+    "count": 13
+  },
+  {
+    "term": "b4",
+    "count": 12
+  },
+  {
+    "term": "vocation",
+    "count": 12
+  },
+  {
+    "term": "by",
+    "count": 12
+  },
+  {
+    "term": "during",
+    "count": 12
+  },
+  {
+    "term": "yet",
+    "count": 12
+  },
+  {
+    "term": "here",
+    "count": 12
+  },
+  {
+    "term": "august",
+    "count": 12
+  },
+  {
+    "term": "out",
+    "count": 12
+  },
+  {
+    "term": "check",
+    "count": 12
+  },
+  {
+    "term": "thanks",
+    "count": 12
+  },
+  {
+    "term": "october",
+    "count": 12
+  },
+  {
+    "term": "ur",
+    "count": 12
+  },
+  {
+    "term": "ask",
+    "count": 11
+  },
+  {
+    "term": "cmpb",
+    "count": 11
+  },
+  {
+    "term": "mono",
+    "count": 11
+  },
+  {
+    "term": "people",
+    "count": 11
+  },
+  {
+    "term": "im",
+    "count": 11
+  },
+  {
+    "term": "even",
+    "count": 11
+  },
+  {
+    "term": "some",
+    "count": 11
+  },
+  {
+    "term": "which",
+    "count": 11
+  },
+  {
+    "term": "already",
+    "count": 11
+  },
+  {
+    "term": "july",
+    "count": 11
+  },
+  {
+    "term": "help",
+    "count": 11
+  },
+  {
+    "term": "sure",
+    "count": 11
+  },
+  {
+    "term": "quite",
+    "count": 11
+  },
+  {
+    "term": "poly",
+    "count": 11
+  },
+  {
+    "term": "pes bp",
+    "count": 11
+  },
+  {
+    "term": "questions",
+    "count": 10
+  },
+  {
+    "term": "website",
+    "count": 10
+  },
+  {
+    "term": "combat",
+    "count": 10
+  },
+  {
+    "term": "recently",
+    "count": 10
+  },
+  {
+    "term": "weeks",
+    "count": 10
+  },
+  {
+    "term": "posted",
+    "count": 10
+  },
+  {
+    "term": "into",
+    "count": 10
+  },
+  {
+    "term": "bring",
+    "count": 10
+  },
+  {
+    "term": "back",
+    "count": 10
+  },
+  {
+    "term": "yes",
+    "count": 10
+  },
+  {
+    "term": "around",
+    "count": 10
+  },
+  {
+    "term": "months",
+    "count": 10
+  },
+  {
+    "term": "coy",
+    "count": 10
+  },
+  {
+    "term": "scs",
+    "count": 9
+  },
+  {
+    "term": "want",
+    "count": 9
+  },
+  {
+    "term": "b1",
+    "count": 9
+  },
+  {
+    "term": "through",
+    "count": 9
+  },
+  {
+    "term": "very",
+    "count": 9
+  },
+  {
+    "term": "pes b1",
+    "count": 9
+  },
+  {
+    "term": "pes b4",
+    "count": 9
+  },
+  {
+    "term": "other",
+    "count": 9
+  },
+  {
+    "term": "things",
+    "count": 9
+  },
+  {
+    "term": "week",
+    "count": 9
+  },
+  {
+    "term": "oct",
+    "count": 9
+  },
+  {
+    "term": "heard",
+    "count": 9
+  },
+  {
+    "term": "same",
+    "count": 9
+  },
+  {
+    "term": "next",
+    "count": 9
+  },
+  {
+    "term": "most",
+    "count": 9
+  },
+  {
+    "term": "ll",
+    "count": 9
+  },
+  {
+    "term": "much",
+    "count": 9
+  },
+  {
+    "term": "then",
+    "count": 9
+  },
+  {
+    "term": "than",
+    "count": 9
+  },
+  {
+    "term": "see",
+    "count": 8
+  },
+  {
+    "term": "dates",
+    "count": 8
+  },
+  {
+    "term": "ocs",
+    "count": 8
+  },
+  {
+    "term": "everyone",
+    "count": 8
+  },
+  {
+    "term": "call",
+    "count": 8
+  },
+  {
+    "term": "possible",
+    "count": 8
+  },
+  {
+    "term": "vocations",
+    "count": 8
+  },
+  {
+    "term": "since",
+    "count": 8
+  },
+  {
+    "term": "enlisted",
+    "count": 8
+  },
+  {
+    "term": "ve",
+    "count": 8
+  },
+  {
+    "term": "encik",
+    "count": 8
+  },
+  {
+    "term": "tekong",
+    "count": 8
+  },
+  {
+    "term": "bmtc",
+    "count": 8
+  },
+  {
+    "term": "bro",
+    "count": 8
+  },
+  {
+    "term": "receive",
+    "count": 8
+  },
+  {
+    "term": "went",
+    "count": 8
+  },
+  {
+    "term": "last",
+    "count": 8
+  },
+  {
+    "term": "once",
+    "count": 8
+  },
+  {
+    "term": "enlist",
+    "count": 8
+  },
+  {
+    "term": "thing",
+    "count": 8
+  },
+  {
+    "term": "2026",
+    "count": 7
+  },
+  {
+    "term": "sg",
+    "count": 7
+  },
+  {
+    "term": "please",
+    "count": 7
+  },
+  {
+    "term": "status",
+    "count": 7
+  },
+  {
+    "term": "called",
+    "count": 7
+  },
+  {
+    "term": "years",
+    "count": 7
+  },
+  {
+    "term": "those",
+    "count": 7
+  },
+  {
+    "term": "though",
+    "count": 7
+  },
+  {
+    "term": "scdf",
+    "count": 7
+  },
+  {
+    "term": "say",
+    "count": 7
+  },
+  {
+    "term": "mean",
+    "count": 7
+  },
+  {
+    "term": "able",
+    "count": 7
+  },
+  {
+    "term": "might",
+    "count": 7
+  },
+  {
+    "term": "few",
+    "count": 7
+  },
+  {
+    "term": "received",
+    "count": 7
+  },
+  {
+    "term": "camp",
+    "count": 7
+  },
+  {
+    "term": "long",
+    "count": 7
+  },
+  {
+    "term": "sch",
+    "count": 7
+  },
+  {
+    "term": "letters",
+    "count": 7
+  },
+  {
+    "term": "way",
+    "count": 7
+  },
+  {
+    "term": "better",
+    "count": 7
+  },
+  {
+    "term": "admin",
+    "count": 7
+  },
+  {
+    "term": "during bmt",
+    "count": 7
+  },
+  {
+    "term": "its",
+    "count": 7
+  },
+  {
+    "term": "true",
+    "count": 7
+  },
+  {
+    "term": "enlistment date",
+    "count": 7
+  },
+  {
+    "term": "01",
+    "count": 7
+  },
+  {
+    "term": "27",
+    "count": 7
+  },
+  {
+    "term": "usually",
+    "count": 7
+  },
+  {
+    "term": "unless",
+    "count": 7
+  },
+  {
+    "term": "anything",
+    "count": 7
+  },
+  {
+    "term": "re",
+    "count": 7
+  },
+  {
+    "term": "reddit",
+    "count": 6
+  },
+  {
+    "term": "pes status",
+    "count": 6
+  },
+  {
+    "term": "never",
+    "count": 6
+  },
+  {
+    "term": "silver",
+    "count": 6
+  },
+  {
+    "term": "vees",
+    "count": 6
+  },
+  {
+    "term": "wondering",
+    "count": 6
+  },
+  {
+    "term": "combat unit",
+    "count": 6
+  },
+  {
+    "term": "advice",
+    "count": 6
+  },
+  {
+    "term": "expect",
+    "count": 6
+  },
+  {
+    "term": "vocational",
+    "count": 6
+  },
+  {
+    "term": "his",
+    "count": 6
+  },
+  {
+    "term": "been",
+    "count": 6
+  },
+  {
+    "term": "mo",
+    "count": 6
+  },
+  {
+    "term": "month",
+    "count": 6
+  },
+  {
+    "term": "saf",
+    "count": 6
+  },
+  {
+    "term": "guys",
+    "count": 6
+  },
+  {
+    "term": "school",
+    "count": 6
+  },
+  {
+    "term": "bag",
+    "count": 6
+  },
+  {
+    "term": "admin time",
+    "count": 6
+  },
+  {
+    "term": "don",
+    "count": 6
+  },
+  {
+    "term": "first day",
+    "count": 6
+  },
+  {
+    "term": "letter yet",
+    "count": 6
+  },
+  {
+    "term": "oh",
+    "count": 6
+  },
+  {
+    "term": "most likely",
+    "count": 6
+  },
+  {
+    "term": "every",
+    "count": 6
+  },
+  {
+    "term": "enlistment letter",
+    "count": 6
+  },
+  {
+    "term": "army",
+    "count": 6
+  },
+  {
+    "term": "take",
+    "count": 6
+  },
+  {
+    "term": "etc",
+    "count": 6
+  },
+  {
+    "term": "levels",
+    "count": 6
+  },
+  {
+    "term": "higher",
+    "count": 6
+  },
+  {
+    "term": "medical",
+    "count": 6
+  },
+  {
+    "term": "command",
+    "count": 6
+  },
+  {
+    "term": "use",
+    "count": 5
+  },
+  {
+    "term": "asking",
+    "count": 5
+  },
+  {
+    "term": "intakes",
+    "count": 5
+  },
+  {
+    "term": "contact",
+    "count": 5
+  },
+  {
+    "term": "mono intake",
+    "count": 5
+  },
+  {
+    "term": "dont",
+    "count": 5
+  },
+  {
+    "term": "course",
+    "count": 5
+  },
+  {
+    "term": "c9",
+    "count": 5
+  }
+]
