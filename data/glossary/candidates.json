@@ -1,0 +1,50 @@
+[
+  {
+    "term": "pes",
+    "count": 13,
+    "source": "frequency",
+    "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "bmt",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pcc",
+    "count": 5,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "ippt",
+    "count": 4,
+    "source": "frequency",
+    "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "ocs",
+    "count": 3,
+    "source": "frequency",
+    "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "scs",
+    "count": 3,
+    "source": "frequency",
+    "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  }
+]

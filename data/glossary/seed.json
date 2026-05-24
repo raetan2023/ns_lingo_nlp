@@ -1,0 +1,32 @@
+[
+  {
+    "term": "ORD",
+    "definition": "Operationally Ready Date",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "PES",
+    "definition": "Physical Employment Standard",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "IPPT",
+    "definition": "Individual Physical Proficiency Test",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "SCS",
+    "definition": "Specialist Cadet School",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "OCS",
+    "definition": "Officer Cadet School",
+    "category": "acronym",
+    "source": "manual_seed"
+  }
+]
