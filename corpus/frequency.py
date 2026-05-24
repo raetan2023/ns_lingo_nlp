@@ -11,7 +11,10 @@ STOPWORDS = {
     "the", "a", "an", "and", "or", "to", "of", "in", "is", "it", "for",
     "on", "with", "this", "that", "i", "you", "he", "she", "they", "we",
     "my", "your", "me", "are", "was", "be", "as", "at", "from", "but",
-    "if", "so", "not", "have", "has", "had", "do", "does", "did"
+    "if", "so", "not", "have", "has", "had", "do", "does", "did",
+    "what", "when", "where", "why", "how", "who", "can", "will", "just",
+    "like", "also", "anyone", "know", "get", "got", "still", "really",
+    "https", "http", "www", "com"
 }
 
 
@@ -20,19 +23,33 @@ def tokenize(text):
     return re.findall(r"[a-zA-Z0-9']+", text)
 
 
-def load_reddit_text():
+def load_post_texts():
     texts = []
 
     for path in RAW_DIR.glob("NationalServiceSG_*.json"):
+        if "comments" in path.name:
+            continue
+
         with open(path, "r", encoding="utf-8") as f:
             posts = json.load(f)
 
         for post in posts:
             data = post.get("data", {})
-            title = data.get("title", "")
-            body = data.get("selftext", "")
-            texts.append(title)
-            texts.append(body)
+            texts.append(data.get("title", ""))
+            texts.append(data.get("selftext", ""))
+
+    return texts
+
+
+def load_comment_texts():
+    texts = []
+
+    for path in RAW_DIR.glob("NationalServiceSG_comments_*.json"):
+        with open(path, "r", encoding="utf-8") as f:
+            comments = json.load(f)
+
+        for comment in comments:
+            texts.append(comment.get("body", ""))
 
     return texts
 
@@ -55,7 +72,7 @@ def save_frequency(counter):
 
     results = [
         {"term": word, "count": count}
-        for word, count in counter.most_common(100)
+        for word, count in counter.most_common(200)
     ]
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
@@ -65,11 +82,17 @@ def save_frequency(counter):
 
 
 if __name__ == "__main__":
-    texts = load_reddit_text()
+    post_texts = load_post_texts()
+    comment_texts = load_comment_texts()
+
+    texts = post_texts + comment_texts
     counter = count_words(texts)
 
-    print("Top terms:")
-    for word, count in counter.most_common(30):
+    print(f"Loaded {len(post_texts)} post text fields")
+    print(f"Loaded {len(comment_texts)} comments")
+    print("\nTop terms:")
+
+    for word, count in counter.most_common(40):
         print(f"{word}: {count}")
 
     save_frequency(counter)

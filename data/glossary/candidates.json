@@ -1,7 +1,7 @@
 [
   {
     "term": "pes",
-    "count": 13,
+    "count": 57,
     "source": "frequency",
     "in_seed_glossary": true,
     "status": "candidate",
@@ -9,15 +9,7 @@
   },
   {
     "term": "bmt",
-    "count": 6,
-    "source": "frequency",
-    "in_seed_glossary": false,
-    "status": "candidate",
-    "notes": ""
-  },
-  {
-    "term": "pcc",
-    "count": 5,
+    "count": 33,
     "source": "frequency",
     "in_seed_glossary": false,
     "status": "candidate",
@@ -25,7 +17,31 @@
   },
   {
     "term": "ippt",
-    "count": 4,
+    "count": 22,
+    "source": "frequency",
+    "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "ptp",
+    "count": 15,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pcc",
+    "count": 13,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "scs",
+    "count": 9,
     "source": "frequency",
     "in_seed_glossary": true,
     "status": "candidate",
@@ -33,17 +49,33 @@
   },
   {
     "term": "ocs",
-    "count": 3,
+    "count": 8,
     "source": "frequency",
     "in_seed_glossary": true,
     "status": "candidate",
     "notes": ""
   },
   {
-    "term": "scs",
-    "count": 3,
+    "term": "encik",
+    "count": 8,
     "source": "frequency",
-    "in_seed_glossary": true,
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "tekong",
+    "count": 8,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "mo",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
     "status": "candidate",
     "notes": ""
   }
