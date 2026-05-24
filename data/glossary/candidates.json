@@ -24,6 +24,22 @@
     "notes": ""
   },
   {
+    "term": "intake",
+    "count": 16,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pop",
+    "count": 16,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
     "term": "ptp",
     "count": 15,
     "source": "frequency",
@@ -40,10 +56,42 @@
     "notes": ""
   },
   {
+    "term": "mono",
+    "count": 11,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pes bp",
+    "count": 11,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
     "term": "scs",
     "count": 9,
     "source": "frequency",
     "in_seed_glossary": true,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pes b1",
+    "count": 9,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pes b4",
+    "count": 9,
+    "source": "frequency",
+    "in_seed_glossary": false,
     "status": "candidate",
     "notes": ""
   },
@@ -72,8 +120,88 @@
     "notes": ""
   },
   {
+    "term": "during bmt",
+    "count": 7,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "enlistment date",
+    "count": 7,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "pes status",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "combat unit",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
     "term": "mo",
     "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "admin time",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "first day",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "letter yet",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "most likely",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "enlistment letter",
+    "count": 6,
+    "source": "frequency",
+    "in_seed_glossary": false,
+    "status": "candidate",
+    "notes": ""
+  },
+  {
+    "term": "mono intake",
+    "count": 5,
     "source": "frequency",
     "in_seed_glossary": false,
     "status": "candidate",

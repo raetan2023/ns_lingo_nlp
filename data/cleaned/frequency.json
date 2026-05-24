@@ -296,6 +296,10 @@
     "count": 11
   },
   {
+    "term": "pes bp",
+    "count": 11
+  },
+  {
     "term": "questions",
     "count": 10
   },
@@ -365,6 +369,14 @@
   },
   {
     "term": "very",
+    "count": 9
+  },
+  {
+    "term": "pes b1",
+    "count": 9
+  },
+  {
+    "term": "pes b4",
     "count": 9
   },
   {
@@ -584,11 +596,19 @@
     "count": 7
   },
   {
+    "term": "during bmt",
+    "count": 7
+  },
+  {
     "term": "its",
     "count": 7
   },
   {
     "term": "true",
+    "count": 7
+  },
+  {
+    "term": "enlistment date",
     "count": 7
   },
   {
@@ -620,6 +640,10 @@
     "count": 6
   },
   {
+    "term": "pes status",
+    "count": 6
+  },
+  {
     "term": "never",
     "count": 6
   },
@@ -633,6 +657,10 @@
   },
   {
     "term": "wondering",
+    "count": 6
+  },
+  {
+    "term": "combat unit",
     "count": 6
   },
   {
@@ -680,7 +708,19 @@
     "count": 6
   },
   {
+    "term": "admin time",
+    "count": 6
+  },
+  {
     "term": "don",
+    "count": 6
+  },
+  {
+    "term": "first day",
+    "count": 6
+  },
+  {
+    "term": "letter yet",
     "count": 6
   },
   {
@@ -688,7 +728,15 @@
     "count": 6
   },
   {
+    "term": "most likely",
+    "count": 6
+  },
+  {
     "term": "every",
+    "count": 6
+  },
+  {
+    "term": "enlistment letter",
     "count": 6
   },
   {
@@ -736,6 +784,10 @@
     "count": 5
   },
   {
+    "term": "mono intake",
+    "count": 5
+  },
+  {
     "term": "dont",
     "count": 5
   },
@@ -745,58 +797,6 @@
   },
   {
     "term": "c9",
-    "count": 5
-  },
-  {
-    "term": "remedial",
-    "count": 5
-  },
-  {
-    "term": "company",
-    "count": 5
-  },
-  {
-    "term": "currently",
-    "count": 5
-  },
-  {
-    "term": "feel",
-    "count": 5
-  },
-  {
-    "term": "wanna",
-    "count": 5
-  },
-  {
-    "term": "packing",
-    "count": 5
-  },
-  {
-    "term": "commandos",
-    "count": 5
-  },
-  {
-    "term": "march",
-    "count": 5
-  },
-  {
-    "term": "actually",
-    "count": 5
-  },
-  {
-    "term": "own",
-    "count": 5
-  },
-  {
-    "term": "going",
-    "count": 5
-  },
-  {
-    "term": "push",
-    "count": 5
-  },
-  {
-    "term": "today",
     "count": 5
   }
 ]

@@ -11,14 +11,30 @@ NOISE_WORDS = {
     "training", "questions", "appointment",
     "like", "also", "can", "get", "one", "two",
     "about", "after", "before", "then", "than",
-    "what", "when", "where", "why", "who"
+    "what", "when", "where", "why", "who",
+    "first", "only", "time", "course", "asking",
+    "use", "there", "go", "may", "no", "yes"
 }
 
 KNOWN_NS_HINTS = {
     "pes", "bmt", "ippt", "ocs", "scs", "pcc",
     "ord", "nsf", "nsmen", "ict", "rt", "ptp",
     "mc", "mo", "sba", "soc", "sitest", "tekong",
-    "encik", "wayang", "keng", "chao", "outfield"
+    "encik", "wayang", "keng", "chao", "outfield",
+    "pop", "oot", "mono", "intake", "guard", "duty"
+}
+
+KNOWN_NS_PHRASES = {
+    "mono intake",
+    "pes status",
+    "guard duty",
+    "sign extra",
+    "outfield training",
+    "stay in",
+    "stay out",
+    "combat ration",
+    "bmt training",
+    "medical review"
 }
 
 
@@ -28,6 +44,18 @@ def load_json(path):
 
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
+
+
+def is_noisy_phrase(term_lower):
+    words = term_lower.split()
+
+    if len(words) < 2:
+        return False
+
+    if all(word in NOISE_WORDS for word in words):
+        return True
+
+    return False
 
 
 def is_candidate(term, count):
@@ -42,6 +70,27 @@ def is_candidate(term, count):
     if term_lower in KNOWN_NS_HINTS:
         return True
 
+    if term_lower in KNOWN_NS_PHRASES:
+        return True
+
+    # allow useful 2-word phrases
+    if " " in term_lower:
+        if is_noisy_phrase(term_lower):
+            return False
+
+        words = term_lower.split()
+
+        # phrase is likely useful if it contains at least one NS clue
+        if any(word in KNOWN_NS_HINTS for word in words):
+            return True
+
+        # otherwise keep repeated phrases for manual review
+        if count >= 3:
+            return True
+
+        return False
+
+    # possible acronym
     if term.isupper() and len(term) <= 6:
         return True
 

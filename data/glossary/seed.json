@@ -1,15 +1,393 @@
 [
   {
-    "term": "ORD",
-    "definition": "Operationally Ready Date",
-    "category": "acronym",
-    "source": "manual_seed"
+    "term": "\"About NAMS",
+    "definition": "National Addictions Management Service (NAMS)\"",
+    "category": "wikipedia_military_abbreviation",
+    "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
   },
   {
-    "term": "PES",
-    "definition": "Physical Employment Standard",
+    "term": "\"BCRS",
+    "definition": "Beverage Container Return Scheme\"",
+    "category": "wikipedia_military_abbreviation",
+    "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
+  },
+  {
+    "term": "\"EMAS",
+    "definition": "Your guide to a safer ride\"",
+    "category": "wikipedia_military_abbreviation",
+    "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
+  },
+  {
+    "term": "ACGS",
+    "definition": "Assistant Chief of the General Staff",
     "category": "acronym",
-    "source": "manual_seed"
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Act blur, live longer",
+    "definition": "Pretending not to know something to avoid responsibility.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "AIC",
+    "definition": "Army Information Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ALP",
+    "definition": "Action Learning Process",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "AMB",
+    "definition": "Army Maintenance Base",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "AQI",
+    "definition": "Al-Qaeda in Iraq",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Army Int",
+    "definition": "Army Intelligence",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ASSeT",
+    "definition": "Accompanying Sea Security Team",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ATEC",
+    "definition": "Army Training Evaluation Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Attend B / LD",
+    "definition": "Light duty status.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Attend C / MC",
+    "definition": "Medical certificate; stay home and rest.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "BAR",
+    "definition": "Before Activity Review",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "BHAG",
+    "definition": "Big Hairy Audacious Goal",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "BMT",
+    "definition": "Basic Military Training",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "BMT(C)",
+    "definition": "Basic Military Training Centre.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "BMTC",
+    "definition": "Basic Military Training Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Bobo",
+    "definition": "Someone who cannot aim well.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "BP",
+    "definition": "Battle Procedure",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "C2",
+    "definition": "Command and Control",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "C4I",
+    "definition": "Command, Control, Communications, Computers and Intelligence",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CCF",
+    "definition": "Community Care Facility",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CDF",
+    "definition": "Chief of Defence Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CO",
+    "definition": "Commanding Officer",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "COA",
+    "definition": "Chief of Army",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "COU",
+    "definition": "Critical Ops Unit",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "COVID-19",
+    "definition": "Coronavirus Disease-2019",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Coy",
+    "definition": "Company; a large military grouping.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "CQB",
+    "definition": "Close quarter combat.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "CRF",
+    "definition": "Community Recovery Facility",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CSM",
+    "definition": "Company Sergeant Major",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CSSCOM",
+    "definition": "Combat Service Support Command",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CSSTF",
+    "definition": "Combat Service Support Task Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CSSTST",
+    "definition": "Combat Service Support Tech Support Team",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "CTC",
+    "definition": "Contact Tracing Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "DAR",
+    "definition": "During Activity Review",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "DFC",
+    "definition": "Data Fusion Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "DJO",
+    "definition": "Director of Joint Operations",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Don't be a blur sotong",
+    "definition": "Always know the rank hierarchy so that you recognise who you're addressing!",
+    "category": "saf_acronym",
+    "source": "https://defencepioneer.sg/pioneer-articles/12-saf-acronyms-you-need-to-know"
+  },
+  {
+    "term": "DORSCON",
+    "definition": "Disease Outbreak Response System Condition",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "drill commands",
+    "definition": "Commands used during SAF marching and parade drills.",
+    "category": "drill_command",
+    "source": "https://www.cmpb.gov.sg/life-in-ns/saf/ranks-and-drill-commands/"
+  },
+  {
+    "term": "Drop / Knock it down",
+    "definition": "Go into the push-up position.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "DSO",
+    "definition": "DSO National Laboratories",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "DSTA",
+    "definition": "Defence Science and Technology Agency",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "DTC",
+    "definition": "Defence Technology Community",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "EHTF",
+    "definition": "Emergency Housing Task Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ESG",
+    "definition": "Enterprise Singapore Group",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "FAQ",
+    "definition": "Frequently Asked Question",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "FAST",
+    "definition": "Forward Assurance and Support Team",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "FBO",
+    "definition": "Full battle order; helmet, LBS, field pack, and rifle.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "FCC",
+    "definition": "Fitness Conditioning Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "FDL",
+    "definition": "Forward Deployment Laboratories",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Flying into the unknown",
+    "definition": "Inside RSAF’s mission to bring S’poreans home from Middle East",
+    "category": "saf_acronym",
+    "source": "https://defencepioneer.sg/pioneer-articles/12-saf-acronyms-you-need-to-know"
+  },
+  {
+    "term": "Force prep",
+    "definition": "Forced preparation before outfield or training.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "FSG",
+    "definition": "Forward Support Group",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HPB",
+    "definition": "Health Promotion Board",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HQ AMS",
+    "definition": "HQ Army Medical Services",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HQ MES",
+    "definition": "HQ Maintenance and Engineering Support",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HRP",
+    "definition": "Home Recovery Programme",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HRTG",
+    "definition": "Home Recovery Task Group",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "HSTF",
+    "definition": "Health Surveillance Task Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ICT",
+    "definition": "In-Camp Training",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ICU",
+    "definition": "Intensive Care Unit",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
     "term": "IPPT",
@@ -18,15 +396,393 @@
     "source": "manual_seed"
   },
   {
-    "term": "SCS",
-    "definition": "Specialist Cadet School",
+    "term": "IPT",
+    "definition": "IPPT Preparatory Training",
     "category": "acronym",
-    "source": "manual_seed"
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "JOD",
+    "definition": "Joint Operations Department",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "JTF(A)",
+    "definition": "Joint Task Force (Assurance)",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Kenna",
+    "definition": "To be subject to harsh or painful treatment.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "MINDEF",
+    "definition": "Ministry of Defence",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MO",
+    "definition": "Medical officer; the person you go to in order to report sick.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "MOH",
+    "definition": "Ministry of Health",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MOM",
+    "definition": "Ministry of Manpower",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MOTF",
+    "definition": "Medical Operations Task Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MRTT",
+    "definition": "Multi-Role Tanker Transport",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MSF",
+    "definition": "Ministry of Social and Family Development",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MSOC",
+    "definition": "MINDEF-SAF Operations Complex",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MSS",
+    "definition": "Mobile Swab Station",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MVP",
+    "definition": "Minimum Viable Product",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MWC",
+    "definition": "Migrant Worker Centre",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "MWCM",
+    "definition": "Migrant Worker Conveyance Monitoring",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "NCID",
+    "definition": "National Centre for Infectious Diseases",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "NDP",
+    "definition": "National Day Parade",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "NGO",
+    "definition": "Non-Governmental Organisation",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "NS FIT",
+    "definition": "NS Fitness Improvement Training",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "OC",
+    "definition": "Officer Commanding",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
     "term": "OCS",
     "definition": "Officer Cadet School",
     "category": "acronym",
     "source": "manual_seed"
+  },
+  {
+    "term": "ORBAT",
+    "definition": "Order of Battle",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "ORD",
+    "definition": "Operationally Ready Date",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "P2HA",
+    "definition": "Phase 2 Heightened Alert",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "PBD",
+    "definition": "Purpose-Built Dormitory",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "PCR",
+    "definition": "Polymerase Chain Reaction",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "PES",
+    "definition": "Physical Employment Standard",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "Platoon",
+    "definition": "A military group smaller than a company.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "POP",
+    "definition": "Passing Out Parade; marks the end of basic military training.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "PSD",
+    "definition": "Public Service Division",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "PTP",
+    "definition": "Physical training phase: extra BMT period for those who failed or did not attempt IPPT.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Rabak",
+    "definition": "A messy, chaotic, or bad situation.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "RIMPAC",
+    "definition": "Rim of the Pacific Exercise",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "RSAF",
+    "definition": "Republic of Singapore Air Force",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "RSN",
+    "definition": "Republic of Singapore Navy",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "RT",
+    "definition": "Remedial Training",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SAF",
+    "definition": "Singapore Armed Forces",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Saikang",
+    "definition": "Menial or undesirable tasks.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SAR",
+    "definition": "Singapore Armoured Regiment",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SAR 21",
+    "definition": "Singapore Assault Rifle, 21st century.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SARS",
+    "definition": "Severe Acute Respiratory Syndrome",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SBA",
+    "definition": "Stand by area; bunk inspection.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SBO",
+    "definition": "Skeletal battle order; helmet, LBS, and rifle.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SCE",
+    "definition": "Singapore Combat Engineers",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SCS",
+    "definition": "Specialist Cadet School",
+    "category": "acronym",
+    "source": "manual_seed"
+  },
+  {
+    "term": "Section",
+    "definition": "The smallest group in a company.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Semula",
+    "definition": "A command meaning undo or repeat what you last did.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SHN",
+    "definition": "Stay-Home Notice",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SIB",
+    "definition": "Singapore Infantry Brigade",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SICC",
+    "definition": "Singapore International Chamber of Commerce",
+    "category": "wikipedia_military_abbreviation",
+    "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
+  },
+  {
+    "term": "SIR",
+    "definition": "Singapore Infantry Regiment",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SMM",
+    "definition": "Safe Management Measures",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SOC",
+    "definition": "Standard obstacle course.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SOL",
+    "definition": "Stoppage of leave.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "SOP",
+    "definition": "Standard Operating Procedure",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Tip",
+    "definition": "Having it entitles you to discounts and promotions on occasions like SAF day. And losing it means paying a fine of $50 and a dressing-down from your CSM (see acronym no. 10). So guard it well.",
+    "category": "saf_acronym",
+    "source": "https://defencepioneer.sg/pioneer-articles/12-saf-acronyms-you-need-to-know"
+  },
+  {
+    "term": "Troop lift",
+    "definition": "When soldiers ride on a five-ton truck from place to place (especially in military operations)",
+    "category": "wikipedia_military_abbreviation",
+    "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
+  },
+  {
+    "term": "Turnout",
+    "definition": "Being woken up suddenly for preparation or training.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "ULT",
+    "definition": "Ultra Low Temperature",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "VUCA-D",
+    "definition": "Volatile, Uncertain, Complex, Ambiguous and Disruptive",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Wayang",
+    "definition": "Acting differently when higher-ranking personnel are around.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "WoG",
+    "definition": "Whole-of-Government",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "WoN",
+    "definition": "Whole-of-Nation",
+    "category": "acronym",
+    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "You think, I thought, who confirm?",
+    "definition": "Phrase used to scold someone for assuming without confirmation.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/lingo/"
   }
 ]

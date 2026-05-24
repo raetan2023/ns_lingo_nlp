@@ -23,6 +23,13 @@ def tokenize(text):
     return re.findall(r"[a-zA-Z0-9']+", text)
 
 
+def make_ngrams(tokens, n):
+    return [
+        " ".join(tokens[i:i+n])
+        for i in range(len(tokens) - n + 1)
+    ]
+
+
 def load_post_texts():
     texts = []
 
@@ -35,6 +42,7 @@ def load_post_texts():
 
         for post in posts:
             data = post.get("data", {})
+
             texts.append(data.get("title", ""))
             texts.append(data.get("selftext", ""))
 
@@ -60,9 +68,18 @@ def count_words(texts):
     for text in texts:
         tokens = tokenize(text)
 
-        for token in tokens:
-            if token not in STOPWORDS and len(token) > 1:
-                counter[token] += 1
+        clean_tokens = [
+            token for token in tokens
+            if token not in STOPWORDS and len(token) > 1
+        ]
+
+        # single words
+        for token in clean_tokens:
+            counter[token] += 1
+
+        # bigrams (2-word phrases)
+        for bigram in make_ngrams(clean_tokens, 2):
+            counter[bigram] += 1
 
     return counter
 
@@ -86,10 +103,12 @@ if __name__ == "__main__":
     comment_texts = load_comment_texts()
 
     texts = post_texts + comment_texts
+
     counter = count_words(texts)
 
     print(f"Loaded {len(post_texts)} post text fields")
     print(f"Loaded {len(comment_texts)} comments")
+
     print("\nTop terms:")
 
     for word, count in counter.most_common(40):
