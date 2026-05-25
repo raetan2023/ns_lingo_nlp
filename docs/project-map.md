@@ -11,6 +11,7 @@
 | `imports_check.ipynb` | Jupyter notebook to verify Python imports are working |
 | `main.py` | Entry point: orchestrates Reddit scraping pipeline |
 | `requirements.txt` | Python dependencies (python-dotenv, requests, beautifulsoup4) |
+| `workflow.py` | Git workflow helper: `python workflow.py start` (pull + checkout master), `python workflow.py finish` (add, commit, push, optional merge) |
 
 ## Top-level directories
 
@@ -39,7 +40,7 @@
 
 | Path | Purpose |
 |------|---------|
-| `corpus/frequency.py` | Tokenises cleaned text, computes word/n-gram counts, filters stopwords. Primarily for learning NLP fundamentals. |
+| `corpus/frequency.py` | Tokenises text from Reddit posts, Reddit comments, and HWZ threads. Computes word/n-gram counts, filters stopwords. Primarily for learning NLP fundamentals. |
 | `corpus/extract.py` | LLM-assisted candidate term extraction. Feeds cleaned comments to an LLM to identify NS-lingo terms with context and suggested definitions. |
 
 ## `scraper/`
@@ -48,6 +49,7 @@
 |------|---------|
 | `scraper/fetch_comments.py` | Fetches comments for scraped Reddit posts, flattens nested reply trees, normalises output |
 | `scraper/seed_glossary.py` | Scrapes existing NS lingo dictionaries (r/NationalServiceSG wiki, Urban Dictionary, blogs) to build seed glossary |
+| `scraper/hwz_scraper.py` | Scans 500 most recent EDMW pages for NS-related thread titles, then scrapes full thread content |
 
 ## `docs/`
 

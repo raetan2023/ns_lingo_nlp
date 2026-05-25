@@ -61,10 +61,11 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                         scraper/                                                      │
-│  reddit_scraper.py    hwz_scraper.py    seed_glossary.py    manual_ingest.py          │
-│  ────────────────     ─────────────     ────────────────    ────────────────────      │
-│  Public JSON API      requests +        Scrapes existing    Google Form / CSV          │
-│  (no auth needed)     BeautifulSoup     NS dictionaries     ingest                     │
+│  reddit_scraper.py    hwz_scraper.py      seed_glossary.py    manual_ingest.py        │
+│  ────────────────     ─────────────       ────────────────    ────────────────────      │
+│  Public JSON API      Scans EDMW titles   Scrapes existing    Google Form / CSV          │
+│  (no auth needed)     for NS keywords     NS dictionaries     ingest                     │
+│                       + scrapes threads                                                 │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
                         │ raw JSON / HTML
                         ▼
@@ -189,7 +190,7 @@ hallucination.
 | Source | Method | Auth? | Status |
 |--------|--------|-------|--------|
 | r/NationalServiceSG | Public JSON API | None | ✅ Active |
-| HWZ NS/SAF subforum | requests + BeautifulSoup | None | 🔜 Planned |
+| HWZ EDMW (keyword search) | requests + BeautifulSoup (title scan via EDMW pages) | None | ✅ Active |
 | Existing NS dictionaries | Web scrape / manual copy | None | 🔜 Planned |
 | Manual crowdsourcing | Google Form → CSV | Google API | 🔜 Planned |
 

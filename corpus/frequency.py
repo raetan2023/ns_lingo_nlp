@@ -62,6 +62,20 @@ def load_comment_texts():
     return texts
 
 
+def load_hwz_texts():
+    texts = []
+
+    for path in RAW_DIR.glob("hwz_ns_threads_*.json"):
+        with open(path, "r", encoding="utf-8") as f:
+            posts = json.load(f)
+
+        for post in posts:
+            texts.append(post.get("thread_title", ""))
+            texts.append(post.get("body", ""))
+
+    return texts
+
+
 def count_words(texts):
     counter = Counter()
 
@@ -101,13 +115,15 @@ def save_frequency(counter):
 if __name__ == "__main__":
     post_texts = load_post_texts()
     comment_texts = load_comment_texts()
+    hwz_texts = load_hwz_texts()
 
-    texts = post_texts + comment_texts
+    texts = post_texts + comment_texts + hwz_texts
 
     counter = count_words(texts)
 
     print(f"Loaded {len(post_texts)} post text fields")
     print(f"Loaded {len(comment_texts)} comments")
+    print(f"Loaded {len(hwz_texts)} HWZ post text fields")
 
     print("\nTop terms:")
 
