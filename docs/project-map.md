@@ -34,14 +34,15 @@
 | `data/cleaned/frequency.json` | Word/n-gram frequency analysis output |
 | `data/glossary/` | Curated glossary entries in JSON schema |
 | `data/glossary/seed.json` | Baseline terms scraped from existing NS dictionaries |
-| `data/glossary/candidates.json` | Candidate terms surfaced by LLM-assisted extraction |
+| `data/glossary/candidates.json` | Candidate NS glossary terms surfaced from frequency-analysis heuristics before LLM annotation |
+| `data/glossary/candidates_annotated.json` | SEA-LION annotated glossary candidates with generated definitions, register labels, part-of-speech tags, confidence estimates, and raw LLM outputs |
 
 ## `corpus/`
 
 | Path | Purpose |
 |------|---------|
 | `corpus/frequency.py` | Tokenises text from Reddit posts, Reddit comments, and HWZ threads. Computes word/n-gram counts, filters stopwords. Primarily for learning NLP fundamentals. |
-| `corpus/extract.py` | LLM-assisted candidate term extraction. Feeds cleaned comments to an LLM to identify NS-lingo terms with context and suggested definitions. |
+| `corpus/extract.py` | LLM-assisted glossary candidate extraction + annotation pipeline. Loads candidate terms from frequency analysis, filters likely NS-related phrases, prompts SEA-LION for structured glossary annotations, parses JSON outputs, and saves annotated glossary candidates. |
 
 ## `scraper/`
 

@@ -13,8 +13,39 @@ STOPWORDS = {
     "my", "your", "me", "are", "was", "be", "as", "at", "from", "but",
     "if", "so", "not", "have", "has", "had", "do", "does", "did",
     "what", "when", "where", "why", "how", "who", "can", "will", "just",
-    "like", "also", "anyone", "know", "get", "got", "still", "really",
+    "like", "also", "anyone", "know", "get", "got",
     "https", "http", "www", "com"
+}
+
+CUSTOM_STOPWORDS = {
+    "any", "go", "there", "before", "may", "only", "now", "time",
+    "hi", "all", "need", "should", "one", "thanks", "please",
+    "think", "want", "see", "say", "mean", "able", "might",
+    "about", "because", "after", "first", "their", "them",
+    "would", "already", "quite", "really", "still", "then",
+    "than", "here", "more", "some", "which", "even", "other",
+    "things", "thing", "much", "very", "same", "next", "most",
+    "last", "once", "went", "receive", "received", "posted",
+    "heard", "called", "around", "through", "into", "out",
+    "back", "yes", "no", "oh", "bro", "guys", "im", "i'm",
+    "ll", "ve", "re", "don", "dont", "its", "etc",
+    "am", "up", "too", "by", "during", "yet", "likely",
+    "people", "help", "sure", "everyone", "call", "possible",
+    "since", "those", "though", "few", "long", "way",
+    "better", "true", "usually", "unless", "anything",
+    "discord", "server", "faq", "mods", "reddit",
+    "message", "compose", "questions", "discussions",
+    "join", "our", "read", "frequently", "asked",
+    "issues", "contact", "website", "web", "portal",
+    "elon", "musk", "donald", "trump"
+}
+
+NS_KEEPWORDS = {
+    "ns", "pes", "bmt", "ippt", "ptp", "bp", "pcc", "cmpb",
+    "pop", "ocs", "scs", "coy", "tekong", "encik", "bmtc",
+    "saf", "scdf", "c9", "b1", "b4", "mono", "vocation",
+    "enlistment", "enlisting", "enlist", "unit", "intake",
+    "admin", "combat", "camp", "army", "medical", "command"
 }
 
 
@@ -25,9 +56,28 @@ def tokenize(text):
 
 def make_ngrams(tokens, n):
     return [
-        " ".join(tokens[i:i+n])
+        " ".join(tokens[i:i + n])
         for i in range(len(tokens) - n + 1)
     ]
+
+
+def is_clean_token(token):
+    if len(token) <= 1:
+        return False
+
+    if token.isdigit():
+        return False
+
+    if token in NS_KEEPWORDS:
+        return True
+
+    if token in STOPWORDS:
+        return False
+
+    if token in CUSTOM_STOPWORDS:
+        return False
+
+    return True
 
 
 def load_post_texts():
@@ -42,7 +92,6 @@ def load_post_texts():
 
         for post in posts:
             data = post.get("data", {})
-
             texts.append(data.get("title", ""))
             texts.append(data.get("selftext", ""))
 
@@ -76,35 +125,41 @@ def load_hwz_texts():
     return texts
 
 
-def count_words(texts):
-    counter = Counter()
+def count_frequencies(texts):
+    word_counter = Counter()
+    bigram_counter = Counter()
+    trigram_counter = Counter()
 
     for text in texts:
         tokens = tokenize(text)
 
         clean_tokens = [
             token for token in tokens
-            if token not in STOPWORDS and len(token) > 1
+            if is_clean_token(token)
         ]
 
-        # single words
-        for token in clean_tokens:
-            counter[token] += 1
+        word_counter.update(clean_tokens)
+        bigram_counter.update(make_ngrams(clean_tokens, 2))
+        trigram_counter.update(make_ngrams(clean_tokens, 3))
 
-        # bigrams (2-word phrases)
-        for bigram in make_ngrams(clean_tokens, 2):
-            counter[bigram] += 1
-
-    return counter
+    return word_counter, bigram_counter, trigram_counter
 
 
-def save_frequency(counter):
+def format_counter(counter, limit=100):
+    return [
+        {"term": term, "count": count}
+        for term, count in counter.most_common(limit)
+    ]
+
+
+def save_frequency(word_counter, bigram_counter, trigram_counter):
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    results = [
-        {"term": word, "count": count}
-        for word, count in counter.most_common(200)
-    ]
+    results = {
+        "words": format_counter(word_counter, 100),
+        "bigrams": format_counter(bigram_counter, 100),
+        "trigrams": format_counter(trigram_counter, 100),
+    }
 
     with open(OUTPUT_PATH, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
@@ -119,15 +174,22 @@ if __name__ == "__main__":
 
     texts = post_texts + comment_texts + hwz_texts
 
-    counter = count_words(texts)
+    word_counter, bigram_counter, trigram_counter = count_frequencies(texts)
 
     print(f"Loaded {len(post_texts)} post text fields")
     print(f"Loaded {len(comment_texts)} comments")
     print(f"Loaded {len(hwz_texts)} HWZ post text fields")
 
-    print("\nTop terms:")
-
-    for word, count in counter.most_common(40):
+    print("\nTop words:")
+    for word, count in word_counter.most_common(20):
         print(f"{word}: {count}")
 
-    save_frequency(counter)
+    print("\nTop bigrams:")
+    for phrase, count in bigram_counter.most_common(20):
+        print(f"{phrase}: {count}")
+
+    print("\nTop trigrams:")
+    for phrase, count in trigram_counter.most_common(20):
+        print(f"{phrase}: {count}")
+
+    save_frequency(word_counter, bigram_counter, trigram_counter)
