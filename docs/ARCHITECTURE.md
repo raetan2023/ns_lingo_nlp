@@ -227,9 +227,11 @@ ns_lingo_nlp/
 ├── data/
 │   ├── raw/                 # Raw scraped data (never edit)
 │   ├── cleaned/             # Deduped, normalised text (posts + comments)
-│   └── glossary/            # Curated glossary entries
-│       ├── seed.json        # Baseline terms from existing dictionaries
-│       └── curated.json     # Final validated entries
+│   └── glossary/            # Glossary pipeline data
+│       ├── seed.json                    # Baseline NS glossary terms
+│       ├── candidates.json              # Candidate terms from frequency analysis
+│       ├── candidates_annotated.json   # SEA-LION annotated glossary candidates
+│       └── curated.json                # Final validated glossary entries
 │
 ├── scraper/
 │   ├── reddit_scraper.py    # Reddit JSON API scraper
@@ -238,8 +240,8 @@ ns_lingo_nlp/
 │   └── manual_ingest.py     # Google Form → glossary loader
 │
 ├── corpus/
-│   ├── frequency.py         # Word / n-gram frequency analysis (learning)
-│   ├── extract.py           # Candidate term extraction + LLM pre-annotation
+│   ├── frequency.py         # Word/bigram/trigram frequency analysis and candidate term generation
+│   ├── extract.py           # LLM-assisted glossary annotation pipeline using SEA-LION
 │   └── compare.py           # Compare against standard English freq lists
 │
 ├── fine_tune/
@@ -266,9 +268,11 @@ ns_lingo_nlp/
 | `discord.py` | Discord bot framework | Bot (future) |
 | `nltk` / `spaCy` | NLP (tokenisation, lemmatisation) | Corpus |
 | `sentence-transformers` | Embeddings for RAG | Bot (future) |
-| `transformers` | Fine-tuning Singlish model | Model |
 | `datasets` | Training data management | Model |
-| `torch` | ML framework | Model |
+| `transformers` | SEA-LION inference + future fine-tuning | Corpus / Model |
+| `torch` | ML framework for model inference/training | Corpus / Model |
+| `accelerate` | Device mapping/offloading for large models | Corpus / Model |
+| `sentencepiece` | Tokenizer support for LLMs | Corpus / Model |
 
 ---
 
