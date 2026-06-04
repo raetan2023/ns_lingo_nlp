@@ -13,13 +13,15 @@ to civilians, grounded in the curated glossary to prevent hallucination.
 
 ## Stages
 
-The project is split into three sequential stages:
+The project is split into five sequential stages:
 
 | Stage | What it produces | Status |
 |-------|------------------|--------|
-| **1 — Corpus & Glossary** | Cleaned text + curated glossary entries | 🔜 In progress |
-| **2 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | 🔜 Planned |
-| **3 — Bot** | Discord bot (RAG + fine-tuned model) | 🔜 Planned |
+| **1 — Scrape existing dictionaries** | `seed.json` with ~200+ entries from curated online dictionaries | 🔜 In progress |
+| **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | 🔜 In progress |
+| **3 — LLM extraction + crowdsourcing** | New candidates from forum text (LLM) and friends (crowdsourcing) → reviewed + merged into `curated.json` | 🔜 Planned |
+| **4 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | 🔜 Planned |
+| **5 — Bot** | Discord bot (RAG + fine-tuned model) | 🔜 Planned |
 
 ---
 
@@ -140,29 +142,43 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 
 ### 1. Seed (existing dictionaries)
 
-Existing NS lingo dictionaries (e.g. r/NationalServiceSG wiki, Urban Dictionary entries,
-blog posts) are scraped via `scraper/seed_glossary.py` and saved as
-`data/glossary/seed.json`. This provides a baseline set of known terms with basic
-definitions, so we can focus on finding gaps and adding real-world example sentences.
+Existing NS lingo dictionaries (blog posts, media articles, community guides) are scraped
+via `scraper/seed_glossary.py` and saved as `data/glossary/seed.json`. This provides a
+baseline set of known terms with basic definitions.
 
-### 2. Corpus extraction
+| Source | Type |
+|--------|------|
+| national-service.vercel.app/lingo | Community wiki |
+| SAFTI MI abbreviations page | Official |
+| CMPB ranks and drill commands | Official |
+| defencepioneer.sg articles | Media |
+| thesmartlocal.com guide | Media |
+| straitstimes.com article | Media |
+| speakgoodsinglishmovement.blogspot.com | Community guide |
+| shopee.sg blog | Media |
 
-Cleaned posts and comments from `data/cleaned/` are processed by `corpus/extract.py` to
-surface candidate terms not already in the seed glossary. Two methods:
+### 2. Corpus extraction (Iter 1 — MVP)
 
-- **Frequency analysis** (`corpus/frequency.py`) — tokenise, count, filter stopwords.
-  Primarily for learning NLP fundamentals (tokenisation, stopwords, n-grams).
-- **LLM-assisted extraction** (`corpus/extract.py`) — feed cleaned comments to an LLM
-  to identify likely NS-lingo terms with context and suggested definitions.
+Cleaned posts and comments from `data/cleaned/` are processed to surface candidate terms
+not already in the seed glossary:
 
-### 3. Pre-annotation
+- **Frequency analysis** (`corpus/frequency.py`) — tokenise, count n-grams, filter stopwords.
+  Primarily for learning NLP fundamentals.
+- **Candidate filtering** (`corpus/extract.py`) — filter frequency data against seed glossary
+  using heuristics (all-caps acronyms, known NS hint words). Output: `candidates.json`.
 
-For each candidate term the LLM generates a first-pass glossary entry following the schema
-above. Example sentences are pulled directly from the Reddit corpus for authenticity.
+### 3. LLM extraction + crowdsourcing (Iter 2)
 
-### 4. Human validation
+- **LLM-assisted extraction** — feed raw forum text to an LLM to extract NS-lingo terms with
+  context and suggested definitions, catching the long tail that frequency methods and
+  dictionaries miss.
+- **Crowdsourcing** — collect terms directly from NS friends (term + definition + example).
+- **Review workflow** — candidates go into a review file; you mark each as `verified`,
+  `needs_edits`, or `rejected`; a merge script moves verified entries into `curated.json`.
 
-Candidates are compiled into a Google Form or CSV. You and your NS friends mark each as:
+### 4. Human validation (Iter 2)
+
+Candidates from all sources are compiled for review. You and your NS friends mark each as:
 - **Verified** — correct, move to curated glossary
 - **Needs edits** — adjust definition / register / etymology
 - **Reject** — not NS lingo

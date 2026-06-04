@@ -12,3 +12,28 @@ NLP concepts being explored: corpus linguistics, keyword extraction, lemmatisati
 End goal: Discord bot that takes a sentence containing NS lingo and explains it naturally in plain English or Singlish, grounded in the curated glossary to prevent hallucination.
 
 All of the above info is subject to change
+
+## Iteration Roadmap
+
+| Iter | Focus | What gets built |
+|------|-------|-----------------|
+| **1** (MVP) | Curated dictionaries + frequency pipeline | Expand `seed_glossary.py` to scrape all major NS dictionary sources. Run frequency analysis on Reddit + HWZ data. Output: comprehensive `seed.json` |
+| **2** | Human-in-the-loop enrichment | Crowdsource from NS friends. LLM-assisted term extraction from forum data. Pattern-based bootstrapping. Review workflow (candidates → verified → merged). Output: `curated.json` with full glossary schema |
+| **3** | Model + Bot | Fine-tune Singlish model on curated data. Build Discord bot with RAG. |
+
+## Crowdsourcing Plan (Iter 2)
+
+Collect terms directly from people who've served NS. This catches vocation-specific slang and colloquialisms no dictionary covers.
+
+**Format:** Simple template — just `term` + `definition` + optional `example`:
+```
+Term: _________
+Definition: _________
+Example: _________
+```
+
+**Collection method:** TBD -- mass forward a google sheet?
+
+### Future data sources
+
+- **NS Vocations Handbook (PDF)** — `https://national-service.vercel.app/ns-vocations-handbook.pdf` — comprehensive guide to SAF/SCDF/SPF vocations. Valuable for iter 2+ to extract vocation-specific terms. PDF parsing needed.

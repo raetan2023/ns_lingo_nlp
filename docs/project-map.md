@@ -55,6 +55,6 @@
 
 | Path | Purpose |
 |------|---------|
-| `docs/README.md` | Full project overview: goals, tech stack, data sources, glossary schema, NLP concepts |
-| `docs/ARCHITECTURE.md` | Detailed architecture: 3-stage pipeline, component diagram, glossary pipeline, data flow |
+| `docs/README.md` | Full project overview: goals, tech stack, data sources, glossary schema, NLP concepts, iteration roadmap, crowdsourcing plan |
+| `docs/ARCHITECTURE.md` | Detailed architecture: 5-stage pipeline, component diagram, glossary pipeline, data flow |
 | `docs/project-map.md` | This file — maps every folder and file with descriptions |

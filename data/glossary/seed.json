@@ -18,6 +18,54 @@
     "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
   },
   {
+    "term": "1100 to 2100 hours",
+    "definition": "The 24-hour time format, standard in the Singapore Armed Forces for all military operations and communication.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/army-shop-emart"
+  },
+  {
+    "term": "1100-2100 hours",
+    "definition": "The 24-hour clock format used exclusively for all timing and communication within the Singapore Armed Forces.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/army-shop-emart"
+  },
+  {
+    "term": "11B",
+    "definition": "The official Singapore Armed Forces identity card issued to all National Servicemen.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "1206",
+    "definition": "Form signed when equipment is damaged or lost; payment deducted from salary.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "2-3",
+    "definition": "Refers to the post-field camp period of time (typically 2 to 3 days) dedicated to cleaning and maintenance of equipment.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "2LT",
+    "definition": "Second Lieutenant.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "3SG",
+    "definition": "Third Sergeant.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "8-5",
+    "definition": "A vocation or schedule that follows regular office hours (0800 to 1700), distinct from typical shift-work or combat vocations.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/free-time"
+  },
+  {
     "term": "ACGS",
     "definition": "Assistant Chief of the General Staff",
     "category": "acronym",
@@ -25,9 +73,21 @@
   },
   {
     "term": "Act blur, live longer",
-    "definition": "Pretending not to know something to avoid responsibility.",
+    "definition": "When someone pretends they don't know anything and (help)",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "admin attire",
+    "definition": "The standard-issue physical training or leisure uniform (shorts and t-shirt) worn by NSFs during non-training hours in camp.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Admin time",
+    "definition": "Designated free time given to soldiers to settle personal tasks, clean equipment, or handle logistics within the training schedule.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
   },
   {
     "term": "AIC",
@@ -54,10 +114,34 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "area cleaning",
+    "definition": "The routine of cleaning and maintaining the barracks or assigned camp sector.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
     "term": "Army Int",
     "definition": "Army Intelligence",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Arrow",
+    "definition": "To 'kena arrow(ed)' is to get assigned a task. This is a fundamental concept of NS -- you will either be assigned sai kang (lit. shit work) or will have to do another person's work for him, most of the time. From cleaning toilets to moving crates, getting arrowed is something you should not endevour to achieve.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "ASA",
+    "definition": "Administrative Support Assistant; an NS administrative role.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "assault bag",
+    "definition": "The standard-issue tactical backpack used by SAF personnel during training and field exercises.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
   },
   {
     "term": "ASSeT",
@@ -72,16 +156,40 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "ATP",
+    "definition": "Annual Training Period: Yearly training period for operationally ready NSmen.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
     "term": "Attend B / LD",
-    "definition": "Light duty status.",
+    "definition": "Light duty. You are excused from heavier activities but still in camp unless told otherwise.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Attend B / LD (light duty)",
+    "definition": "When you have a condition that prevents you from participating in any activity",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
+    "term": "Attend C",
+    "definition": "Medical leave. You rest at home if approved.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
     "term": "Attend C / MC",
-    "definition": "Medical certificate; stay home and rest.",
+    "definition": "When you have a condition requires you to stay at home and rest",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "AWOL",
+    "definition": "Absent Without Leave: Being absent from duty without approval.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
   },
   {
     "term": "BAR",
@@ -90,40 +198,136 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "BEGARAK KE-KIRI",
+    "definition": "A Malay drill command meaning 'Move to the left'.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Belok",
+    "definition": "Turn while marching",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Berhenti",
+    "definition": "Halt (stop)",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
     "term": "BHAG",
     "definition": "Big Hairy Audacious Goal",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "BIC",
+    "definition": "Battle Inoculation Course: Short training event where recruits move under simulated battlefield conditions.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "birth control glasses",
+    "definition": "Slang for the standard-issue spectacles provided by the Singapore Armed Forces, famously known for their thick, unattractive frames.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/glasses-requirement"
+  },
+  {
+    "term": "black tape",
+    "definition": "Refers to electrical tape used extensively by national servicemen to secure equipment, repair gear, or camouflage items to comply with military standards.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "blur",
+    "definition": "To be confused, clueless, or slow to react to commands.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "BMT",
-    "definition": "Basic Military Training",
-    "category": "acronym",
-    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+    "definition": "Basic Military Training: Initial training undergone by new recruits.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
   },
   {
     "term": "BMT(C)",
-    "definition": "Basic Military Training Centre.",
+    "definition": "Basic Military Training (Center).",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
     "term": "BMTC",
-    "definition": "Basic Military Training Centre",
-    "category": "acronym",
-    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+    "definition": "Basic Military Training Centre. Usually what people mean when they talk about Tekong BMT.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Bo Bo Shooter",
+    "definition": "Someone who cannot shoot or aim properly.",
+    "category": "media_article",
+    "source": "https://shopee.sg/blog/nsf-phrases-singaporean-understand/"
   },
   {
     "term": "Bobo",
-    "definition": "Someone who cannot aim well.",
+    "definition": "The recruit who cannot aim (you'll hear this term at the range).",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Bobo King",
+    "definition": "Someone who cannot shoot or aim properly.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "Bobo shooter",
+    "definition": "Someone who cannot shoot or aim properly.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "body maintenance",
+    "definition": "Time allocated for soldiers to clean their gear, maintain personal hygiene, and perform administrative tasks before lights out.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "book out",
+    "definition": "The act of leaving the military camp for time off, typically on weekends.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
+    "term": "bookout",
+    "definition": "The act of leaving the military camp at the end of the work week.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
   },
   {
     "term": "BP",
     "definition": "Battle Procedure",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "BTP",
+    "definition": "Basic Trainfire Package: Live firing component commonly counted as one of the BMT pass requirements.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Bukit Gombak Camp",
+    "definition": "Bukit Gombak Camp, home to MINDEF and various headquarters.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
+    "term": "bunk in",
+    "definition": "Refers to the act of sleeping or remaining within the living quarters (bunk) or designated infirmary area.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/what-is-attend-c"
   },
   {
     "term": "C2",
@@ -138,6 +342,18 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "canteen",
+    "definition": "A shop or stall within a military camp selling food and sundry items.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
+    "term": "CAT 1",
+    "definition": "Weather status that halts outdoor training due to lightning/heavy rain.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
     "term": "CCF",
     "definition": "Community Care Facility",
     "category": "acronym",
@@ -150,6 +366,42 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "CFC",
+    "definition": "Corporal First Class; the highest rank achievable by an enlisted person without a command appointment.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "chain of command",
+    "definition": "The official hierarchy and reporting structure within a military unit that must be followed when making formal requests.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "Change parade",
+    "definition": "Punishment requiring recruits to switch between uniforms repeatedly.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "Chao Keng",
+    "definition": "Feigning sickness to avoid training or duties.",
+    "category": "media_article",
+    "source": "https://shopee.sg/blog/nsf-phrases-singaporean-understand/"
+  },
+  {
+    "term": "Charlie Mike",
+    "definition": "Continue Mission; the exercise or mission is not yet over.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "CMPB",
+    "definition": "Central Manpower Base; the authority responsible for the registration, medical screening, and enlistment of National Servicemen.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
     "term": "CO",
     "definition": "Commanding Officer",
     "category": "acronym",
@@ -160,6 +412,36 @@
     "definition": "Chief of Army",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "cock up",
+    "definition": "Slang for making a mistake or messing up a procedure.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "command school",
+    "definition": "The training institution (such as OCS or SCS) where soldiers are trained to become officers or specialists.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "confinement",
+    "definition": "A period, typically during early BMT, where recruits are restricted to camp grounds and not allowed to book out.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "confinement week",
+    "definition": "The initial period of BMT (usually the first two weeks) where recruits are not allowed to book out of camp.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "cookhouse",
+    "definition": "The designated dining hall or cafeteria within a military camp where soldiers take their meals.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
   },
   {
     "term": "COU",
@@ -175,13 +457,19 @@
   },
   {
     "term": "Coy",
-    "definition": "Company; a large military grouping.",
+    "definition": "(Company) A large group (of 240-50 people, and split into 4 platoons in BMT)",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
+    "term": "CPL",
+    "definition": "Corporal; a rank held by enlisted personnel.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "CQB",
-    "definition": "Close quarter combat.",
+    "definition": "Close quarter combat (Urban operation).",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -222,16 +510,58 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Dalam Buka Barisan Ke kanan Lu Rus",
+    "definition": "Open order, dressing from the right (take a step forward, look to the right, and align yourselves)",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Dalam Tutup Barisan Ke Kana Lu Rus",
+    "definition": "Close order, dressing from the right",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
     "term": "DAR",
     "definition": "During Activity Review",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Dari Kanan Bilang",
+    "definition": "Number off from the right",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Dari Kiri/Kanan, Cepat Jalan",
+    "definition": "By the left/right foot, quick march",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "DB",
+    "definition": "Detention Barracks.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Depot Road",
+    "definition": "Location of the CMPB headquarters.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
     "term": "DFC",
     "definition": "Data Fusion Centre",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Diam",
+    "definition": "Steady (upgraded version of Sedia )",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
   },
   {
     "term": "DJO",
@@ -252,6 +582,18 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "down PES",
+    "definition": "To request or receive a lower Physical Employment Standard grade due to medical reasons, often resulting in a change of duty or operational status.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Draw arms",
+    "definition": "Collect weapons from the armskote (armoury).",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
     "term": "drill commands",
     "definition": "Commands used during SAF marching and parade drills.",
     "category": "drill_command",
@@ -259,7 +601,7 @@
   },
   {
     "term": "Drop / Knock it down",
-    "definition": "Go into the push-up position.",
+    "definition": "Go in the pushup position.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -282,16 +624,64 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Du Lan",
+    "definition": "To feel extremely annoyed, with a tinge of anger. Maybe 'pissed off' would be more accurate. Frequently experienced after trying to lan lan suck thumb.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "eHealth",
+    "definition": "The online portal used by the SAF for medical documentation.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
     "term": "EHTF",
     "definition": "Emergency Housing Task Force",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "eMart",
+    "definition": "The official retail outlet for SAF personnel to purchase uniforms, equipment, and personal gear using digital credits.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/army-shop-emart"
+  },
+  {
+    "term": "enlistment",
+    "definition": "The formal act of entering military service to begin National Service.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
     "term": "ESG",
     "definition": "Enterprise Singapore Group",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "extra",
+    "definition": "Could refer to 'extra' duties (punishment), but the context here suggests 'excess weight'.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Eye-power",
+    "definition": "Watching others work instead of helping.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "Fall in",
+    "definition": "Command to assemble in formation.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "fall-ins",
+    "definition": "The act of assembling troops into formation.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
   },
   {
     "term": "FAQ",
@@ -324,6 +714,12 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "field camp",
+    "definition": "A mandatory, multi-day outdoor training exercise in the jungle involving tactical training and living in the field.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/bmt-hub"
+  },
+  {
     "term": "Flying into the unknown",
     "definition": "Inside RSAF’s mission to bring S’poreans home from Middle East",
     "category": "saf_acronym",
@@ -331,7 +727,7 @@
   },
   {
     "term": "Force prep",
-    "definition": "Forced preparation before outfield or training.",
+    "definition": "Forced preperation. Any preperation you do before going outfield.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -340,6 +736,54 @@
     "definition": "Forward Support Group",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "FTP",
+    "definition": "Field Training Programme: Outdoor exercises and training in the field.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Garang",
+    "definition": "To be overtly enthusiastic. You should avoid being garang in NS, since other NSFs, or conscripts, will only see you as trying to boot lick. Similarly, regulars will only take advantage of your willingness to work by pushing their work to you.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "garters",
+    "definition": "Elastic bands used to secure the bottom of the military trousers over the boots.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Hand grenade",
+    "definition": "A type of live explosive used in training, specifically referring to the live-firing exercise.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "hentak kaki",
+    "definition": "Malay drill command used during SAF marching drills.",
+    "category": "drill_command",
+    "source": "https://www.cmpb.gov.sg/life-in-ns/saf/ranks-and-drill-commands/"
+  },
+  {
+    "term": "Hentak Kaki Cepat Hentak",
+    "definition": "March on the spot",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Home Team Academy",
+    "definition": "The training institution for the Singapore Police Force and Singapore Civil Defence Force.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Hormat Senjata",
+    "definition": "Present arms",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
   },
   {
     "term": "HPB",
@@ -378,10 +822,22 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "IA IA IA",
+    "definition": "Immediate Action; shouted to indicate a weapon jam during firing.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "IC",
+    "definition": "In-Charge; usually refers to a section or platoon leader (e.g., Platoon IC).",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "ICT",
-    "definition": "In-Camp Training",
-    "category": "acronym",
-    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+    "definition": "In-Camp Training: Annual training exercises for operationally ready NSmen.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
   },
   {
     "term": "ICU",
@@ -414,10 +870,148 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Julang Senjata",
+    "definition": "High port arms",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Ke Kanan Lu Rus",
+    "definition": "Take dressing from the right (look right and align yourselves)",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Kekanan Pusing",
+    "definition": "Right turn",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Kekiri Pusing",
+    "definition": "Left turn",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Keluar Baris",
+    "definition": "Fall out",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "kena",
+    "definition": "Malay term meaning to receive, get hit by, or suffer a negative consequence.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Kena Stun",
+    "definition": "Rifle or rifle parts taken by a superior because you weren't careful.",
+    "category": "media_article",
+    "source": "https://shopee.sg/blog/nsf-phrases-singaporean-understand/"
+  },
+  {
     "term": "Kenna",
-    "definition": "To be subject to harsh or painful treatment.",
+    "definition": "To be subject to harsh or painful treatment. Eg. He kenna SOL.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Kiss the ground",
+    "definition": "Command to get into push-up position.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "Knock it down",
+    "definition": "When you hear this, you know that you’re probably going to lose all feeling in your arms. Just get into push-up position and pray that your sergeant is feeling a little less generous in dishing out punishment. “ Wah all of you so slow hor . Whole lot of you, knock it down!”",
+    "category": "media_article",
+    "source": "https://defencepioneer.sg/pioneer-articles/15jan25_news1"
+  },
+  {
+    "term": "Kranji Camp",
+    "definition": "Kranji Camp.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
+    "term": "Lan Lan",
+    "definition": "To suck it up and resign to fate. If you are unable to escape from the evil the SAF calls 'work', you have to just accept your misfortune. You would never survive NS otherwise.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "Lan Lan Suck Thumb",
+    "definition": "refer Lan Lan",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "lanjiao",
+    "definition": "Hokkien profanity (penis).",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "last parade",
+    "definition": "The final formation/roll call of the day before soldiers are dismissed or released from their duties.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/free-time"
+  },
+  {
+    "term": "LBS",
+    "definition": "Load Bearing System. The vest/webbing you wear to carry equipment.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "LCP",
+    "definition": "Lance Corporal; a rank held by enlisted personnel.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "liao",
+    "definition": "Singlish suffix used to indicate an action is completed or a state has been reached (often used to indicate failure or an error in this context).",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Man mode",
+    "definition": "When someone is in man mode, it means that he is too mentally or physically exhausted to think or do anything other than the bare minimum. “Eh bro, we talk later lah . I damn tired. I’m going into man mode already.”",
+    "category": "media_article",
+    "source": "https://defencepioneer.sg/pioneer-articles/15jan25_news1"
+  },
+  {
+    "term": "Mangkuk",
+    "definition": "Bowl; used to describe someone clumsy.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "MC",
+    "definition": "Medical Certificate. In army terms, often used together with Attend C.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "MCS",
+    "definition": "Medical Classification System. CMPB is introducing this for pre-enlistees enlisting from October 2027 onwards, so future batches may not use PES the same way?",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Medical bible",
+    "definition": "Colloquial term for the medical guidelines or standard operating procedures used by MOs to determine fitness criteria.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "memo",
+    "definition": "A formal letter or report written by a medical professional.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
   },
   {
     "term": "MINDEF",
@@ -492,6 +1086,12 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "NCC",
+    "definition": "National Cadet Corps, a youth organization in Singapore often considered a precursor to or associated with NS culture.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "NCID",
     "definition": "National Centre for Infectious Diseases",
     "category": "acronym",
@@ -504,16 +1104,70 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Nee Soon Camp",
+    "definition": "Nee Soon Camp, a well-known military camp.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
+    "term": "Never mind",
+    "definition": "Sarcastic phrase used by superiors; they mind a lot.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
     "term": "NGO",
     "definition": "Non-Governmental Organisation",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Ninja",
+    "definition": "To disappear at work, usually to a secluded hiding spot. If you are seen less, you will be shot at, with arrows, less often. If you are so unfortunate as to be caught doing this, a plausible excuse such as 'I went to the toilet' or 'I was doing some work' might get you out of trouble, even if the regulars see through them. They've been in the Army for decades now; they've seen their fair share of stunts. However, they usually cannot be bothered with NSFs and they let us go. Of course, apply some common sense here, and if your superior is a savage man-eating, head-smashing bugger, try not to pull stunts too often. Try not to anger the hand which holds your leash. Legendary ninjas, typically experienced regulars, have been known to combine wayang and ninja skills to remain invisible in plain sight. Similarly, 'to throw smoke' is used to the same effect.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "NRIC",
+    "definition": "National Registration Identity Card; the mandatory official identification card for Singaporeans and Permanent Residents, essential for all military processing.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
+  },
+  {
+    "term": "NS",
+    "definition": "Mandatory conscription for male Singapore citizens and permanent residents.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
     "term": "NS FIT",
     "definition": "NS Fitness Improvement Training",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "NSF",
+    "definition": "National Serviceman: A full-time conscript serving National Service.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "NSmen",
+    "definition": "Operationally Ready National Serviceman; those who have completed full-time service and are in the reservist cycle.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/apps"
+  },
+  {
+    "term": "NSR",
+    "definition": "National Service Resources.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/about"
+  },
+  {
+    "term": "number 0 buzz cut",
+    "definition": "A very short haircut using a clipper guard length of zero.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
   },
   {
     "term": "OC",
@@ -528,6 +1182,12 @@
     "source": "manual_seed"
   },
   {
+    "term": "One time good one",
+    "definition": "Do it once and do it well so you don't have to repeat.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
     "term": "ORBAT",
     "definition": "Order of Battle",
     "category": "acronym",
@@ -540,10 +1200,46 @@
     "source": "manual_seed"
   },
   {
+    "term": "ORNS",
+    "definition": "Operationally Ready National Service: The reservist phase after ORD.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "Outfield",
+    "definition": "Refers to training conducted in forested or non-camp areas, usually involving field camps.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "P2HA",
     "definition": "Phase 2 Heightened Alert",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "paiseh",
+    "definition": "Hokkien term for feeling embarrassed or ashamed.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Pandang Ke Hadapan Pandang",
+    "definition": "Face front (you'll hear this after Ke Kanan Lu Rus )",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Paradise now",
+    "definition": "Declaration that the exercise is over.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "Pasir Laba Camp",
+    "definition": "A specific military camp in Singapore.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
   },
   {
     "term": "PBD",
@@ -564,16 +1260,40 @@
     "source": "manual_seed"
   },
   {
+    "term": "Pink IC",
+    "definition": "The Singapore National Registration Identity Card (NRIC) held by citizens; in NS context, it symbolises the completion of full-time National Service.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/telegram-bots"
+  },
+  {
     "term": "Platoon",
-    "definition": "A military group smaller than a company.",
+    "definition": "A smaller group (usually 60 in BMT). One platoon usually occupies one floor.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
     "term": "POP",
-    "definition": "Passing Out Parade; marks the end of basic military training.",
+    "definition": "Passing Out Parade; the parade that marks the end of your basic military training.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Posting orders",
+    "definition": "Official documentation issued to soldiers informing them of their unit assignment after completing initial training.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "postings",
+    "definition": "The official assignment of a serviceman to a specific unit or base.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Pre-Enlistee IPPT",
+    "definition": "Individual Physical Proficiency Test taken before entering full-time National Service to qualify for a reduction in service duration.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
   },
   {
     "term": "PSD",
@@ -582,16 +1302,64 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "PTE",
+    "definition": "Private; the rank attained after completing BMT.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "PTP",
-    "definition": "Physical training phase: extra BMT period for those who failed or did not attempt IPPT.",
+    "definition": "Physical training phase: the 2 extra months of BMT done by those who failed or did no attempt their IPPT.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
     "term": "Rabak",
-    "definition": "A messy, chaotic, or bad situation.",
+    "definition": "(help)",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "REC",
+    "definition": "Recruit; the entry-level rank for all personnel undergoing Basic Military Training.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "recourse",
+    "definition": "To repeat a specific training course or module, often used in the context of failing or being medically downgraded during BMT.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "recruit",
+    "definition": "A soldier in the initial stage of National Service, specifically during Basic Military Training.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/best-canteen-dishes"
+  },
+  {
+    "term": "regular",
+    "definition": "A professional, full-time soldier who has signed a contract for a career in the Singapore Armed Forces.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
+    "term": "Regulars",
+    "definition": "Professional soldiers who have signed on for a long-term military career in the SAF.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/apps"
+  },
+  {
+    "term": "Rehatkan Diri",
+    "definition": "Stand easy",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
+    "term": "Reveille",
+    "definition": "Morning wake-up call played on a bugle or speaker.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
   },
   {
     "term": "RIMPAC",
@@ -600,10 +1368,34 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "route march",
+    "definition": "A long-distance tactical walk conducted in uniform, often carrying full battle order equipment.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/bmt-hub"
+  },
+  {
+    "term": "route marching",
+    "definition": "A standard military exercise involving walking long distances while carrying field equipment.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
     "term": "RSAF",
     "definition": "Republic of Singapore Air Force",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "RSI",
+    "definition": "Report Sick In-camp.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
+    "term": "RSM",
+    "definition": "Regimental Sergeant Major, the most senior non-commissioned officer in a unit, known for enforcing strict discipline.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/hair-requirement"
   },
   {
     "term": "RSN",
@@ -612,20 +1404,38 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "RSO",
+    "definition": "Report Sick Outside.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
+  },
+  {
     "term": "RT",
     "definition": "Remedial Training",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "S1",
+    "definition": "Manpower branch/officer within a military unit responsible for personnel administration.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "SA",
+    "definition": "Service Assistant; a clerical support role within the SAF.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
     "term": "SAF",
-    "definition": "Singapore Armed Forces",
-    "category": "acronym",
-    "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+    "definition": "Singapore Armed Forces: The military arm responsible for Singapore's defense.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
   },
   {
     "term": "Saikang",
-    "definition": "Menial or undesirable tasks.",
+    "definition": "Menial tasks (raking leaves, washing vehicles, entering mileage data, etc.)",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -637,7 +1447,7 @@
   },
   {
     "term": "SAR 21",
-    "definition": "Singapore Assault Rifle, 21st century.",
+    "definition": "Singapore Assault Rifle, 21st century; your one-night stand in BMT.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -666,6 +1476,12 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "scheduled maintenance",
+    "definition": "A term sometimes used ironically or as a euphemism by NSFs to refer to the recurring cycle of cleaning equipment, barracks, or personal gear.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
     "term": "SCS",
     "definition": "Specialist Cadet School",
     "category": "acronym",
@@ -673,21 +1489,51 @@
   },
   {
     "term": "Section",
-    "definition": "The smallest group in a company.",
+    "definition": "The smallest group in a company (16 in BMT). One section usually occupies one bunk room.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
   {
-    "term": "Semula",
-    "definition": "A command meaning undo or repeat what you last did.",
-    "category": "ns_lingo",
-    "source": "https://national-service.vercel.app/lingo/"
+    "term": "sedia",
+    "definition": "Malay drill command meaning attention.",
+    "category": "drill_command",
+    "source": "https://www.cmpb.gov.sg/life-in-ns/saf/ranks-and-drill-commands/"
+  },
+  {
+    "term": "semula",
+    "definition": "Malay drill command meaning repeat or restart.",
+    "category": "drill_command",
+    "source": "https://www.cmpb.gov.sg/life-in-ns/saf/ranks-and-drill-commands/"
+  },
+  {
+    "term": "senang diri",
+    "definition": "Malay drill command meaning stand at ease.",
+    "category": "drill_command",
+    "source": "https://www.cmpb.gov.sg/life-in-ns/saf/ranks-and-drill-commands/"
+  },
+  {
+    "term": "Sergeant",
+    "definition": "A rank belonging to the Specialist corps; addressed specifically as 'Sergeant' rather than 'Sir'.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "shellscrape",
+    "definition": "A shallow pit dug by soldiers in the field to provide cover from enemy fire.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
   },
   {
     "term": "SHN",
     "definition": "Stay-Home Notice",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "Siam",
+    "definition": "To move out of the way. Can be used in conjunction with other terms, e.g. 'Siam arrow'.",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
   },
   {
     "term": "SIB",
@@ -702,10 +1548,34 @@
     "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
   },
   {
+    "term": "sickbay",
+    "definition": "The medical facility within a military camp where soldiers are treated or isolated.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/what-is-attend-c"
+  },
+  {
+    "term": "Sign extra",
+    "definition": "Punishment requiring weekend stay-in at camp for extra duties.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "sign on",
+    "definition": "To enlist as a career soldier or professional officer/specialist in the Singapore Armed Forces.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
     "term": "SIR",
     "definition": "Singapore Infantry Regiment",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "SIT test",
+    "definition": "Situational test. Usually associated with field camp and command school assessment.",
+    "category": "ns_lingo",
+    "source": "https://national-service.vercel.app/army-dictionary"
   },
   {
     "term": "SMM",
@@ -721,7 +1591,7 @@
   },
   {
     "term": "SOL",
-    "definition": "Stoppage of leave.",
+    "definition": "Stoppage of leave. A punishment in which a serviceman is not allowed to leave the camp for a certain number of days.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -730,6 +1600,48 @@
     "definition": "Standard Operating Procedure",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
+  },
+  {
+    "term": "sotong",
+    "definition": "Literally 'squid'; slang for someone who is blur or clueless.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/basic-military-training"
+  },
+  {
+    "term": "Specialist memo",
+    "definition": "A formal medical report or recommendation provided by a civilian specialist to support a soldier's application for a change in medical status.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "Stand by bed",
+    "definition": "Clean the bunk spotlessly for inspection.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
+    "term": "Stand by Universe",
+    "definition": "Command to unpack and clear everything from the bunk for inspection.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
+  },
+  {
+    "term": "stay-in",
+    "definition": "A vocation where the personnel are required to reside in the camp barracks throughout their training or duty week.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/free-time"
+  },
+  {
+    "term": "Take your time",
+    "definition": "Probably the reason you have to knock it down. This is sarcasm (if you didn’t realise by now), and when your sergeant tells you this, you jolly well double up (your speed) or risk incurring his wrath. No questions on what happens next if you tio (suffer) the latter. “Take your time ah, TAKE YOUR TIME.”",
+    "category": "media_article",
+    "source": "https://defencepioneer.sg/pioneer-articles/15jan25_news1"
+  },
+  {
+    "term": "Tekong",
+    "definition": "Pulau Tekong, the island where Basic Military Training (BMT) is conducted for most Singaporean male conscripts.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/before-enlistment"
   },
   {
     "term": "Tip",
@@ -744,8 +1656,14 @@
     "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
   },
   {
+    "term": "Tukar Langkah",
+    "definition": "Change step",
+    "category": "drill_command",
+    "source": "https://national-service.vercel.app/commands"
+  },
+  {
     "term": "Turnout",
-    "definition": "Being woken up suddenly for preparation or training.",
+    "definition": "When you're woken up in the middle of the night for force prep and/or training to test your effectiveness.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -756,16 +1674,58 @@
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Unit",
+    "definition": "Refers to the specific operational or functional battalion/formation a soldier is posted to after BMT.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "up PES",
+    "definition": "The process of applying for a higher Physical Employment Standard rating, usually for vocational deployment reasons.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/guide-on-uppes"
+  },
+  {
+    "term": "vocation",
+    "definition": "The specific military role or job specialty assigned to a national serviceman.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
+  },
+  {
     "term": "VUCA-D",
     "definition": "Volatile, Uncertain, Complex, Ambiguous and Disruptive",
     "category": "acronym",
     "source": "https://safti.mindef.gov.sg/covid19/abbreviations/"
   },
   {
+    "term": "Wake up your idea",
+    "definition": "When recruits are not doing things right – like holding their rifle the wrong way or messing up their drills way too many times – this is when sergeants get riled up and start shouting “ Oi recruits! What are you doing? WAKE UP YOUR IDEA!” This is often followed by “knock it down”. You’ve been warned.",
+    "category": "media_article",
+    "source": "https://defencepioneer.sg/pioneer-articles/15jan25_news1"
+  },
+  {
+    "term": "Water parade",
+    "definition": "Hydration break during training.",
+    "category": "media_article",
+    "source": "https://www.straitstimes.com/singapore/celebrating-ns50-stand-by-universe-and-other-ns-men-lingo"
+  },
+  {
     "term": "Wayang",
-    "definition": "Acting differently when higher-ranking personnel are around.",
+    "definition": "When someone (NSF or regular) acts differently when higher-ranking specs or officers are around.",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "Wayang & The Singapore Acting Foundation",
+    "definition": "Wayang, translated literally into 'acting', is an essential survival skill for NS. At the most basic level, wayang-ing is to pretend that you are actually working, while in truth you are skiving. In my experience, when you have typical regulars who play with workplace politics for your superiors, there is usually no correlation between doing your work well and getting rewarded for it, like getting off or early book-out. Therefore, it only makes sense to wayang your two years away since there is a limited amount of time served but an unlimited amount of work to finish. Related terms include 'eye power' and 'No Action, Talk Only'",
+    "category": "community_guide",
+    "source": "http://speakgoodsinglishmovement.blogspot.com/2010/04/handy-ns-lingo-guide.html"
+  },
+  {
+    "term": "Whole lot knock it down",
+    "definition": "Entire group ordered to do push-ups.",
+    "category": "media_article",
+    "source": "https://thesmartlocal.com/read/read-army-english-phrases-ns/"
   },
   {
     "term": "WoG",
@@ -781,8 +1741,14 @@
   },
   {
     "term": "You think, I thought, who confirm?",
-    "definition": "Phrase used to scold someone for assuming without confirmation.",
+    "definition": "The answer Enciks give when you say \"I think ...\".",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
+  },
+  {
+    "term": "zero",
+    "definition": "A hair clipper guard size.",
+    "category": "nsr",
+    "source": "https://national-service.vercel.app/faq"
   }
 ]
