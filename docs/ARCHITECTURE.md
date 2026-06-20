@@ -17,9 +17,9 @@ The project is split into five sequential stages:
 
 | Stage | What it produces | Status |
 |-------|------------------|--------|
-| **1 — Scrape existing dictionaries** | `seed.json` with ~200+ entries from curated online dictionaries | 🔜 In progress |
-| **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | 🔜 In progress |
-| **3 — LLM extraction + crowdsourcing** | New candidates from forum text (LLM) and friends (crowdsourcing) → reviewed + merged into `curated.json` | 🔜 Planned |
+| **1 — Scrape existing dictionaries** | `seed.json` with 292 entries from curated online dictionaries | ✅ Done |
+| **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | ✅ Done |
+| **3 — LLM extraction + crowdsourcing** | New candidates from forum text (LLM) and friends (crowdsourcing) → reviewed + merged into `curated.json` | 🔶 Partially done (Gemini extraction done, 59 terms in curated.json, crowdsourcing pending) |
 | **4 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | 🔜 Planned |
 | **5 — Bot** | Discord bot (RAG + fine-tuned model) | 🔜 Planned |
 
@@ -29,20 +29,18 @@ The project is split into five sequential stages:
 
 ```
 EXISTING NS DICTIONARIES ──► seed_glossary.py ──► data/glossary/seed.json
-                                                            │
+                                                             │
 SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───────┤
  (Reddit)    (never touch)     │         (posts + comments) │
-                               │                            │
-                               ▼                            ▼
-                    corpus/frequency.py ──► frequency list (learning)
-                    corpus/extract.py   ──► candidate terms + LLM pre-annotation
-                                                    │
-                                                    ▼
-                                          Google Form / CSV
-                                          Human validation (me + NS friends)
-                                                    │
-                                                    ▼
-                                          data/glossary/curated.json
+                                │                            │
+                                ▼                            ▼
+                     corpus/frequency.py ──► frequency list (learning) ──► corpus/extract.py ──► data/glossary/candidates.json
+                                                                                                          │
+                                                                                                          ▼
+                     national-service.vercel.app ──► corpus/llm_extract.py ──► manual review ──► data/glossary/curated.json
+                                (Gemini API)                                 │
+                                                                              │
+                                                          data/glossary/seed.json (Iter 1 baseline, frozen)
                                                     │
                     ┌───────────────────────────────┘
                     │
@@ -63,11 +61,11 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                         scraper/                                                      │
-│  reddit_scraper.py    hwz_scraper.py      seed_glossary.py    manual_ingest.py        │
-│  ────────────────     ─────────────       ────────────────    ────────────────────      │
-│  Public JSON API      Scans EDMW titles   Scrapes existing    Google Form / CSV          │
-│  (no auth needed)     for NS keywords     NS dictionaries     ingest                     │
-│                       + scrapes threads                                                 │
+│  main.py                hwz_scraper.py            seed_glossary.py          │
+│  ────────               ─────────────             ────────────────            │
+│  Scrapes Reddit         Scans EDMW titles         Scrapes existing            │
+│  (public JSON API,      for NS keywords           NS dictionaries             │
+│  no auth needed)        + scrapes threads                                     │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
                         │ raw JSON / HTML
                         ▼
@@ -81,10 +79,11 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
                         ▼
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                         corpus/                                                       │
-│  frequency.py           extract.py                                                     │
-│  ─────────────          ──────────                                                     │
-│  word / n-gram          candidate term extraction (LLM-assisted)                      │
-│  counts (learning)      + pre-annotation into glossary schema                         │
+│  frequency.py           extract.py              llm_extract.py                          │
+│  ─────────────          ──────────              ──────────────                          │
+│  word / n-gram          Candidate term          Gemini-powered term extraction          │
+│  counts (learning)      extraction +            from NSR website pages                  │
+│                         SEA-LION annotation     (BMT + General)                         │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
                         │ candidate terms (JSON / CSV)
                         ▼
@@ -169,21 +168,19 @@ not already in the seed glossary:
 
 ### 3. LLM extraction + crowdsourcing (Iter 2)
 
-- **LLM-assisted extraction** — feed raw forum text to an LLM to extract NS-lingo terms with
-  context and suggested definitions, catching the long tail that frequency methods and
-  dictionaries miss.
+- **LLM-assisted extraction** — two approaches:
+  - `corpus/extract.py`: loads candidate terms from frequency analysis, prompts local SEA-LION model (`aisingapore/Llama-SEA-LION-v3-8B`) for structured definitions.
+  - `corpus/llm_extract.py`: scrapes NSR website (national-service.vercel.app) BMT + General pages, sends each section to Gemini API (`gemini-3.1-flash-lite`) for term extraction. Outputs candidates with definitions for manual review.
 - **Crowdsourcing** — collect terms directly from NS friends (term + definition + example).
-- **Review workflow** — candidates go into a review file; you mark each as `verified`,
-  `needs_edits`, or `rejected`; a merge script moves verified entries into `curated.json`.
+- **Review workflow** — candidates go into `candidates.json`; you mark each as `reviewed` or `rejected` directly in the file; reviewed entries are extracted into `curated.json`.
 
 ### 4. Human validation (Iter 2)
 
-Candidates from all sources are compiled for review. You and your NS friends mark each as:
-- **Verified** — correct, move to curated glossary
-- **Needs edits** — adjust definition / register / etymology
-- **Reject** — not NS lingo
+Candidates from all sources are compiled for review in `candidates.json`. You mark each as:
+- **reviewed** — correct NS term, included in `curated.json`
+- **rejected** — not NS lingo, excluded
 
-Output: `data/glossary/curated.json`
+Output: `data/glossary/curated.json` (59 entries as of Iter 1)
 
 ### 5. Fine-tuning (Stage 2)
 
@@ -207,7 +204,8 @@ hallucination.
 |--------|--------|-------|--------|
 | r/NationalServiceSG | Public JSON API | None | ✅ Active |
 | HWZ EDMW (keyword search) | requests + BeautifulSoup (title scan via EDMW pages) | None | ✅ Active |
-| Existing NS dictionaries | Web scrape / manual copy | None | 🔜 Planned |
+| national-service.vercel.app | requests + BeautifulSoup + Gemini API for term extraction | None | ✅ Active |
+| Existing NS dictionaries | Web scrape / manual copy | None | ✅ Done |
 | Manual crowdsourcing | Google Form → CSV | Google API | 🔜 Planned |
 
 ---
@@ -228,21 +226,20 @@ ns_lingo_nlp/
 │   ├── raw/                 # Raw scraped data (never edit)
 │   ├── cleaned/             # Deduped, normalised text (posts + comments)
 │   └── glossary/            # Glossary pipeline data
-│       ├── seed.json                    # Baseline NS glossary terms
-│       ├── candidates.json              # Candidate terms from frequency analysis
+│       ├── seed.json                    # Baseline NS glossary terms (Iter 1, frozen)
+│       ├── candidates.json              # Candidate terms from frequency analysis (reviewed + rejected)
 │       ├── candidates_annotated.json   # SEA-LION annotated glossary candidates
-│       └── curated.json                # Final validated glossary entries
+│       └── curated.json                # Final validated glossary entries (59 terms)
 │
 ├── scraper/
-│   ├── reddit_scraper.py    # Reddit JSON API scraper
-│   ├── hwz_scraper.py       # HardwareZone scraper (future)
+│   ├── hwz_scraper.py       # HardwareZone scraper (EDMW keyword scan + thread scrape)
 │   ├── seed_glossary.py     # Scrapes existing NS dictionaries online
-│   └── manual_ingest.py     # Google Form → glossary loader
+│   └── fetch_comments.py    # Fetches comments for scraped Reddit posts
 │
 ├── corpus/
 │   ├── frequency.py         # Word/bigram/trigram frequency analysis and candidate term generation
 │   ├── extract.py           # LLM-assisted glossary annotation pipeline using SEA-LION
-│   └── compare.py           # Compare against standard English freq lists
+│   └── llm_extract.py       # Gemini-powered term extraction from NSR website pages
 │
 ├── fine_tune/
 │   ├── prepare_data.py      # Converts glossary + NS comments → training examples
@@ -263,8 +260,9 @@ ns_lingo_nlp/
 | Package | Purpose | Stage |
 |---------|---------|-------|
 | `python-dotenv` | Load `.env` variables | Core |
-| `requests` | HTTP calls (Reddit JSON API) | Scraper |
-| `beautifulsoup4` | HTML parsing (HWZ, existing dictionaries) | Scraper |
+| `requests` | HTTP calls (Reddit JSON API, NSR pages) | Scraper |
+| `beautifulsoup4` | HTML parsing (HWZ, NSR pages, existing dictionaries) | Scraper |
+| `google-genai` | Google Gemini API client | LLM Extraction |
 | `discord.py` | Discord bot framework | Bot (future) |
 | `nltk` / `spaCy` | NLP (tokenisation, lemmatisation) | Corpus |
 | `sentence-transformers` | Embeddings for RAG | Bot (future) |
@@ -278,6 +276,6 @@ ns_lingo_nlp/
 
 ## Environments / Config
 
-- `.env` — user-specific secrets (e.g. `ANTHROPIC_API_KEY`, `REDDIT_USER_AGENT`)
+- `.env` — user-specific secrets (e.g. `GEMINI_API_KEY`)
 - No Reddit API keys required — public JSON endpoints are used
 - Conda environment: `ns_lingo_nlp`

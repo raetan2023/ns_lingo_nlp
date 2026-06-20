@@ -33,16 +33,19 @@
 | `data/cleaned/` | Deduped, normalised text posts + comments |
 | `data/cleaned/frequency.json` | Word/n-gram frequency analysis output |
 | `data/glossary/` | Curated glossary entries in JSON schema |
-| `data/glossary/seed.json` | Baseline terms scraped from existing NS dictionaries |
-| `data/glossary/candidates.json` | Candidate NS glossary terms surfaced from frequency-analysis heuristics before LLM annotation |
+| `data/glossary/seed.json` | Baseline terms scraped from existing NS dictionaries (Iter 1 baseline, frozen) |
+| `data/glossary/candidates.json` | Candidate NS glossary terms from frequency analysis, each marked as `reviewed` or `rejected` |
 | `data/glossary/candidates_annotated.json` | SEA-LION annotated glossary candidates with generated definitions, register labels, part-of-speech tags, confidence estimates, and raw LLM outputs |
+| `data/glossary/curated.json` | Final validated glossary entries (59 terms approved from frequency-analysis review) |
 
 ## `corpus/`
 
 | Path | Purpose |
 |------|---------|
 | `corpus/frequency.py` | Tokenises text from Reddit posts, Reddit comments, and HWZ threads. Computes word/n-gram counts, filters stopwords. Primarily for learning NLP fundamentals. |
+| `corpus/frequency.py` | Tokenises text from Reddit posts, Reddit comments, and HWZ threads. Computes word/n-gram counts, filters stopwords, and generates candidate terms. |
 | `corpus/extract.py` | LLM-assisted glossary candidate extraction + annotation pipeline. Loads candidate terms from frequency analysis, filters likely NS-related phrases, prompts SEA-LION for structured glossary annotations, parses JSON outputs, and saves annotated glossary candidates. |
+| `corpus/llm_extract.py` | Gemini-powered term extraction from national-service.vercel.app BMT + General pages. Scrapes each page, splits into sections, sends to Gemini API (`gemini-3.1-flash-lite`) for structured term extraction with definitions, dedupes results, and outputs candidates for manual review. |
 
 ## `scraper/`
 
