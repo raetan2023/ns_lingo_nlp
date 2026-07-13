@@ -9,12 +9,14 @@ The project owner is a CS undergraduate in Singapore, new to NLP and AI. The pro
 ---
 
 ## Current Stage
-* Corpus building and scraping.
+* Glossary validation complete for MVP; fine-tuning prep next.
 
 ## Google Doc
 https://docs.google.com/document/d/12e5w7t01ktPG1FdnyjvCXDvqB_FRq2o2jgoGjcZszCo/edit?usp=sharing
 
-### Latest updates
+For the current pipeline mental model (two parallel glossary paths, file roles, merge workflow), see [ARCHITECTURE.md](ARCHITECTURE.md) and [glossary-pipeline.md](glossary-pipeline.md).
+
+### Latest updates from Google Doc
 27/05/26
 Keon:
 Improved corpus/frequency.py — Refined stopword filtering and NS-specific term handling by adding custom stopwords + NS keepwords to reduce noisy Reddit/HWZ terms. Frequency analysis now outputs separate word, bigram, and trigram sections for cleaner candidate extraction and NLP experimentation.
@@ -85,6 +87,14 @@ Next steps:
 Review Keon annotated candidates on SEA-LION
 Install transformers/torch and start preparing the fine-tuning pipeline
 
+13/07/26
+Rae:
+1. Curated cleanup — human review round complete; 42 entries in lean schema
+2. Deleted noise/redundant terms (b4, b4 expect, activities admin, month-batch duplicates)
+3. Added variants (intake, nsti), related_terms (pes family, ns fit), separate ns fit record
+4. Stripped workflow fields (review_status, annotation_status, confidence, count, etc.)
+5. Removed merge_curated.py — one-time merge workflow complete
+6. Next: build fine_tune/prepare_data.py
 
 ---
 

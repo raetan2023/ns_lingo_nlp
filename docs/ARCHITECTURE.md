@@ -9,6 +9,94 @@ structured glossary. The curated glossary is used to fine-tune a Singlish langua
 for understanding NS lingo in context. End goal is a Discord bot that explains NS lingo
 to civilians, grounded in the curated glossary to prevent hallucination.
 
+For a focused guide on glossary files and review workflow, see [glossary-pipeline.md](glossary-pipeline.md).
+
+---
+
+## Mental model: three layers
+
+| Layer | What it is | Key paths |
+|-------|------------|-----------|
+| **1 — Raw text** | Scraped forum posts, comments, HWZ threads | `data/raw/`, `data/cleaned/` |
+| **2 — Processing** | Python scripts that transform text into candidates and annotations | `scraper/`, `corpus/` |
+| **3 — Glossary data** | JSON files with distinct roles — do not treat them as interchangeable | `data/glossary/` |
+
+Layer 3 has **two parallel pipelines** that feed different files (see below). They are intentionally kept separate: `seed.json` is the frozen dictionary baseline; `curated.json` holds forum-validated extensions.
+
+---
+
+## Two parallel glossary pipelines
+
+```mermaid
+flowchart TB
+    subgraph pathA [PathA_ForumCorpus]
+        RedditHWZ[Reddit_and_HWZ] --> frequency[frequency.py]
+        frequency --> extract[extract.py_SEA_LION]
+        extract --> candidates[candidates.json]
+        extract --> annotated[candidates_annotated.json]
+        candidates -->|human_review| curated[curated.json]
+    end
+    subgraph pathB [PathB_DictionaryBaseline]
+        dicts[Online_dictionaries] --> seedGlossary[seed_glossary.py]
+        nsr[NSR_website] --> llmExtract[llm_extract.py_Gemini]
+        seedGlossary --> seed[seed.json_frozen]
+        llmExtract --> nsrOut[candidates_nsr.json]
+        nsrOut -->|manual_review| seed
+    end
+```
+
+### Path A — Forum corpus → frequency → SEA-LION (Keon's track)
+
+```
+main.py / fetch_comments.py / hwz_scraper.py
+    → data/raw/
+    → clean.py
+    → data/cleaned/
+
+corpus/frequency.py
+    → data/cleaned/frequency.json
+
+corpus/extract.py  (SEA-LION: aisingapore/Llama-SEA-LION-v3-8B)
+    → data/glossary/candidates.json           (93 terms — triage list)
+    → data/glossary/candidates_annotated.json   (same 93 + LLM annotations)
+
+Human triage in candidates.json (reviewed / rejected)
+    → data/glossary/curated.json              (42 validated terms, lean schema)
+```
+
+### Path B — Dictionaries + NSR site → seed (Rae's track)
+
+```
+scraper/seed_glossary.py
+    → data/glossary/seed.json
+
+corpus/llm_extract.py  (Gemini: gemini-3.1-flash-lite)
+    → data/glossary/candidates_nsr.json   (ephemeral intermediate — not always in repo)
+
+Manual review of Gemini output
+    → merge approved terms into seed.json   (206 → 292 entries)
+```
+
+**Important:** `llm_extract.py` does **not** output to `curated.json`. Gemini-extracted terms belong in the frozen baseline (`seed.json`), not the forum-derived glossary.
+
+---
+
+## Glossary file roles
+
+| File | Count | Source | Role |
+|------|-------|--------|------|
+| `seed.json` | 292 | Dictionaries + `seed_glossary.py` + Gemini NSR merge | **Frozen baseline** for models. Schema: `term`, `definition`, `category`, `source`. Do not merge forum candidates here. |
+| `candidates.json` | 93 | `extract.py` ← `frequency.py` | Triage list from forum frequency. Mark `reviewed` or `rejected`. Definitions intentionally empty. |
+| `candidates_annotated.json` | 93 | Same terms + SEA-LION via `extract.py` | Pre-annotated definitions (`register`, `part_of_speech`, `confidence`). Awaiting human validation. |
+| `curated.json` | 42 | Human-reviewed forum terms | Lean schema with `variants`, `related_terms`, `definition_source`. Complements seed. |
+| `candidates_nsr.json` | — | `llm_extract.py` (Gemini) | Ephemeral intermediate output before manual merge into `seed.json`. |
+
+### `seed.json` "frozen" policy
+
+- **Frozen going forward** — forum-discovered terms go to `curated.json`, not `seed.json`.
+- **Was expanded once** — Gemini NSR extraction merged 86 new terms (206 → 292) after manual review.
+- **Purpose** — stable reference layer for RAG and fine-tuning; avoids polluting the baseline with noisy forum phrases.
+
 ---
 
 ## Stages
@@ -17,41 +105,46 @@ The project is split into five sequential stages:
 
 | Stage | What it produces | Status |
 |-------|------------------|--------|
-| **1 — Scrape existing dictionaries** | `seed.json` with 292 entries from curated online dictionaries | ✅ Done |
-| **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | ✅ Done |
-| **3 — LLM extraction + crowdsourcing** | New candidates from forum text (LLM) and friends (crowdsourcing) → reviewed + merged into `curated.json` | 🔶 Partially done (Gemini extraction done, 59 terms in curated.json, crowdsourcing pending) |
-| **4 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | 🔜 Planned |
-| **5 — Bot** | Discord bot (RAG + fine-tuned model) | 🔜 Planned |
+| **1 — Scrape existing dictionaries** | `seed.json` with 292 entries | Done |
+| **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
+| **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (42 curated entries); crowdsourcing optional |
+| **4 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | Planned |
+| **5 — Bot** | Discord bot (RAG + fine-tuned model) | Planned |
 
 ---
 
 ## Pipeline (end-to-end)
 
 ```
-EXISTING NS DICTIONARIES ──► seed_glossary.py ──► data/glossary/seed.json
-                                                             │
-SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───────┤
- (Reddit)    (never touch)     │         (posts + comments) │
-                                │                            │
-                                ▼                            ▼
-                     corpus/frequency.py ──► frequency list (learning) ──► corpus/extract.py ──► data/glossary/candidates.json
-                                                                                                          │
-                                                                                                          ▼
-                     national-service.vercel.app ──► corpus/llm_extract.py ──► manual review ──► data/glossary/curated.json
-                                (Gemini API)                                 │
-                                                                              │
-                                                          data/glossary/seed.json (Iter 1 baseline, frozen)
-                                                    │
-                    ┌───────────────────────────────┘
-                    │
-                    ▼
-          fine_tune/prepare_data.py ──► training dataset (glossary pairs + NS comments)
-                    │
-                    ▼
-          fine_tune/train.py ──► fine-tuned Singlish model
-                    │
-                    ▼
-          bot/ ──► Discord bot (RAG over glossary + fine-tuned model)
+PATH B — DICTIONARIES
+  seed_glossary.py ──► seed.json (frozen baseline)
+  llm_extract.py ──► candidates_nsr.json ──► manual review ──► seed.json
+
+PATH A — FORUM CORPUS
+  SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/
+                                              │
+                                              ▼
+                                   corpus/frequency.py ──► frequency.json
+                                              │
+                                              ▼
+                                   corpus/extract.py (SEA-LION)
+                                              │
+                         ┌────────────────────┴────────────────────┐
+                         ▼                                         ▼
+                 candidates.json                    candidates_annotated.json
+                         │                                         │
+                         │ human triage + review │
+                         ▼                         │
+                   curated.json                    │
+                         │
+                         ▼
+              fine_tune/prepare_data.py ──► training dataset
+                         │
+                         ▼
+              fine_tune/train.py ──► fine-tuned model
+                         │
+                         ▼
+              bot/ ──► Discord bot (RAG + fine-tuned model)
 ```
 
 ---
@@ -73,37 +166,32 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 │                         data/                                                          │
 │  raw/          — scraped output, never touch                                          │
 │  cleaned/      — deduped, normalised text (posts + comments)                          │
-│  glossary/     — curated schema entries (seed, candidates, final)                     │
+│  glossary/     — seed (frozen), candidates, annotated, curated                          │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
                         │ cleaned text
                         ▼
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                         corpus/                                                       │
-│  frequency.py           extract.py              llm_extract.py                          │
-│  ─────────────          ──────────              ──────────────                          │
-│  word / n-gram          Candidate term          Gemini-powered term extraction          │
-│  counts (learning)      extraction +            from NSR website pages                  │
-│                         SEA-LION annotation     (BMT + General)                         │
+│  frequency.py      extract.py           llm_extract.py                                 │
+│  ─────────────     ──────────           ──────────────                                 │
+│  word / n-gram     SEA-LION annotation  Gemini extraction from NSR pages               │
+│  counts            on forum candidates                                                   │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
-                        │ candidate terms (JSON / CSV)
+                        │ glossary JSON
                         ▼
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
 │                    Validation (manual step)                                            │
-│  Google Form / CSV → NS friends confirm/reject candidates                             │
-│  Output: curated glossary entries → data/glossary/curated.json                       │
+│  Triage candidates.json → human review → curated.json (lean schema)                     │
+│  Google Form / CSV → NS friends (crowdsourcing, optional)                              │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
-                        │ confirmed entries
+                        │ verified entries
                         ▼
 ┌─────────────────────────────────────────────────────────────────────────────────────┐
-│                         fine_tune/                                                     │
+│                         fine_tune/ (future)                                            │
 │  prepare_data.py        train.py                                                       │
 │  ────────────────       ─────────                                                      │
-│  Converts curated       Fine-tunes a pre-trained Singlish model (e.g.                  │
-│  glossary + NS          singlish-bert or a small LLM) to understand                    │
-│  comments into          NS lingo. Uses:                                                │
-│  training pairs         • term-definition pairs → classification                        │
-│                         • NS-lingo sentences → masked language modelling               │
-│                         • glossary QA pairs → generation                               │
+│  Converts seed +         Fine-tunes a pre-trained Singlish model                        │
+│  curated + NS comments   (term-definition pairs, MLM, QA)                               │
 └───────────────────────┬──────────────────────────────────────────────────────────────┘
                         │ fine-tuned model
                         ▼
@@ -111,16 +199,17 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 │                         bot/ (future)                                                   │
 │  discord_bot.py        rag_engine.py        glossary_loader.py                         │
 │  ──────────────        ─────────────        ──────────────────                         │
-│  slash commands        retrieval-           loads curated                               │
-│  + message hook        augmented            glossary into                               │
-│                        generation           vector store                                │
-│                                             + cache                                     │
+│  slash commands        retrieval-           loads seed + curated                        │
+│  + message hook        augmented            glossary into vector store                  │
+│                        generation                                                       │
 └─────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
 
 ## Glossary Schema
+
+Target schema for fully curated entries:
 
 | Field | Description | Example |
 |-------|-------------|---------|
@@ -135,19 +224,22 @@ SCRAPER ──► data/raw ──► clean.py ──► data/cleaned/ ───�
 | `part_of_speech` | Grammatical category | `adjective` / `verb` / `noun` / `interjection` |
 | `user_facing_explanation` | Plain-English or Singlish explanation for civilians | "It means someone is acting disorderly or things are in chaos." |
 
+Current files use subsets of this schema. `seed.json` has four fields. `curated.json` uses the lean schema documented in [glossary-pipeline.md](glossary-pipeline.md) (`term`, `definition`, `variants`, `register`, `part_of_speech`, `source`, `definition_source`, `related_terms`, `example_sentences`, `notes`).
+
 ---
 
 ## Glossary Pipeline Detail
 
-### 1. Seed (existing dictionaries)
+### Path B — Seed (existing dictionaries + Gemini NSR)
 
-Existing NS lingo dictionaries (blog posts, media articles, community guides) are scraped
-via `scraper/seed_glossary.py` and saved as `data/glossary/seed.json`. This provides a
-baseline set of known terms with basic definitions.
+Existing NS lingo dictionaries are scraped via `scraper/seed_glossary.py` into `seed.json`.
+Gemini extraction from national-service.vercel.app (BMT + General pages) outputs to
+`candidates_nsr.json`; after manual review, approved terms merge into `seed.json`.
 
 | Source | Type |
 |--------|------|
 | national-service.vercel.app/lingo | Community wiki |
+| national-service.vercel.app (BMT + General pages) | Gemini extraction |
 | SAFTI MI abbreviations page | Official |
 | CMPB ranks and drill commands | Official |
 | defencepioneer.sg articles | Media |
@@ -156,35 +248,29 @@ baseline set of known terms with basic definitions.
 | speakgoodsinglishmovement.blogspot.com | Community guide |
 | shopee.sg blog | Media |
 
-### 2. Corpus extraction (Iter 1 — MVP)
+### Path A — Corpus extraction (forum frequency)
 
-Cleaned posts and comments from `data/cleaned/` are processed to surface candidate terms
-not already in the seed glossary:
+Cleaned posts and comments from `data/cleaned/` are processed to surface candidate terms:
 
-- **Frequency analysis** (`corpus/frequency.py`) — tokenise, count n-grams, filter stopwords.
-  Primarily for learning NLP fundamentals.
-- **Candidate filtering** (`corpus/extract.py`) — filter frequency data against seed glossary
-  using heuristics (all-caps acronyms, known NS hint words). Output: `candidates.json`.
+1. **Frequency analysis** (`corpus/frequency.py`) — tokenise, count n-grams, filter stopwords.
+2. **Candidate extraction + annotation** (`corpus/extract.py`) — filter frequency data using NS heuristics; annotate with SEA-LION. Outputs `candidates.json` and `candidates_annotated.json`.
+3. **Human triage + review** — mark terms in `candidates.json`; build and manually refine `curated.json` using annotations and seed as reference (not blind copy).
 
-### 3. LLM extraction + crowdsourcing (Iter 2)
+### Curated modeling notes
 
-- **LLM-assisted extraction** — two approaches:
-  - `corpus/extract.py`: loads candidate terms from frequency analysis, prompts local SEA-LION model (`aisingapore/Llama-SEA-LION-v3-8B`) for structured definitions.
-  - `corpus/llm_extract.py`: scrapes NSR website (national-service.vercel.app) BMT + General pages, sends each section to Gemini API (`gemini-3.1-flash-lite`) for term extraction. Outputs candidates with definitions for manual review.
-- **Crowdsourcing** — collect terms directly from NS friends (term + definition + example).
-- **Review workflow** — candidates go into `candidates.json`; you mark each as `reviewed` or `rejected` directly in the file; reviewed entries are extracted into `curated.json`.
+- **PES:** umbrella `pes` record plus specific `pes bp` / `pes b1` / `pes b4` / `pes c9` where corpus surfaced them; no standalone `b4`
+- **Intake batches:** canonical `intake` term with month names in `variants`, not separate records per month
+- **NS Fit:** separate `ns fit` record; `remedial training` marked historical with `related_terms`
+- **Manual curated edits** do not auto-sync back to `seed.json`
 
-### 4. Human validation (Iter 2)
+### Crowdsourcing (optional, Iter 2)
 
-Candidates from all sources are compiled for review in `candidates.json`. You mark each as:
-- **reviewed** — correct NS term, included in `curated.json`
-- **rejected** — not NS lingo, excluded
+Collect terms from NS friends (term + definition + example) via Google Form or CSV.
+Not blocking fine-tuning, but catches vocation-specific slang frequency analysis misses.
 
-Output: `data/glossary/curated.json` (59 entries as of Iter 1)
+### Fine-tuning (Stage 4)
 
-### 5. Fine-tuning (Stage 2)
-
-The curated glossary + cleaned NS comments are converted into training examples:
+The seed + curated glossaries and cleaned NS comments are converted into training examples:
 
 | Training type | Input | Target | Purpose |
 |---------------|-------|--------|---------|
@@ -193,8 +279,25 @@ The curated glossary + cleaned NS comments are converted into training examples:
 | MLM (masked language) | "Sgt is damn [MASK] today" | `rabak` | Adapt Singlish model to NS context |
 
 The fine-tuned model is used alongside RAG in the bot — the model provides contextual
-understanding, while RAG grounds explanations in the curated glossary to prevent
-hallucination.
+understanding, while RAG grounds explanations in the glossary to prevent hallucination.
+
+---
+
+## Fine-tuning readiness
+
+Fine-tuning is **not blocked on crowdsourcing**, but **is blocked on glossary quality**.
+
+| Gate | Status |
+|------|--------|
+| Valid `curated.json` with definitions | Done (42 entries, July 2026) |
+| Human review complete | Done |
+| Training data script | `fine_tune/prepare_data.py` — **next step** |
+| Corpus size | ~195 comments usable for MVP; more data helps MLM |
+
+Recommended order:
+1. Build `prepare_data.py` and inspect training pairs from `seed.json` + `curated.json`
+2. Install `torch` / `transformers`; start with a small task before full fine-tune
+3. Run `train.py` only after inspecting sample pairs
 
 ---
 
@@ -202,11 +305,11 @@ hallucination.
 
 | Source | Method | Auth? | Status |
 |--------|--------|-------|--------|
-| r/NationalServiceSG | Public JSON API | None | ✅ Active |
-| HWZ EDMW (keyword search) | requests + BeautifulSoup (title scan via EDMW pages) | None | ✅ Active |
-| national-service.vercel.app | requests + BeautifulSoup + Gemini API for term extraction | None | ✅ Active |
-| Existing NS dictionaries | Web scrape / manual copy | None | ✅ Done |
-| Manual crowdsourcing | Google Form → CSV | Google API | 🔜 Planned |
+| r/NationalServiceSG | Public JSON API | None | Active |
+| HWZ EDMW (keyword search) | requests + BeautifulSoup | None | Active |
+| national-service.vercel.app | BeautifulSoup + Gemini API | `GEMINI_API_KEY` | Active |
+| Existing NS dictionaries | Web scrape / manual copy | None | Done |
+| Manual crowdsourcing | Google Form → CSV | — | Planned |
 
 ---
 
@@ -220,37 +323,43 @@ ns_lingo_nlp/
 ├── fetch_comments.py        # Fetches comments for scraped posts
 ├── requirements.txt         # Python dependencies
 ├── README.md                # Project overview
-├── ARCHITECTURE.md          # This file
+│
+├── docs/
+│   ├── README.md            # Project overview + progress log
+│   ├── ARCHITECTURE.md      # This file
+│   ├── project-map.md       # File-by-file map
+│   └── glossary-pipeline.md # Glossary files + review workflow
 │
 ├── data/
 │   ├── raw/                 # Raw scraped data (never edit)
 │   ├── cleaned/             # Deduped, normalised text (posts + comments)
-│   └── glossary/            # Glossary pipeline data
-│       ├── seed.json                    # Baseline NS glossary terms (Iter 1, frozen)
-│       ├── candidates.json              # Candidate terms from frequency analysis (reviewed + rejected)
-│       ├── candidates_annotated.json   # SEA-LION annotated glossary candidates
-│       └── curated.json                # Final validated glossary entries (59 terms)
+│   └── glossary/
+│       ├── seed.json                    # Frozen baseline (292 terms)
+│       ├── candidates.json              # Forum candidates — triage (93 terms)
+│       ├── candidates_annotated.json   # SEA-LION annotations (93 terms)
+│       ├── candidates_nsr.json         # Gemini intermediate (ephemeral)
+│       └── curated.json                # Forum-validated terms (42 terms, lean schema)
 │
 ├── scraper/
-│   ├── hwz_scraper.py       # HardwareZone scraper (EDMW keyword scan + thread scrape)
-│   ├── seed_glossary.py     # Scrapes existing NS dictionaries online
-│   └── fetch_comments.py    # Fetches comments for scraped Reddit posts
+│   ├── hwz_scraper.py
+│   ├── seed_glossary.py
+│   └── fetch_comments.py
 │
 ├── corpus/
-│   ├── frequency.py         # Word/bigram/trigram frequency analysis and candidate term generation
-│   ├── extract.py           # LLM-assisted glossary annotation pipeline using SEA-LION
-│   └── llm_extract.py       # Gemini-powered term extraction from NSR website pages
+│   ├── frequency.py
+│   ├── extract.py           # SEA-LION annotation
+│   └── llm_extract.py       # Gemini NSR extraction
 │
-├── fine_tune/
-│   ├── prepare_data.py      # Converts glossary + NS comments → training examples
-│   └── train.py             # Fine-tunes a pre-trained Singlish model
+├── fine_tune/               # (future)
+│   ├── prepare_data.py
+│   └── train.py
 │
 ├── bot/                     # (future)
 │   ├── discord_bot.py
 │   ├── rag_engine.py
 │   └── glossary_loader.py
 │
-└── notebooks/               # Jupyter notebooks for exploration
+└── notebooks/
 ```
 
 ---
