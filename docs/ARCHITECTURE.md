@@ -5,11 +5,11 @@
 Corpus-building and NLP exploration project for Singapore National Service (NS) lingo.
 Raw text is scraped from public sources and cross-referenced with existing NS dictionaries.
 Candidate terms are pre-annotated via LLM, validated with NS friends, and curated into a
-structured glossary. The curated glossary is used to fine-tune a Singlish language model
-for understanding NS lingo in context. End goal is a Discord bot that explains NS lingo
-to civilians, grounded in the curated glossary to prevent hallucination.
+structured glossary. The glossary powers a **RAG + Gemini** bot: retrieval grounds answers
+in `seed.json` and `curated.json`; Gemini generates natural explanations. End goal is a
+Discord bot that explains NS lingo to civilians without hallucinating definitions.
 
-For a focused guide on glossary files and review workflow, see [glossary-pipeline.md](glossary-pipeline.md).
+For the bot roadmap, see [fine-tuning-plan.md](fine-tuning-plan.md). For glossary workflow, see [glossary-pipeline.md](glossary-pipeline.md).
 
 ---
 
@@ -107,9 +107,9 @@ The project is split into five sequential stages:
 |-------|------------------|--------|
 | **1 — Scrape existing dictionaries** | `seed.json` with 292 entries | Done |
 | **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
-| **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (42 curated entries); crowdsourcing optional |
-| **4 — Model** | Fine-tuned Singlish model (adapted to NS lingo) | Planned |
-| **5 — Bot** | Discord bot (RAG + fine-tuned model) | Planned |
+| **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (50 curated entries); crowdsourcing optional |
+| **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`) | In progress |
+| **5 — Bot** | Discord bot (RAG + Gemini) | Planned |
 
 ---
 
@@ -138,13 +138,13 @@ PATH A — FORUM CORPUS
                    curated.json                    │
                          │
                          ▼
-              fine_tune/prepare_data.py ──► training dataset
+              bot/rag.py ──► glossary lookup
                          │
                          ▼
-              fine_tune/train.py ──► fine-tuned model
+              Gemini API ──► grounded answer
                          │
                          ▼
-              bot/ ──► Discord bot (RAG + fine-tuned model)
+              bot/discord_bot.py (planned)
 ```
 
 ---
@@ -283,21 +283,25 @@ understanding, while RAG grounds explanations in the glossary to prevent halluci
 
 ---
 
-## Fine-tuning readiness
+## Bot + RAG readiness
 
-Fine-tuning is **not blocked on crowdsourcing**, but **is blocked on glossary quality**.
+Bot work is **not blocked on crowdsourcing**; it **is blocked on glossary quality** for specific terms.
 
 | Gate | Status |
 |------|--------|
-| Valid `curated.json` with definitions | Done (42 entries, July 2026) |
-| Human review complete | Done |
-| Training data script | `fine_tune/prepare_data.py` — **next step** |
-| Corpus size | ~195 comments usable for MVP; more data helps MLM |
+| Valid `curated.json` with definitions | Done (50 entries) |
+| `seed.json` baseline (292 entries) | Done |
+| Model comparison (Gemini vs SEA-LION) | Done — see [model-comparison-2026-07.md](model-comparison-2026-07.md) |
+| RAG lookup (`bot/rag.py`) | Done |
+| RAG eval (`bot/rag_eval.py`) | Done — run after glossary changes |
+| Discord bot | Not built |
 
 Recommended order:
-1. Build `prepare_data.py` and inspect training pairs from `seed.json` + `curated.json`
-2. Install `torch` / `transformers`; start with a small task before full fine-tune
-3. Run `train.py` only after inspecting sample pairs
+1. Run `python bot/rag_eval.py` and fix glossary gaps
+2. Build `bot/discord_bot.py`
+3. Optional: embedding-based retrieval if keyword search misses aliases
+
+Local LoRA fine-tuning is **de-prioritised** — see [fine-tuning-plan.md](fine-tuning-plan.md).
 
 ---
 
@@ -338,7 +342,7 @@ ns_lingo_nlp/
 │       ├── candidates.json              # Forum candidates — triage (93 terms)
 │       ├── candidates_annotated.json   # SEA-LION annotations (93 terms)
 │       ├── candidates_nsr.json         # Gemini intermediate (ephemeral)
-│       └── curated.json                # Forum-validated terms (42 terms, lean schema)
+│       └── curated.json                # Forum-validated terms (50 entries, lean schema)
 │
 ├── scraper/
 │   ├── hwz_scraper.py
@@ -347,17 +351,14 @@ ns_lingo_nlp/
 │
 ├── corpus/
 │   ├── frequency.py
-│   ├── extract.py           # SEA-LION annotation
+│   ├── extract.py           # SEA-LION annotation (historical)
 │   └── llm_extract.py       # Gemini NSR extraction
 │
-├── fine_tune/               # (future)
-│   ├── prepare_data.py
-│   └── train.py
-│
-├── bot/                     # (future)
-│   ├── discord_bot.py
-│   ├── rag_engine.py
-│   └── glossary_loader.py
+├── bot/
+│   ├── rag.py               # Glossary merge + keyword search
+│   ├── rag_eval.py          # Gemini + RAG eval on 8 prompts
+│   ├── eval_prompts.py      # Shared eval questions
+│   └── discord_bot.py       # (planned)
 │
 └── notebooks/
 ```

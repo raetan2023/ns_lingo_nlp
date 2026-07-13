@@ -9,7 +9,7 @@ The project owner is a CS undergraduate in Singapore, new to NLP and AI. The pro
 ---
 
 ## Current Stage
-* Glossary validation complete for MVP; fine-tuning prep next.
+* Glossary validation complete for MVP; **Gemini + RAG bot path** (see [fine-tuning-plan.md](fine-tuning-plan.md)).
 
 ## Google Doc
 https://docs.google.com/document/d/12e5w7t01ktPG1FdnyjvCXDvqB_FRq2o2jgoGjcZszCo/edit?usp=sharing
@@ -94,7 +94,13 @@ Rae:
 3. Added variants (intake, nsti), related_terms (pes family, ns fit), separate ns fit record
 4. Stripped workflow fields (review_status, annotation_status, confidence, count, etc.)
 5. Removed merge_curated.py — one-time merge workflow complete
-6. Next: build fine_tune/prepare_data.py
+6. Next: RAG eval + Discord bot (`bot/rag_eval.py`)
+
+13/07/26 (later)
+Rae:
+1. Model comparison — Gemini >> SEA-LION / Danube2 on 8 NS prompts (see docs/model-comparison-2026-07.md)
+2. Removed fine_tune/; pivoted to Gemini + RAG
+3. Added bot/rag.py, bot/rag_eval.py, docs/fine-tuning-plan.md
 
 ---
 
@@ -168,7 +174,7 @@ A Discord bot that takes a sentence containing NS lingo and explains it naturall
 |------|-------|-----------------|
 | **1** (MVP) | Curated dictionaries + frequency pipeline | Expand `seed_glossary.py` to scrape all major NS dictionary sources. Run frequency analysis on Reddit + HWZ data. Output: comprehensive `seed.json` |
 | **2** | Human-in-the-loop enrichment | Crowdsource from NS friends. LLM-assisted term extraction from forum data. Pattern-based bootstrapping. Review workflow (candidates → verified → merged). Output: `curated.json` with full glossary schema |
-| **3** | Model + Bot | Fine-tune Singlish model on curated data. Build Discord bot with RAG. |
+| **3** | Model + Bot | Gemini + RAG over glossary; Discord bot |
 
 ## Crowdsourcing Plan (Iter 2)
 

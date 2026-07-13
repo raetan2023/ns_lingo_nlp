@@ -37,7 +37,7 @@
 | `data/glossary/candidates.json` | Forum frequency candidates (93 terms). Triage file: `reviewed` or `rejected`. Definitions empty. |
 | `data/glossary/candidates_annotated.json` | Same 93 terms with SEA-LION annotations (definitions, register, POS, confidence). Awaiting human validation. |
 | `data/glossary/candidates_nsr.json` | Ephemeral Gemini intermediate output from `llm_extract.py` — not always in repo. Merges into `seed.json` after review. |
-| `data/glossary/curated.json` | Forum-validated glossary (42 entries). Lean schema: `term`, `definition`, `variants`, `register`, `part_of_speech`, `source`, `definition_source`, `related_terms`, `example_sentences`, `notes`. |
+| `data/glossary/curated.json` | Forum-validated glossary (50 entries). Lean schema: `term`, `definition`, `variants`, `register`, `part_of_speech`, `source`, `definition_source`, `related_terms`, `example_sentences`, `notes`. |
 
 ## `corpus/`
 
@@ -55,11 +55,21 @@
 | `scraper/seed_glossary.py` | Scrapes existing NS lingo dictionaries (wikis, blogs, official pages) to build `seed.json` |
 | `scraper/hwz_scraper.py` | Scans 500 most recent EDMW pages for NS-related thread titles, then scrapes full thread content |
 
+## `bot/`
+
+| Path | Purpose |
+|------|---------|
+| `bot/rag.py` | Merge `seed.json` + `curated.json` (curated wins); keyword search for RAG context |
+| `bot/rag_eval.py` | Run Gemini + RAG on 8 eval prompts; outputs `rag_eval_results.txt` |
+| `bot/eval_prompts.py` | Shared NS eval questions and system prompts |
+
 ## `docs/`
 
 | Path | Purpose |
 |------|---------|
 | `docs/README.md` | Full project overview: goals, tech stack, data sources, glossary schema, NLP concepts, iteration roadmap, progress log |
-| `docs/ARCHITECTURE.md` | System design: three-layer mental model, two parallel pipelines, stages, fine-tuning readiness |
+| `docs/ARCHITECTURE.md` | System design: three-layer mental model, two parallel pipelines, stages, RAG/bot readiness |
+| `docs/fine-tuning-plan.md` | Bot roadmap: Gemini + RAG phases (replaces local LoRA plan) |
+| `docs/model-comparison-2026-07.md` | Archived Gemini vs SEA-LION zero-shot comparison |
 | `docs/glossary-pipeline.md` | Focused guide: glossary file roles, review workflow, merge policy |
 | `docs/project-map.md` | This file — maps every folder and file with descriptions |

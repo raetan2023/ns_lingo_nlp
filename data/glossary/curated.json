@@ -309,7 +309,7 @@
   },
   {
     "term": "pes",
-    "definition": "Physical Employment Standards (PES): a medical classification used by CMPB, SAF, and Home Team to determine fitness for NS and suitable vocations. Major categories include PES A/B/C/E and sub-grades such as B1 and B4. CMPB is introducing MCS for newer enlistment cohorts.",
+    "definition": "Physical Employment Standards (PES): a medical classification assigned after CMPB medical screening to determine fitness for NS and suitable vocations in the SAF, SCDF, and SPF. For pre-enlistees enlisting before October 2027. CMPB is introducing the Refreshed Medical Classification System (MCS) for later cohorts.",
     "variants": [],
     "register": "formal",
     "part_of_speech": "acronym",
@@ -317,45 +317,95 @@
     "definition_source": "seed",
     "related_terms": [
       "pes status",
-      "pes bp",
+      "pes a",
       "pes b1",
+      "pes b2",
+      "pes b3",
       "pes b4",
-      "pes c9"
+      "pes bp",
+      "pes c2",
+      "pes c9",
+      "pes d",
+      "pes e1",
+      "pes e9",
+      "pes f"
     ],
     "example_sentences": [],
-    "notes": ""
+    "notes": "Source: CMPB (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/)."
+  },
+  {
+    "term": "pes a",
+    "definition": "PES A: suitable for combat vocations in the SAF, frontline operational vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
   },
   {
     "term": "pes b1",
-    "definition": "PES B1: a sub-category under PES B indicating a specific medical fitness grade within the Physical Employment Standards system.",
+    "definition": "PES B1: suitable for combat vocations in the SAF, frontline operational vocations in SCDF and SPF. Grouped with PES A on the CMPB vocation table.",
     "variants": [],
     "register": "formal",
     "part_of_speech": "noun",
     "source": "frequency_analysis",
-    "definition_source": "llm",
+    "definition_source": "manual",
     "related_terms": [
       "pes"
     ],
     "example_sentences": [],
-    "notes": ""
+    "notes": "Source: CMPB (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/)."
+  },
+  {
+    "term": "pes b2",
+    "definition": "PES B2: suitable for some combat vocations and combat support vocations in the SAF; some frontline operational and frontline support vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
+  },
+  {
+    "term": "pes b3",
+    "definition": "PES B3: suitable for some combat vocations and combat support vocations in the SAF; some frontline operational and frontline support vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
   },
   {
     "term": "pes b4",
-    "definition": "PES B4: a sub-category under PES B indicating a specific medical fitness grade within the Physical Employment Standards system.",
+    "definition": "PES B4: suitable for some combat vocations and combat support vocations in the SAF; some frontline operational and frontline support vocations in SCDF and SPF.",
     "variants": [],
     "register": "informal",
     "part_of_speech": "noun",
     "source": "frequency_analysis",
-    "definition_source": "llm",
+    "definition_source": "manual",
     "related_terms": [
       "pes"
     ],
     "example_sentences": [],
-    "notes": ""
+    "notes": "Source: CMPB (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/)."
   },
   {
     "term": "pes bp",
-    "definition": "a medical classification for national servicemen who are fit for service but require a progressive, weight-loss-focused Basic Military Training (BMT) because their Body Mass Index (BMI) exceeds 27.0",
+    "definition": "PES BP: fit for Obese BMT in the SAF (Obese BRT in SCDF, Obese POBC in SPF). Recruits are reclassified after completing the programme depending on a review of their Body Mass Index.",
     "variants": [],
     "register": "formal",
     "part_of_speech": "acronym",
@@ -366,21 +416,91 @@
       "bp enlistment"
     ],
     "example_sentences": [],
-    "notes": ""
+    "notes": "Source: CMPB (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/)."
   },
   {
-    "term": "pes c9",
-    "definition": "PES C9: a medical classification indicating the serviceman is exempt from IPPT but remains medically fit for service in a suitable vocation.",
+    "term": "pes c2",
+    "definition": "PES C2: suitable for some combat support vocations and combat service support vocations in the SAF; some frontline support vocations in SCDF and SPF.",
     "variants": [],
     "register": "formal",
-    "part_of_speech": "phrase",
-    "source": "frequency_analysis",
-    "definition_source": "llm",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
     "related_terms": [
       "pes"
     ],
     "example_sentences": [],
-    "notes": ""
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
+  },
+  {
+    "term": "pes c9",
+    "definition": "PES C9: suitable for some combat support vocations and combat service support vocations in the SAF; some frontline support vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "frequency_analysis",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/)."
+  },
+  {
+    "term": "pes d",
+    "definition": "PES D: temporarily unfit for grading and pending further review. More time or tests are needed to determine medical fitness, typically about two to three months. Only applicable to pre-enlistees.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
+  },
+  {
+    "term": "pes e1",
+    "definition": "PES E1: suitable for combat service support and service vocations in the SAF; administrative support vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
+  },
+  {
+    "term": "pes e9",
+    "definition": "PES E9: suitable for combat service support and service vocations in the SAF; administrative support vocations in SCDF and SPF.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
+  },
+  {
+    "term": "pes f",
+    "definition": "PES F: medically unfit for any form of National Service.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "noun",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "pes"
+    ],
+    "example_sentences": [],
+    "notes": "Source: CMPB PES page (https://www.cmpb.gov.sg/before-ns/pre-enlistment-process/medical-screening-and-psychometric-test/medical-fitness/physical-employment-standard--pes-/). Applies to pre-enlistees enlisting before October 2027."
   },
   {
     "term": "pes status",

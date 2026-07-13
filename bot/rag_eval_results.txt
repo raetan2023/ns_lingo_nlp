@@ -1,0 +1,396 @@
+Gemini + RAG eval — 2026-07-13T14:27:56.907819+00:00
+Model: gemini-3.1-flash-lite
+
+========================================================================
+[1] What does rabak mean in NS?
+========================================================================
+Glossary hits: Rabak, NS
+------------------------------------------------------------------------
+CONTEXT:
+term: Rabak
+definition: (help)
+source: seed
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+I do not know. The provided glossary excerpt defines "Rabak" as "(help)," which does not offer a specific definition for its usage in the context of NS.
+
+========================================================================
+[2] Explain pes b4 to someone who never served NS.
+========================================================================
+Glossary hits: pes b4, pes, NS, Act blur, live longer, Bo Bo Shooter, Bobo King, Bobo shooter, Lan Lan
+------------------------------------------------------------------------
+CONTEXT:
+term: pes b4
+definition: PES B4: suitable for some combat vocations and combat support vocations in the SAF; some frontline operational and frontline support vocations in SCDF and SPF.
+related_terms: pes
+source: curated
+
+---
+
+term: pes
+definition: Physical Employment Standards (PES): a medical classification assigned after CMPB medical screening to determine fitness for NS and suitable vocations in the SAF, SCDF, and SPF. For pre-enlistees enlisting before October 2027. CMPB is introducing the Refreshed Medical Classification System (MCS) for later cohorts.
+related_terms: pes status, pes a, pes b1, pes b2, pes b3, pes b4, pes bp, pes c2, pes c9, pes d, pes e1, pes e9, pes f
+source: curated
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+
+---
+
+term: Act blur, live longer
+definition: When someone pretends they don't know anything and (help)
+source: seed
+
+---
+
+term: Bo Bo Shooter
+definition: Someone who cannot shoot or aim properly.
+source: seed
+
+---
+
+term: Bobo King
+definition: Someone who cannot shoot or aim properly.
+source: seed
+
+---
+
+term: Bobo shooter
+definition: Someone who cannot shoot or aim properly.
+source: seed
+
+---
+
+term: Lan Lan
+definition: To suck it up and resign to fate. If you are unable to escape from the evil the SAF calls 'work', you have to just accept your misfortune. You would never survive NS otherwise.
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+PES B4 is a medical classification (Physical Employment Standard) assigned to a pre-enlistee after their medical screening at CMPB. It indicates that the individual is fit for some combat vocations and combat support vocations in the SAF, as well as some frontline operational and frontline support vocations in the SCDF and SPF.
+
+========================================================================
+[3] What is bookout in National Service?
+========================================================================
+Glossary hits: national service, bookout, IC, "About NAMS, 11B, black tape, cmpb, DSO
+------------------------------------------------------------------------
+CONTEXT:
+term: national service
+definition: Compulsory full-time national service for eligible Singaporean men after secondary school.
+source: curated
+
+---
+
+term: bookout
+definition: The act of leaving the military camp at the end of the work week.
+source: seed
+
+---
+
+term: IC
+definition: In-Charge; usually refers to a section or platoon leader (e.g., Platoon IC).
+source: seed
+
+---
+
+term: "About NAMS
+definition: National Addictions Management Service (NAMS)"
+source: seed
+
+---
+
+term: 11B
+definition: The official Singapore Armed Forces identity card issued to all National Servicemen.
+source: seed
+
+---
+
+term: black tape
+definition: Refers to electrical tape used extensively by national servicemen to secure equipment, repair gear, or camouflage items to comply with military standards.
+source: seed
+
+---
+
+term: cmpb
+definition: Central Manpower Base; the authority responsible for the registration, medical screening, and enlistment of National Servicemen.
+source: curated
+
+---
+
+term: DSO
+definition: DSO National Laboratories
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+Bookout is the act of leaving the military camp at the end of the work week.
+
+========================================================================
+[4] Translate this NS sentence to plain English: Sgt say mono intake very jialat.
+========================================================================
+Glossary hits: mono intake, intake, mo, NS, SA, Ninja, Wayang & The Singapore Acting Foundation
+------------------------------------------------------------------------
+CONTEXT:
+term: mono intake
+definition: Instead of the standard two-phase system where recruits do BMT at Pulau Tekong and get posted to units later, mono-intake NSFs complete their basic and vocational training primarily aligned with their designated unit.
+source: curated
+
+---
+
+term: intake
+definition: A group of conscripts from the same batch who are enlisted into NS together.
+variants: october batch, january batch, august batch
+related_terms: mono intake, enlistment
+source: curated
+
+---
+
+term: mo
+definition: Medical officer; the person you go to in order to report sick.
+source: curated
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+
+---
+
+term: SA
+definition: Service Assistant; a clerical support role within the SAF.
+source: seed
+
+---
+
+term: Ninja
+definition: To disappear at work, usually to a secluded hiding spot. If you are seen less, you will be shot at, with arrows, less often. If you are so unfortunate as to be caught doing this, a plausible excuse such as 'I went to the toilet' or 'I was doing some work' might get you out of trouble, even if the regulars see through them. They've been in the Army for decades now; they've seen their fair share of stunts. However, they usually cannot be bothered with NSFs and they let us go. Of course, apply some common sense here, and if your superior is a savage man-eating, head-smashing bugger, try not to pull stunts too often. Try not to anger the hand which holds your leash. Legendary ninjas, typically experienced regulars, have been known to combine wayang and ninja skills to remain invisible in plain sight. Similarly, 'to throw smoke' is used to the same effect.
+source: seed
+
+---
+
+term: Wayang & The Singapore Acting Foundation
+definition: Wayang, translated literally into 'acting', is an essential survival skill for NS. At the most basic level, wayang-ing is to pretend that you are actually working, while in truth you are skiving. In my experience, when you have typical regulars who play with workplace politics for your superiors, there is usually no correlation between doing your work well and getting rewarded for it, like getting off or early book-out. Therefore, it only makes sense to wayang your two years away since there is a limited amount of time served but an unlimited amount of work to finish. Related terms include 'eye power' and 'No Action, Talk Only'
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+The Sergeant said that being in a mono-intake unit is very tough/terrible.
+
+========================================================================
+[5] What does ORD mean in Singapore NS?
+========================================================================
+Glossary hits: ORD, NS, 1100 to 2100 hours, 1100-2100 hours, 11B, birth control glasses, ESG, Home Team Academy
+------------------------------------------------------------------------
+CONTEXT:
+term: ORD
+definition: Operationally Ready Date
+source: seed
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+
+---
+
+term: 1100 to 2100 hours
+definition: The 24-hour time format, standard in the Singapore Armed Forces for all military operations and communication.
+source: seed
+
+---
+
+term: 1100-2100 hours
+definition: The 24-hour clock format used exclusively for all timing and communication within the Singapore Armed Forces.
+source: seed
+
+---
+
+term: 11B
+definition: The official Singapore Armed Forces identity card issued to all National Servicemen.
+source: seed
+
+---
+
+term: birth control glasses
+definition: Slang for the standard-issue spectacles provided by the Singapore Armed Forces, famously known for their thick, unattractive frames.
+source: seed
+
+---
+
+term: ESG
+definition: Enterprise Singapore Group
+source: seed
+
+---
+
+term: Home Team Academy
+definition: The training institution for the Singapore Police Force and Singapore Civil Defence Force.
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+In Singapore NS, ORD means Operationally Ready Date.
+
+========================================================================
+[6] Explain what PES A means for enlistment.
+========================================================================
+Glossary hits: enlistment, pes a, pes, NS, Man mode, Tip
+------------------------------------------------------------------------
+CONTEXT:
+term: enlistment
+definition: The formal act of entering military service to begin National Service.
+source: curated
+
+---
+
+term: pes a
+definition: PES A: suitable for combat vocations in the SAF, frontline operational vocations in SCDF and SPF.
+related_terms: pes
+source: curated
+
+---
+
+term: pes
+definition: Physical Employment Standards (PES): a medical classification assigned after CMPB medical screening to determine fitness for NS and suitable vocations in the SAF, SCDF, and SPF. For pre-enlistees enlisting before October 2027. CMPB is introducing the Refreshed Medical Classification System (MCS) for later cohorts.
+related_terms: pes status, pes a, pes b1, pes b2, pes b3, pes b4, pes bp, pes c2, pes c9, pes d, pes e1, pes e9, pes f
+source: curated
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+
+---
+
+term: Man mode
+definition: When someone is in man mode, it means that he is too mentally or physically exhausted to think or do anything other than the bare minimum. “Eh bro, we talk later lah . I damn tired. I’m going into man mode already.”
+source: seed
+
+---
+
+term: Tip
+definition: Having it entitles you to discounts and promotions on occasions like SAF day. And losing it means paying a fine of $50 and a dressing-down from your CSM (see acronym no. 10). So guard it well.
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+PES A means that upon enlistment, a soldier is classified as suitable for combat vocations in the SAF, or frontline operational vocations in the SCDF and SPF.
+
+========================================================================
+[7] What is remedial training in NS?
+========================================================================
+Glossary hits: remedial training, NS, admin attire, Admin time, assault bag, ATEC, ATP, BIC
+------------------------------------------------------------------------
+CONTEXT:
+term: remedial training
+definition: Former programme for NSmen who failed IPPT. Largely replaced by NS Fit for fitness remediation.
+related_terms: ns fit, ippt
+source: curated
+
+---
+
+term: NS
+definition: Mandatory conscription for male Singapore citizens and permanent residents.
+source: seed
+
+---
+
+term: admin attire
+definition: The standard-issue physical training or leisure uniform (shorts and t-shirt) worn by NSFs during non-training hours in camp.
+source: seed
+
+---
+
+term: Admin time
+definition: Designated free time given to soldiers to settle personal tasks, clean equipment, or handle logistics within the training schedule.
+source: seed
+
+---
+
+term: assault bag
+definition: The standard-issue tactical backpack used by SAF personnel during training and field exercises.
+source: seed
+
+---
+
+term: ATEC
+definition: Army Training Evaluation Centre
+source: seed
+
+---
+
+term: ATP
+definition: Annual Training Period: Yearly training period for operationally ready NSmen.
+source: seed
+
+---
+
+term: BIC
+definition: Battle Inoculation Course: Short training event where recruits move under simulated battlefield conditions.
+source: seed
+------------------------------------------------------------------------
+ANSWER:
+Remedial training was a former programme for NSmen who failed their IPPT, which has since been largely replaced by NS Fit for fitness remediation.
+
+========================================================================
+[8] What does stand by area mean in army camp?
+========================================================================
+Glossary hits: 1100 to 2100 hours, admin attire, assault bag, birth control glasses, black tape, down PES, Medical bible, pes
+------------------------------------------------------------------------
+CONTEXT:
+term: 1100 to 2100 hours
+definition: The 24-hour time format, standard in the Singapore Armed Forces for all military operations and communication.
+source: seed
+
+---
+
+term: admin attire
+definition: The standard-issue physical training or leisure uniform (shorts and t-shirt) worn by NSFs during non-training hours in camp.
+source: seed
+
+---
+
+term: assault bag
+definition: The standard-issue tactical backpack used by SAF personnel during training and field exercises.
+source: seed
+
+---
+
+term: birth control glasses
+definition: Slang for the standard-issue spectacles provided by the Singapore Armed Forces, famously known for their thick, unattractive frames.
+source: seed
+
+---
+
+term: black tape
+definition: Refers to electrical tape used extensively by national servicemen to secure equipment, repair gear, or camouflage items to comply with military standards.
+source: seed
+
+---
+
+term: down PES
+definition: To request or receive a lower Physical Employment Standard grade due to medical reasons, often resulting in a change of duty or operational status.
+source: seed
+
+---
+
+term: Medical bible
+definition: Colloquial term for the medical guidelines or standard operating procedures used by MOs to determine fitness criteria.
+source: seed
+
+---
+
+term: pes
+definition: Physical Employment Standards (PES): a medical classification assigned after CMPB medical screening to determine fitness for NS and suitable vocations in the SAF, SCDF, and SPF. For pre-enlistees enlisting before October 2027. CMPB is introducing the Refreshed Medical Classification System (MCS) for later cohorts.
+related_terms: pes status, pes a, pes b1, pes b2, pes b3, pes b4, pes bp, pes c2, pes c9, pes d, pes e1, pes e9, pes f
+source: curated
+------------------------------------------------------------------------
+ANSWER:
+I do not know. The provided glossary does not contain a definition for "stand by area."
