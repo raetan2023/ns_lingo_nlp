@@ -1,7 +1,7 @@
 [
   {
-    "term": "\"About NAMS",
-    "definition": "National Addictions Management Service (NAMS)\"",
+    "term": "NAMS",
+    "definition": "National Addictions Management Service.",
     "category": "wikipedia_military_abbreviation",
     "source": "https://en.wikipedia.org/wiki/List_of_Singapore_abbreviations"
   },
@@ -1315,7 +1315,7 @@
   },
   {
     "term": "Rabak",
-    "definition": "(help)",
+    "definition": "Very bad, messy, or exhausting. E.g. \"That outfield was rabak.\"",
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
@@ -1460,6 +1460,7 @@
   {
     "term": "SBA",
     "definition": "Stand by area; bunk inspection.",
+    "variants": ["stand by area", "standby area"],
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
