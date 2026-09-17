@@ -1460,7 +1460,7 @@
   {
     "term": "SBA",
     "definition": "Stand by area; bunk inspection.",
-    "variants": ["stand by area", "standby area"],
+    "variants": ["stand by area"],
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/lingo/"
   },
