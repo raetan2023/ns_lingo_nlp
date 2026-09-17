@@ -66,11 +66,6 @@ def _score_entry(query: str, entry: dict) -> int:
     for alias in _aliases(entry):
         if alias in q:
             score += 10 + len(alias)
-        elif len(alias) > 3 and alias in q.replace("?", ""):
-            score += 5
-    definition = entry.get("definition", "").lower()
-    if definition and any(word in definition for word in q.split() if len(word) > 4):
-        score += 1
     return score
 
 
