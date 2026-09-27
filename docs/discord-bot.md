@@ -83,21 +83,6 @@ so it needs an always-on machine. Not decided yet (27/09/26).
 
 On a server, run it as a `systemd` service so it starts on boot and restarts after crashes.
 
-### Why not Vercel
-
-Vercel runs code per request and can't hold the gateway connection, and `torch` exceeds its
-function size limit. A Vercel version would have to be a rewrite using Discord's HTTP
-**Interactions Endpoint** (slash/message commands only):
-
-| Feature | Current bot (server) | Vercel version |
-|---------|----------------------|----------------|
-| `@mention`, plain DMs | ✅ | ❌ |
-| `/ns` in servers and DMs | ✅ | ✅ |
-| Paraphrases (local embeddings) | ✅ 37/40 retrieval | ❌ 33/40 keyword-only, unless a paid embeddings API is added |
-| Rate limit | In memory | Needs external store (e.g. Upstash Redis) |
-| Code changes | None | Signature verification, deferred reply within 3s, follow-up message |
-| Hosting cost | Free (Oracle/GCP) or ~$5/month | Free (Hobby) |
-
 ## Improving answers
 
 Questions are logged to the console (`user=... q='...'`). When the bot gets one wrong, add it to
