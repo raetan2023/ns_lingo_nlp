@@ -7,6 +7,7 @@ Usage:
     python bot/retrieval_eval.py
     python bot/retrieval_eval.py --verbose      # show hits for passing cases too
     python bot/retrieval_eval.py --category spelling
+    python bot/retrieval_eval.py --no-semantic  # keyword matching only
 
 Cases live in bot/retrieval_cases.json. Each case has:
     query        the user message
@@ -36,8 +37,8 @@ CASES_PATH = BOT_DIR / "retrieval_cases.json"
 GENERIC_TERMS = {"ns", "national service", "saf"}
 
 
-def check_case(case: dict, glossary: list[dict]) -> tuple[bool, list[str], list[str]]:
-    hits = [h["term"] for h in search_glossary(case["query"], glossary)]
+def check_case(case: dict, glossary: list[dict], semantic: bool = True) -> tuple[bool, list[str], list[str]]:
+    hits = [h["term"] for h in search_glossary(case["query"], glossary, semantic=semantic)]
     hit_set = {h.lower() for h in hits}
     problems: list[str] = []
 
@@ -62,6 +63,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Glossary retrieval eval")
     parser.add_argument("--verbose", "-v", action="store_true")
     parser.add_argument("--category")
+    parser.add_argument("--no-semantic", action="store_true", help="keyword matching only")
     args = parser.parse_args()
 
     cases = json.loads(CASES_PATH.read_text(encoding="utf-8"))
@@ -72,7 +74,7 @@ def main() -> int:
     totals: dict[str, list[int]] = defaultdict(lambda: [0, 0])
 
     for case in cases:
-        ok, hits, problems = check_case(case, glossary)
+        ok, hits, problems = check_case(case, glossary, semantic=not args.no_semantic)
         totals[case["category"]][0] += ok
         totals[case["category"]][1] += 1
         if not ok or args.verbose:

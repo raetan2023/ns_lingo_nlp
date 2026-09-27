@@ -150,8 +150,13 @@ def search_glossary(
     entries: list[dict] | None = None,
     *,
     limit: int = 8,
+    semantic: bool = True,
 ) -> list[dict]:
-    """Return glossary entries most relevant to the user query."""
+    """Return glossary entries most relevant to the user query.
+
+    Keyword matches (exact, spacing variants, small typos) first, then up to
+    SEMANTIC_MAX_HITS meaning-based matches when semantic=True.
+    """
     if entries is None:
         entries = merge_glossary()
 
@@ -170,9 +175,15 @@ def search_glossary(
                 scored.append((100 + len(focus), entry))
 
     scored.sort(key=lambda x: x[0], reverse=True)
+    ranked = [entry for _, entry in scored]
+    # Keyword hits come first (precise); meaning-based hits fill in after them,
+    # which is what catches paraphrases like "pretends to be sick" -> Chao Keng.
+    if semantic:
+        ranked.extend(semantic_search(query, entries))
+
     seen: set[str] = set()
     results: list[dict] = []
-    for _, entry in scored:
+    for entry in ranked:
         key = entry["term"].lower()
         if key in seen:
             continue
@@ -181,6 +192,54 @@ def search_glossary(
         if len(results) >= limit:
             break
     return results
+
+
+# --- Semantic (embedding) search -------------------------------------------
+
+EMBED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
+# Cosine similarity cutoff. On the retrieval eval, real matches score ~0.55-0.77
+# and unrelated entries stay under ~0.5 (e.g. "zombie parade" -> NDP 0.51).
+SEMANTIC_MIN_SCORE = 0.55
+SEMANTIC_MAX_HITS = 3
+
+_embed_model = None
+_embed_index: dict[tuple, object] = {}
+
+
+def _entry_text(entry: dict) -> str:
+    return f"{entry['term']}: {entry.get('definition', '')}"
+
+
+def semantic_search(
+    query: str,
+    entries: list[dict],
+    *,
+    min_score: float = SEMANTIC_MIN_SCORE,
+    max_hits: int = SEMANTIC_MAX_HITS,
+) -> list[dict]:
+    """Glossary entries whose meaning is close to the query, best first.
+
+    Runs locally (no API). Returns [] if sentence-transformers isn't installed.
+    """
+    global _embed_model
+    try:
+        from sentence_transformers import SentenceTransformer
+    except ImportError:
+        return []
+
+    if _embed_model is None:
+        _embed_model = SentenceTransformer(EMBED_MODEL)
+
+    texts = tuple(_entry_text(e) for e in entries)
+    matrix = _embed_index.get(texts)
+    if matrix is None:
+        matrix = _embed_model.encode(list(texts), normalize_embeddings=True)
+        _embed_index[texts] = matrix
+
+    q = _embed_model.encode([query], normalize_embeddings=True)[0]
+    scores = matrix @ q
+    best = scores.argsort()[::-1][:max_hits]
+    return [entries[i] for i in best if scores[i] >= min_score]
 
 
 def format_context(entries: list[dict]) -> str:
