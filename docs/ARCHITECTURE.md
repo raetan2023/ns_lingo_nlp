@@ -108,7 +108,7 @@ The project is split into five sequential stages:
 | **1 — Scrape existing dictionaries** | `seed.json` with 292 entries | Done |
 | **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
 | **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (50 curated entries); crowdsourcing optional |
-| **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`) | In progress |
+| **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`); keyword + local-embedding retrieval, 37/40 on `retrieval_eval.py` | In progress |
 | **5 — Bot** | Discord bot (RAG + Gemini) | Planned |
 
 ---
@@ -139,9 +139,11 @@ PATH A — FORUM CORPUS
                          │
                          ▼
               bot/rag.py ──► glossary lookup
-                         │
+                         │     keyword match (exact / spacing / typos)
+                         │     + local embeddings (all-MiniLM-L6-v2)
                          ▼
-              Gemini API ──► grounded answer
+              Gemini 3.1 Flash Lite ──► grounded answer
+              (via OpenRouter or Gemini API)
                          │
                          ▼
               bot/discord_bot.py (planned)
@@ -292,14 +294,20 @@ Bot work is **not blocked on crowdsourcing**; it **is blocked on glossary qualit
 | Valid `curated.json` with definitions | Done (50 entries) |
 | `seed.json` baseline (292 entries) | Done |
 | Model comparison (Gemini vs SEA-LION) | Done — see [model-comparison-2026-07.md](model-comparison-2026-07.md) |
-| RAG lookup (`bot/rag.py`) | Done |
-| RAG eval (`bot/rag_eval.py`) | Done — run after glossary changes |
+| RAG lookup (`bot/rag.py`) | Done — keyword + spelling tolerance + local embeddings |
+| Retrieval eval (`bot/retrieval_eval.py`, 40 cases) | Done — 37/40, free to run (no API) |
+| Answer eval (`bot/answer_eval.py`) | Done — 34/40 with RAG |
+| RAG eval (`bot/rag_eval.py`, 8 prompts) | Done — run after glossary changes |
 | Discord bot | Not built |
 
+**Decision (27/09/26): stay with keyword RAG, not full glossary in the prompt.** Sending all
+~340 entries (~10k tokens) scored the same on answers (34/40) once embeddings were added to
+RAG, but costs ~$0.0025 vs ~$0.0001 per question. Results: `bot/answer_eval_results.txt`.
+
 Recommended order:
-1. Run `python bot/rag_eval.py` and fix glossary gaps
-2. Build `bot/discord_bot.py`
-3. Optional: embedding-based retrieval if keyword search misses aliases
+1. Add real user questions to `bot/retrieval_cases.json` as they come in; rerun `retrieval_eval.py`
+2. Build `bot/discord_bot.py` (load the embedding model once at startup, ~20s)
+3. Optional: answer exact single-term lookups straight from the glossary to skip the LLM call
 
 Local LoRA fine-tuning is **de-prioritised** — see [fine-tuning-plan.md](fine-tuning-plan.md).
 
@@ -312,6 +320,7 @@ Local LoRA fine-tuning is **de-prioritised** — see [fine-tuning-plan.md](fine-
 | r/NationalServiceSG | Public JSON API | None | Active |
 | HWZ EDMW (keyword search) | requests + BeautifulSoup | None | Active |
 | national-service.vercel.app | BeautifulSoup + Gemini API | `GEMINI_API_KEY` | Active |
+| Bot LLM (RAG answers) | OpenRouter or Gemini API | `OPENROUTER_API_KEY` or `GEMINI_API_KEY` | Active |
 | Existing NS dictionaries | Web scrape / manual copy | None | Done |
 | Manual crowdsourcing | Google Form → CSV | — | Planned |
 
@@ -355,8 +364,11 @@ ns_lingo_nlp/
 │   └── llm_extract.py       # Gemini NSR extraction
 │
 ├── bot/
-│   ├── rag.py               # Glossary merge + keyword search
+│   ├── rag.py               # Glossary merge + keyword/embedding search
 │   ├── rag_eval.py          # Gemini + RAG eval on 8 prompts
+│   ├── retrieval_eval.py    # Retrieval-only eval (no API)
+│   ├── retrieval_cases.json # 40 labelled test questions
+│   ├── answer_eval.py       # RAG vs full-glossary answer eval
 │   ├── eval_prompts.py      # Shared eval questions
 │   └── discord_bot.py       # (planned)
 │
@@ -375,7 +387,7 @@ ns_lingo_nlp/
 | `google-genai` | Google Gemini API client | LLM Extraction |
 | `discord.py` | Discord bot framework | Bot (future) |
 | `nltk` / `spaCy` | NLP (tokenisation, lemmatisation) | Corpus |
-| `sentence-transformers` | Embeddings for RAG | Bot (future) |
+| `sentence-transformers` | Local embeddings for RAG retrieval (`all-MiniLM-L6-v2`) | Bot |
 | `datasets` | Training data management | Model |
 | `transformers` | SEA-LION inference + future fine-tuning | Corpus / Model |
 | `torch` | ML framework for model inference/training | Corpus / Model |
@@ -386,6 +398,6 @@ ns_lingo_nlp/
 
 ## Environments / Config
 
-- `.env` — user-specific secrets (e.g. `GEMINI_API_KEY`)
+- `.env` — user-specific secrets: `GEMINI_API_KEY` and/or `OPENROUTER_API_KEY` (bot uses OpenRouter if set)
 - No Reddit API keys required — public JSON endpoints are used
 - Conda environment: `ns_lingo_nlp`

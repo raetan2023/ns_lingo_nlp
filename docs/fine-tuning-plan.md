@@ -74,9 +74,10 @@ Compared zero-shot Gemini vs SEA-LION on 8 hand-written NS prompts.
 **Scripts:** `bot/rag.py`, `bot/rag_eval.py`
 
 1. Merge `seed.json` + `curated.json` (curated wins on dedupe)
-2. Keyword / phrase lookup for terms in the question
-3. Inject top hits into Gemini prompt
-4. Run same 8 eval prompts; compare to zero-shot baseline
+2. Keyword / phrase lookup for terms in the question (whole-word; tolerates hyphens, spacing, small typos)
+3. Add up to 3 meaning-based matches from local embeddings (catches paraphrases)
+4. Inject hits into Gemini prompt
+5. Run same 8 eval prompts; compare to zero-shot baseline
 
 ```powershell
 conda activate ns_lingo_nlp
@@ -86,6 +87,15 @@ python bot/rag_eval.py
 **Outputs:** `bot/rag_eval_results.txt`, `bot/rag_eval_results.json`
 
 **What to check:** Does RAG fix stand by area, rabak `(help)` in seed, etc.? Any glossary gaps to fix in `curated.json`?
+
+**Other evals:**
+
+| Script | What it measures | Cost |
+|--------|------------------|------|
+| `python bot/retrieval_eval.py` | Did retrieval find the right glossary entries? 40 cases in `retrieval_cases.json` (direct, sentence, false-positive, spelling, paraphrase, unknown). `--no-semantic` = keyword only | Free |
+| `python bot/answer_eval.py --mode rag` | Does the LLM answer name the right term? Same 40 cases | ~$0.004 |
+
+Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 
 ---
 
@@ -97,7 +107,7 @@ python bot/rag_eval.py
 |-------|---------|
 | `rag.py` | Glossary merge + search (exists) |
 | `discord_bot.py` | `discord.py` client, slash command or mention handler |
-| `.env` | `GEMINI_API_KEY`, `DISCORD_BOT_TOKEN` |
+| `.env` | `OPENROUTER_API_KEY` (or `GEMINI_API_KEY`), `DISCORD_BOT_TOKEN` |
 
 **Flow:**
 1. User sends sentence or term question
@@ -107,13 +117,17 @@ python bot/rag_eval.py
 
 ---
 
-## Phase 3 — Improve retrieval (optional)
+## Phase 3 — Improve retrieval (done 27/09/26)
 
-| Upgrade | When |
-|---------|------|
-| `sentence-transformers` embeddings | Keyword search misses aliases (e.g. SBA vs stand by area) |
-| Hybrid search | Scale beyond ~340 terms |
-| Term detection in full sentences | Bot explains terms *in context* |
+| Upgrade | Status |
+|---------|--------|
+| Whole-word matching (`mo` no longer hits "mono") | Done |
+| Spelling/spacing tolerance (`book-out`, `chaokeng`, `rabbak`) | Done |
+| `sentence-transformers` embeddings (`all-MiniLM-L6-v2`, local, cutoff 0.55) | Done — paraphrases 0/5 → 4/5 |
+| Hybrid search (keyword first, embeddings fill in) | Done |
+| Full glossary in prompt | Tested, rejected — same answer score, ~25x cost |
+
+Known gaps: common words matching acronyms (`mom` → MOM, `pop` → POP); "date I finish NS" → `enlistment date` instead of `ORD`.
 
 ---
 
@@ -133,12 +147,16 @@ python bot/rag_eval.py
 ```powershell
 conda activate ns_lingo_nlp
 where python   # must show ...\envs\ns_lingo_nlp\python.exe
-python -m pip install google-genai python-dotenv
+python -m pip install -r requirements.txt
 ```
+
+`requirements.txt` was UTF-16 until 27/09/26, which pip can't read — it is UTF-8 now.
 
 Avoid `pip install` in `base` — use `python -m pip` in the activated env, or `conda run -n ns_lingo_nlp python -m pip install ...`.
 
-**Gemini:** `GEMINI_API_KEY` in `.env` (no quotes).
+**LLM key:** `OPENROUTER_API_KEY` or `GEMINI_API_KEY` in `.env` (no quotes). If both are set, OpenRouter is used (`google/gemini-3.1-flash-lite`, same model).
+
+**Embeddings:** first search downloads `all-MiniLM-L6-v2` (~90MB) and takes ~20s to load; each query after is ~30ms. Without `sentence-transformers` installed, search falls back to keyword-only.
 
 ---
 

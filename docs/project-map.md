@@ -10,7 +10,7 @@
 | `fetch_comments.py` | Fetches comments for all unique scraped posts via Reddit JSON API, flattens reply trees, cleans output |
 | `imports_check.ipynb` | Jupyter notebook to verify Python imports are working |
 | `main.py` | Entry point: orchestrates Reddit scraping pipeline |
-| `requirements.txt` | Python dependencies (python-dotenv, requests, beautifulsoup4) |
+| `requirements.txt` | Python dependencies (dotenv, requests, bs4, google-genai, transformers/torch, sentence-transformers) |
 | `workflow.py` | Git workflow helper: `python workflow.py start` (pull + checkout master), `python workflow.py finish` (add, commit, push, optional merge) |
 
 ## Top-level directories
@@ -59,8 +59,11 @@
 
 | Path | Purpose |
 |------|---------|
-| `bot/rag.py` | Merge `seed.json` + `curated.json` (curated wins); keyword search for RAG context |
-| `bot/rag_eval.py` | Run Gemini + RAG on 8 eval prompts; outputs `rag_eval_results.txt` |
+| `bot/rag.py` | Merge `seed.json` + `curated.json` (curated wins); keyword search (whole-word, spelling-tolerant) + local embedding search for RAG context |
+| `bot/rag_eval.py` | Run Gemini + RAG on 8 eval prompts (OpenRouter if `OPENROUTER_API_KEY` set, else Gemini); outputs `rag_eval_results.txt` |
+| `bot/retrieval_eval.py` | Scores retrieval only against `retrieval_cases.json`; no API calls |
+| `bot/retrieval_cases.json` | 40 labelled test questions: expected / forbidden glossary terms per query |
+| `bot/answer_eval.py` | Runs the 40 cases through the LLM in RAG and/or full-glossary mode; outputs `answer_eval_results.txt` |
 | `bot/eval_prompts.py` | Shared NS eval questions and system prompts |
 
 ## `docs/`

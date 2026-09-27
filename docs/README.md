@@ -102,6 +102,14 @@ Rae:
 2. Removed fine_tune/; pivoted to Gemini + RAG
 3. Added bot/rag.py, bot/rag_eval.py, docs/fine-tuning-plan.md
 
+27/09/26
+Keon:
+1. `rag_eval.py` can run via OpenRouter (`OPENROUTER_API_KEY`) — same Gemini 3.1 Flash Lite model
+2. Retrieval: whole-word matching, spelling/spacing tolerance, local embeddings (`all-MiniLM-L6-v2`)
+3. New evals: `bot/retrieval_eval.py` (40 cases, 21/40 → 37/40) and `bot/answer_eval.py`
+4. Tested full glossary in prompt — same answer score as RAG + embeddings but ~25x cost; staying with keyword RAG
+5. `requirements.txt` converted from UTF-16 to UTF-8 (pip couldn't read it)
+
 ---
 
 ## Tech Stack
