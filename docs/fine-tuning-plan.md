@@ -99,14 +99,15 @@ Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 
 ---
 
-## Phase 2 — Discord bot MVP
+## Phase 2 — Discord bot MVP (built 27/09/26)
 
 **Folder:** `bot/`
 
 | Piece | Purpose |
 |-------|---------|
-| `rag.py` | Glossary merge + search (exists) |
-| `discord_bot.py` | `discord.py` client, slash command or mention handler |
+| `rag.py` | Glossary merge + search |
+| `llm.py` | LLM client shared with the evals |
+| `discord_bot.py` | `/ns` slash command, @mentions and DMs; 20 questions/user/hour |
 | `.env` | `OPENROUTER_API_KEY` (or `GEMINI_API_KEY`), `DISCORD_BOT_TOKEN` |
 
 **Flow:**
@@ -114,6 +115,8 @@ Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 2. RAG retrieves glossary entries
 3. Gemini answers grounded in excerpts
 4. Reply in Discord
+
+Setup and running: [discord-bot.md](discord-bot.md).
 
 ---
 

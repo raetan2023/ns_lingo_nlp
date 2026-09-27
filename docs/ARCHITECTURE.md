@@ -109,7 +109,7 @@ The project is split into five sequential stages:
 | **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
 | **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (50 curated entries); crowdsourcing optional |
 | **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`); keyword + local-embedding retrieval, 37/40 on `retrieval_eval.py` | In progress |
-| **5 — Bot** | Discord bot (RAG + Gemini) | Planned |
+| **5 — Bot** | Discord bot (RAG + Gemini) — `bot/discord_bot.py`, see [discord-bot.md](discord-bot.md) | Built |
 
 ---
 
@@ -146,7 +146,7 @@ PATH A — FORUM CORPUS
               (via OpenRouter or Gemini API)
                          │
                          ▼
-              bot/discord_bot.py (planned)
+              bot/discord_bot.py (/ns, mentions, DMs)
 ```
 
 ---
@@ -298,7 +298,7 @@ Bot work is **not blocked on crowdsourcing**; it **is blocked on glossary qualit
 | Retrieval eval (`bot/retrieval_eval.py`, 40 cases) | Done — 37/40, free to run (no API) |
 | Answer eval (`bot/answer_eval.py`) | Done — 34/40 with RAG |
 | RAG eval (`bot/rag_eval.py`, 8 prompts) | Done — run after glossary changes |
-| Discord bot | Not built |
+| Discord bot (`bot/discord_bot.py`) | Built — setup in [discord-bot.md](discord-bot.md) |
 
 **Decision (27/09/26): stay with keyword RAG, not full glossary in the prompt.** Sending all
 ~340 entries (~10k tokens) scored the same on answers (34/40) once embeddings were added to
@@ -306,7 +306,7 @@ RAG, but costs ~$0.0025 vs ~$0.0001 per question. Results: `bot/answer_eval_resu
 
 Recommended order:
 1. Add real user questions to `bot/retrieval_cases.json` as they come in; rerun `retrieval_eval.py`
-2. Build `bot/discord_bot.py` (load the embedding model once at startup, ~20s)
+2. Deploy `bot/discord_bot.py` somewhere always-on and collect real questions
 3. Optional: answer exact single-term lookups straight from the glossary to skip the LLM call
 
 Local LoRA fine-tuning is **de-prioritised** — see [fine-tuning-plan.md](fine-tuning-plan.md).
@@ -369,8 +369,9 @@ ns_lingo_nlp/
 │   ├── retrieval_eval.py    # Retrieval-only eval (no API)
 │   ├── retrieval_cases.json # 40 labelled test questions
 │   ├── answer_eval.py       # RAG vs full-glossary answer eval
-│   ├── eval_prompts.py      # Shared eval questions
-│   └── discord_bot.py       # (planned)
+│   ├── llm.py               # LLM client (OpenRouter / Gemini)
+│   ├── eval_prompts.py      # Shared eval questions + system prompt
+│   └── discord_bot.py       # Discord bot
 │
 └── notebooks/
 ```
@@ -385,7 +386,7 @@ ns_lingo_nlp/
 | `requests` | HTTP calls (Reddit JSON API, NSR pages) | Scraper |
 | `beautifulsoup4` | HTML parsing (HWZ, NSR pages, existing dictionaries) | Scraper |
 | `google-genai` | Google Gemini API client | LLM Extraction |
-| `discord.py` | Discord bot framework | Bot (future) |
+| `discord.py` | Discord bot framework | Bot |
 | `nltk` / `spaCy` | NLP (tokenisation, lemmatisation) | Corpus |
 | `sentence-transformers` | Local embeddings for RAG retrieval (`all-MiniLM-L6-v2`) | Bot |
 | `datasets` | Training data management | Model |

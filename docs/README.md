@@ -109,6 +109,7 @@ Keon:
 3. New evals: `bot/retrieval_eval.py` (40 cases, 21/40 → 37/40) and `bot/answer_eval.py`
 4. Tested full glossary in prompt — same answer score as RAG + embeddings but ~25x cost; staying with keyword RAG
 5. `requirements.txt` converted from UTF-16 to UTF-8 (pip couldn't read it)
+6. Built `bot/discord_bot.py` (`/ns`, mentions, DMs) — setup in docs/discord-bot.md
 
 ---
 
@@ -116,7 +117,7 @@ Keon:
 * **Language:** Python
 * **Environment:** Conda
 * **Exploration:** Jupyter Notebooks
-* **Bot Layer:** `discord.py` (to be built later)
+* **Bot Layer:** `discord.py` (`bot/discord_bot.py`)
 
 ---
 
@@ -126,7 +127,7 @@ Keon:
 * `data/glossary` — Curated schema entries.
 * `scraper/` — Reddit and HWZ scrapers.
 * `corpus/` — Candidate term extraction and frequency analysis.
-* `bot/` — Discord bot, to be built later.
+* `bot/` — RAG, evals and the Discord bot (see [discord-bot.md](discord-bot.md)).
 * `notebooks/` — Jupyter notebooks for exploration.
 
 ---
