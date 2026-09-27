@@ -8,3 +8,4 @@ torch>=2.4.0
 accelerate>=0.34.0
 sentencepiece>=0.2.0
 sentence-transformers>=3.0.0
+discord.py>=2.3.0
