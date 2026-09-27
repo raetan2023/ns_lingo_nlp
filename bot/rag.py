@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from functools import lru_cache
 from pathlib import Path
 
 SEED_PATH = Path("data/glossary/seed.json")
@@ -60,11 +61,17 @@ def _aliases(entry: dict) -> list[str]:
     return names
 
 
+@lru_cache(maxsize=None)
+def _alias_pattern(alias: str) -> re.Pattern:
+    """Match alias as a whole word/phrase (so 'mo' doesn't hit 'mono'), allowing a plural."""
+    return re.compile(rf"(?<!\w){re.escape(alias)}(?:s|es)?(?!\w)")
+
+
 def _score_entry(query: str, entry: dict) -> int:
     q = query.lower()
     score = 0
     for alias in _aliases(entry):
-        if alias in q:
+        if _alias_pattern(alias).search(q):
             score += 10 + len(alias)
     return score
 

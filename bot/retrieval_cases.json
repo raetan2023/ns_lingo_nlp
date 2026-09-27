@@ -1,0 +1,47 @@
+[
+  {"category": "direct", "query": "What does rabak mean?", "expect": ["Rabak"]},
+  {"category": "direct", "query": "What is SBO?", "expect": ["SBO"]},
+  {"category": "direct", "query": "What's the difference between FBO and SBO?", "expect": ["FBO", "SBO"]},
+  {"category": "direct", "query": "What does chao keng mean?", "expect": ["Chao Keng"]},
+  {"category": "direct", "query": "What is saikang?", "expect": ["Saikang"]},
+  {"category": "direct", "query": "Who is the encik?", "expect": ["encik"]},
+  {"category": "direct", "query": "What does AWOL mean in NS?", "expect": ["AWOL"]},
+  {"category": "direct", "query": "How hard is IPPT?", "expect": ["ippt"]},
+  {"category": "direct", "query": "What does RSO mean?", "expect": ["RSO"]},
+  {"category": "direct", "query": "What does kena stun mean?", "expect": ["Kena Stun"]},
+  {"category": "direct", "query": "What is NS FIT?", "expect": ["ns fit"]},
+
+  {"category": "sentence", "query": "kena extra after SBA then cannot book out", "expect": ["kena", "extra", "SBA", "book out|bookout"]},
+  {"category": "sentence", "query": "Sgt say mono intake very jialat", "expect": ["mono intake"], "forbid": ["mo", "SA"]},
+  {"category": "sentence", "query": "MO give me MC so I RSO tomorrow", "expect": ["mo", "MC", "RSO"]},
+  {"category": "sentence", "query": "CSM say whole lot knock it down because got people chao keng", "expect": ["CSM", "Whole lot knock it down", "Chao Keng"]},
+  {"category": "sentence", "query": "After ORD still got ICT every year", "expect": ["ORD", "ICT"]},
+  {"category": "sentence", "query": "Tekong confinement week very sian", "expect": ["tekong", "confinement week"]},
+  {"category": "sentence", "query": "Encik say anyone go AWOL confirm go DB", "expect": ["encik", "AWOL", "DB"]},
+  {"category": "sentence", "query": "Wah field camp damn rabak, got SIT test somemore", "expect": ["field camp", "Rabak", "SIT test"]},
+  {"category": "sentence", "query": "I got attend B for 3 days", "expect": ["Attend B / LD|Attend B / LD (light duty)"]},
+
+  {"category": "false-positive", "query": "My mom wants me to sign on", "expect": ["sign on"], "forbid": ["MOM"]},
+  {"category": "false-positive", "query": "Say what you want about BMT, it builds character", "expect": ["bmt"], "forbid": ["SA"]},
+  {"category": "false-positive", "query": "Is the weather CAT 1 now?", "expect": ["CAT 1"], "forbid": ["NCC", "HPB"]},
+  {"category": "false-positive", "query": "Can I pop out to the canteen for a bit?", "expect": ["canteen"], "forbid": ["pop"]},
+  {"category": "false-positive", "query": "Are the mosquitoes bad in outfield?", "expect": ["Outfield"], "forbid": ["mo", "MOM", "MOH"]},
+  {"category": "false-positive", "query": "What is a combat unit?", "expect": ["combat unit"], "forbid": ["CO"]},
+
+  {"category": "spelling", "query": "What does rabbak mean?", "expect": ["Rabak"]},
+  {"category": "spelling", "query": "What is book-out?", "expect": ["book out|bookout"]},
+  {"category": "spelling", "query": "What is PES B 4?", "expect": ["pes b4"]},
+  {"category": "spelling", "query": "Is SAR21 heavy?", "expect": ["SAR 21"]},
+  {"category": "spelling", "query": "What is standby bed?", "expect": ["Stand by bed"]},
+  {"category": "spelling", "query": "What does stand-by area mean?", "expect": ["SBA"]},
+  {"category": "spelling", "query": "What does chaokeng mean?", "expect": ["Chao Keng"]},
+
+  {"category": "paraphrase", "query": "What happens if I fail my fitness test as an NSman?", "expect": ["ns fit|remedial training"]},
+  {"category": "paraphrase", "query": "What is the date I finish full-time NS called?", "expect": ["ORD"]},
+  {"category": "paraphrase", "query": "Where do recruits do basic training?", "expect": ["tekong|bmtc|bmt"]},
+  {"category": "paraphrase", "query": "What do you call someone who pretends to be sick to skip training?", "expect": ["Chao Keng"]},
+  {"category": "paraphrase", "query": "What's the punishment where you can't leave camp on weekends?", "expect": ["SOL|Sign extra"]},
+
+  {"category": "unknown", "query": "What does jialat mean?", "expect_none": true},
+  {"category": "unknown", "query": "What is a zombie parade?", "expect_none": true}
+]
