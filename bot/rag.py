@@ -67,12 +67,69 @@ def _alias_pattern(alias: str) -> re.Pattern:
     return re.compile(rf"(?<!\w){re.escape(alias)}(?:s|es)?(?!\w)")
 
 
-def _score_entry(query: str, entry: dict) -> int:
-    q = query.lower()
+def _normalise(text: str) -> str:
+    """Lowercase and treat hyphens/underscores as spaces ('book-out' -> 'book out')."""
+    return re.sub(r"\s+", " ", re.sub(r"[-_]", " ", text.lower())).strip()
+
+
+def _compact(text: str) -> str:
+    """Drop everything but letters/digits ('SAR 21' -> 'sar21', 'Chao Keng' -> 'chaokeng')."""
+    return re.sub(r"[^a-z0-9]", "", text.lower())
+
+
+def _query_grams(query: str, max_n: int = 4) -> set[str]:
+    """Compacted 1..max_n word windows of the query, for spacing/typo-tolerant matching."""
+    words = re.findall(r"[a-z0-9]+", query.lower())
+    return {
+        "".join(words[i : i + n])
+        for n in range(1, max_n + 1)
+        for i in range(len(words) - n + 1)
+    }
+
+
+def _within_edits(a: str, b: str, limit: int) -> bool:
+    """True if Levenshtein distance between a and b is <= limit."""
+    if abs(len(a) - len(b)) > limit:
+        return False
+    prev = list(range(len(b) + 1))
+    for i, ca in enumerate(a, start=1):
+        cur = [i]
+        for j, cb in enumerate(b, start=1):
+            cur.append(min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (ca != cb)))
+        if min(cur) > limit:
+            return False
+        prev = cur
+    return prev[-1] <= limit
+
+
+def _typo_limit(alias: str) -> int:
+    """Allowed typos by length. Short terms (ORD, mo, SBA) must match exactly, and so
+    must codes with a short part (pes b4, Attend C), where one character changes the meaning."""
+    if any(len(w) <= 2 for w in re.findall(r"[a-z0-9]+", alias)):
+        return 0
+    n = len(_compact(alias))
+    if n < 5:
+        return 0
+    return 1 if n < 9 else 2
+
+
+def _score_entry(q_norm: str, q_grams: set[str], entry: dict) -> int:
     score = 0
     for alias in _aliases(entry):
-        if _alias_pattern(alias).search(q):
+        if _alias_pattern(alias).search(q_norm) or _alias_pattern(_normalise(alias)).search(q_norm):
             score += 10 + len(alias)
+            continue
+        alias_compact = _compact(alias)
+        if not alias_compact:
+            continue
+        # Spacing variants: 'standby bed', 'chaokeng', 'SAR21', 'PES B 4'
+        if alias_compact in q_grams or alias_compact + "s" in q_grams:
+            score += 10 + len(alias)
+            continue
+        # Small typos: 'rabbak'. Scored below exact matches.
+        limit = _typo_limit(alias)
+        if limit and any(_within_edits(alias_compact, g, limit) for g in q_grams):
+            score += 5 + len(alias)
     return score
 
 
@@ -98,9 +155,11 @@ def search_glossary(
     if entries is None:
         entries = merge_glossary()
 
+    q_norm = _normalise(query)
+    q_grams = _query_grams(query)
     scored: list[tuple[int, dict]] = []
     for entry in entries:
-        score = _score_entry(query, entry)
+        score = _score_entry(q_norm, q_grams, entry)
         if score > 0:
             scored.append((score, entry))
 

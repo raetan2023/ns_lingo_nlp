@@ -164,6 +164,7 @@
   {
     "term": "Attend B / LD",
     "definition": "Light duty. You are excused from heavier activities but still in camp unless told otherwise.",
+    "variants": ["attend b"],
     "category": "ns_lingo",
     "source": "https://national-service.vercel.app/army-dictionary"
   },
