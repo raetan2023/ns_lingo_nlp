@@ -34,7 +34,7 @@ if str(BOT_DIR) not in sys.path:
 from dotenv import load_dotenv
 
 from rag import format_context, merge_glossary, search_glossary
-from rag_eval import make_asker
+from llm import make_asker
 
 CASES_PATH = BOT_DIR / "retrieval_cases.json"
 OUTPUT_JSON = BOT_DIR / "answer_eval_results.json"

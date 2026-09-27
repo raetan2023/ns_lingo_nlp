@@ -7,8 +7,9 @@ import re
 from functools import lru_cache
 from pathlib import Path
 
-SEED_PATH = Path("data/glossary/seed.json")
-CURATED_PATH = Path("data/glossary/curated.json")
+GLOSSARY_DIR = Path(__file__).resolve().parent.parent / "data" / "glossary"
+SEED_PATH = GLOSSARY_DIR / "seed.json"
+CURATED_PATH = GLOSSARY_DIR / "curated.json"
 
 EXTRACT_PATTERNS = [
     re.compile(r"what does (.+?) mean", re.I),
