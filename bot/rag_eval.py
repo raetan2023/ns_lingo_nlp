@@ -1,6 +1,9 @@
 """
 Evaluate Gemini with glossary RAG on the standard 8 NS prompts.
 
+Backend: OpenRouter if OPENROUTER_API_KEY is set in .env, else Gemini direct
+(GEMINI_API_KEY). Both run Gemini 3.1 Flash Lite so results stay comparable.
+
 Usage:
     conda activate ns_lingo_nlp
     python bot/rag_eval.py
@@ -32,10 +35,12 @@ from rag import format_context, merge_glossary, search_glossary
 OUTPUT_JSON = BOT_DIR / "rag_eval_results.json"
 OUTPUT_TXT = BOT_DIR / "rag_eval_results.txt"
 GEMINI_MODEL = "gemini-3.1-flash-lite"
+OPENROUTER_MODEL = "google/gemini-3.1-flash-lite"
+OPENROUTER_URL = "https://openrouter.ai/api/v1/chat/completions"
 
 
-def ask_gemini(client, question: str, glossary_context: str) -> str:
-    contents = f"""{SYSTEM_PROMPT}
+def build_prompt(question: str, glossary_context: str) -> str:
+    return f"""{SYSTEM_PROMPT}
 
 {RAG_INSTRUCTION}
 
@@ -45,28 +50,58 @@ def ask_gemini(client, question: str, glossary_context: str) -> str:
 ## Question
 {question}
 """
-    response = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=contents,
-    )
-    return (response.text or "").strip()
 
 
-def run_eval(prompts: list[str]) -> dict:
-    api_key = os.getenv("GEMINI_API_KEY")
-    if not api_key:
-        raise RuntimeError("GEMINI_API_KEY not set in .env")
+def make_asker():
+    """Return (ask_fn, model_name) for whichever API key is configured."""
+    openrouter_key = os.getenv("OPENROUTER_API_KEY")
+    if openrouter_key:
+        import requests
+
+        def ask(question: str, glossary_context: str) -> str:
+            resp = requests.post(
+                OPENROUTER_URL,
+                headers={"Authorization": f"Bearer {openrouter_key}"},
+                json={
+                    "model": OPENROUTER_MODEL,
+                    "messages": [
+                        {"role": "user", "content": build_prompt(question, glossary_context)}
+                    ],
+                },
+                timeout=60,
+            )
+            resp.raise_for_status()
+            return (resp.json()["choices"][0]["message"]["content"] or "").strip()
+
+        return ask, OPENROUTER_MODEL
+
+    gemini_key = os.getenv("GEMINI_API_KEY")
+    if not gemini_key:
+        raise RuntimeError("Set OPENROUTER_API_KEY or GEMINI_API_KEY in .env")
 
     from google import genai
 
-    client = genai.Client(api_key=api_key)
+    client = genai.Client(api_key=gemini_key)
+
+    def ask(question: str, glossary_context: str) -> str:
+        response = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=build_prompt(question, glossary_context),
+        )
+        return (response.text or "").strip()
+
+    return ask, GEMINI_MODEL
+
+
+def run_eval(prompts: list[str]) -> dict:
+    ask, model = make_asker()
     glossary = merge_glossary()
     rows = []
 
     for prompt in prompts:
         hits = search_glossary(prompt, glossary)
         context = format_context(hits)
-        answer = ask_gemini(client, prompt, context)
+        answer = ask(prompt, context)
         rows.append(
             {
                 "prompt": prompt,
@@ -79,7 +114,7 @@ def run_eval(prompts: list[str]) -> dict:
 
     return {
         "run_at": datetime.now(timezone.utc).isoformat(),
-        "model": GEMINI_MODEL,
+        "model": model,
         "mode": "gemini + glossary RAG",
         "prompts": prompts,
         "results": rows,
