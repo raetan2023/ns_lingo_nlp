@@ -1,0 +1,806 @@
+{
+  "run_at": "2026-09-27T06:41:51.901022+00:00",
+  "model": "google/gemini-3.1-flash-lite",
+  "modes": [
+    "rag",
+    "full"
+  ],
+  "full_context_chars": 39514,
+  "results": [
+    {
+      "category": "direct",
+      "query": "What does rabak mean?",
+      "expect": [
+        "Rabak"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "In the context of the SAF, **rabak** means very bad, messy, or exhausting (e.g., \"That outfield was rabak\").",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Rabak means very bad, messy, or exhausting (e.g., \"That outfield was rabak\").",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What is SBO?",
+      "expect": [
+        "SBO"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "SBO is Skeletal Battle Order, consisting of a helmet, LBS, and rifle.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "SBO stands for Skeletal Battle Order; it consists of your helmet, LBS, and rifle.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What's the difference between FBO and SBO?",
+      "expect": [
+        "FBO",
+        "SBO"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "The difference between FBO and SBO is the field pack:\n\n*   **FBO (Full Battle Order):** Includes helmet, LBS, rifle, **and field pack**.\n*   **SBO (Skeletal Battle Order):** Includes only helmet, LBS, and rifle.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "In the SAF, the difference between the two is the amount of gear carried:\n\n*   **FBO (Full Battle Order):** Consists of helmet, LBS, field pack, and rifle.\n*   **SBO (Skeletal Battle Order):** Consists of helmet, LBS, and rifle.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What does chao keng mean?",
+      "expect": [
+        "Chao Keng"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "*Chao Keng* means feigning sickness to avoid training or duties.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Chao keng means feigning sickness to avoid training or duties.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What is saikang?",
+      "expect": [
+        "Saikang"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Saikang refers to menial tasks, such as raking leaves, washing vehicles, or entering mileage data.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Saikang refers to menial tasks, such as raking leaves, washing vehicles, or entering mileage data.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "Who is the encik?",
+      "expect": [
+        "encik"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "The encik is a Warrant Officer (WO).",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "An **encik** is a Warrant Officer (WO).",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What does AWOL mean in NS?",
+      "expect": [
+        "AWOL"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "In NS, AWOL stands for Absent Without Leave, which means being absent from duty without approval.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "AWOL stands for Absent Without Leave: Being absent from duty without approval.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "How hard is IPPT?",
+      "expect": [
+        "ippt"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "The provided glossary defines **IPPT** as the **Individual Physical Proficiency Test**. \n\nThe glossary does not contain information regarding the difficulty level of the test; therefore, I do not know.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know. The glossary does not provide information on the difficulty of IPPT.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What does RSO mean?",
+      "expect": [
+        "RSO"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "RSO means Report Sick Outside.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "RSO means Report Sick Outside.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What does kena stun mean?",
+      "expect": [
+        "Kena Stun"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "**Kena stun** means to have your rifle or rifle parts taken away by a superior because you were not careful.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Kena stun means that your rifle or rifle parts have been taken away by a superior because you were not careful with them.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "direct",
+      "query": "What is NS FIT?",
+      "expect": [
+        "ns fit"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "NS FIT (NS Fitness Improvement Training) is the current programme for NSmen who need structured fitness remediation, replacing the older remedial training approach for many IPPT-related cases.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "NS FIT (NS Fitness Improvement Training) is the current programme for NSmen who need structured fitness remediation, replacing the older remedial training approach for many IPPT-related cases.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "kena extra after SBA then cannot book out",
+      "expect": [
+        "kena",
+        "extra",
+        "SBA",
+        "book out|bookout"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "You received punishment (extra duties) following a bunk inspection (SBA), which resulted in you being unable to leave the camp for the weekend (cannot book out).",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "If you \"kena\" (receive) **extra** duties following an **SBA** (Stand by area/bunk inspection), you are being punished with additional work, which often results in **SOL** (Stoppage of leave) or similar restrictions that prevent you from **booking out** of camp.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "Sgt say mono intake very jialat",
+      "expect": [
+        "mono intake"
+      ],
+      "forbid": [
+        "mo",
+        "SA"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "In the SAF context, a \"mono intake\" is considered \"jialat\" because your entire BMT and vocational training are locked to one specific unit from day one. Unlike standard recruits who have a chance to be posted out after BMT, you are stuck in that same unit environment for your entire service, often involving a more demanding and specialized training cycle tailored specifically to that unit's operational requirements.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "In the context of the provided glossary, a \"mono intake\" refers to an arrangement where NSFs complete their basic and vocational training primarily aligned with their designated unit, rather than the standard two-phase system where recruits do BMT at Pulau Tekong and get posted to units later.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "MO give me MC so I RSO tomorrow",
+      "expect": [
+        "mo",
+        "MC",
+        "RSO"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Understood. You are seeking to report sick to a civilian clinic (RSO) tomorrow after obtaining an MC from an MO today. \n\nPlease note that per SAF protocol, if you obtain an MC from an MO, you are already \"excused\" from duty/training as per the validity of that MC; RSO is typically the process of seeking medical attention at a civilian clinic when an MO is not immediately available or for follow-up care. Ensure you inform your commander of your medical status and submit your MC via the appropriate channels (e.g., ESS) once received.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "If you have been issued an MC (Medical Certificate/Attend C), you are on medical leave and required to rest at home. RSO stands for \"Report Sick Outside,\" which refers to seeking medical consultation from a civilian medical professional outside of the military camp.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "CSM say whole lot knock it down because got people chao keng",
+      "expect": [
+        "CSM",
+        "Whole lot knock it down",
+        "Chao Keng"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "The Company Sergeant Major (CSM) has ordered the entire group to perform push-ups because some soldiers were feigning sickness to avoid their duties.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "The Company Sergeant Major (CSM) is ordering the entire group to perform push-ups as punishment because he suspects or has confirmed that some individuals are feigning sickness (chao keng) to avoid training or duties.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "After ORD still got ICT every year",
+      "expect": [
+        "ORD",
+        "ICT"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Yes, that is correct. After your **ORD**, you are considered an operationally ready NSman and will be required to attend **ICT** annually until you complete your Operationally Ready National Service (ORNS) training cycle.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Yes. After your Operationally Ready Date (ORD), you transition into the Operationally Ready National Service (ORNS) phase. This involves mandatory In-Camp Training (ICT) cycles to maintain operational readiness.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "Tekong confinement week very sian",
+      "expect": [
+        "tekong",
+        "confinement week"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Confirmed. You are in your initial two weeks of BMT on Pulau Tekong and are currently restricted to camp grounds with no book-out allowed, which is naturally *sian*.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Confinement week at Tekong is indeed tough. It is the initial period of BMT (usually the first two weeks) where recruits are not allowed to book out of camp. Just \"lan lan\" (suck it up and resign to fate) and remember to keep your \"area cleaning\" and \"stand by bunk\" standards high to avoid getting \"arrowed\" or told to \"knock it down.\" Stay strong, \"Charlie Mike\" (continue mission).",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "Encik say anyone go AWOL confirm go DB",
+      "expect": [
+        "encik",
+        "AWOL",
+        "DB"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Correct. As the **encik** (Warrant Officer) stated, being **AWOL** (Absent Without Leave) will result in being sent to **DB** (Detention Barracks).",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "AWOL stands for Absent Without Leave, which is defined as being absent from duty without approval. DB refers to the Detention Barracks.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "Wah field camp damn rabak, got SIT test somemore",
+      "expect": [
+        "field camp",
+        "Rabak",
+        "SIT test"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Confirmed. A field camp is an exhausting, multi-day jungle training exercise, and when you add a SIT test—the situational assessment for command school—it makes the experience particularly *rabak*.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "The SIT test (Situational test) is a component usually associated with field camp and command school assessments. Since the field camp was \"rabak\" (very bad/exhausting), you likely have to \"lan lan\" (resign to fate) and continue the mission until you hear \"Paradise now.\"",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "sentence",
+      "query": "I got attend B for 3 days",
+      "expect": [
+        "Attend B / LD|Attend B / LD (light duty)"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "You are on Light Duty (LD) for 3 days. You are excused from heavy physical activities but are required to remain in camp unless your superior grants you permission to leave.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "You are on light duty for 3 days. You are excused from heavier activities but must remain in camp unless told otherwise.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "My mom wants me to sign on",
+      "expect": [
+        "sign on"
+      ],
+      "forbid": [
+        "MOM"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "To \"sign on\" means to enlist as a career soldier or professional officer/specialist in the Singapore Armed Forces. \n\nIf your mother is referring to your career path, she is suggesting you pursue a military career with the SAF. Please note that \"MOM\" in the SAF context refers to the Ministry of Manpower, not your mother.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "To \"sign on\" means to enlist as a career soldier or professional officer/specialist in the Singapore Armed Forces.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "Say what you want about BMT, it builds character",
+      "expect": [
+        "bmt"
+      ],
+      "forbid": [
+        "SA"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "True. BMT is the fundamental rite of passage on Tekong that transforms recruits, culminating in POP.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "BMT stands for Basic Military Training, which is the initial training undergone by new recruits. While the experience is often associated with confinement weeks, field camps, and force prep, it serves as the foundational period for all National Servicemen before they are posted to their respective units.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "Is the weather CAT 1 now?",
+      "expect": [
+        "CAT 1"
+      ],
+      "forbid": [
+        "NCC",
+        "HPB"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know. As an AI, I do not have access to real-time weather data or current SAF training statuses.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know. The provided glossary defines CAT 1 as a weather status that halts outdoor training, but it does not contain real-time information or current weather status updates.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "Can I pop out to the canteen for a bit?",
+      "expect": [
+        "canteen"
+      ],
+      "forbid": [
+        "pop"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "You can go to the **canteen** (a shop or stall within your camp) for food or supplies, but **POP** refers specifically to your Passing Out Parade, which marks the completion of your Basic Military Training (BMT). You cannot \"POP out\" to the canteen; you only POP once you finish BMT.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "You should check your current training schedule to see if you are in \"Admin time\" or have been granted permission to leave your bunk. If you are not in a designated free time period, attempting to leave may be considered \"acting blur\" or, if caught, could result in being ordered to \"knock it down.\" Always follow your chain of command.",
+          "pass": false
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "Are the mosquitoes bad in outfield?",
+      "expect": [
+        "Outfield"
+      ],
+      "forbid": [
+        "mo",
+        "MOM",
+        "MOH"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I don't know. The provided glossary does not contain information regarding mosquito conditions during outfield.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know. The provided glossary does not contain information regarding mosquitoes or the environmental conditions of outfield training.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "false-positive",
+      "query": "What is a combat unit?",
+      "expect": [
+        "combat unit"
+      ],
+      "forbid": [
+        "CO"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "A combat unit is a unit which participates in combat operations.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "A combat unit is a unit which participates in combat operations.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What does rabbak mean?",
+      "expect": [
+        "Rabak"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "\"Rabak\" means very bad, messy, or exhausting.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "**Rabak** means very bad, messy, or exhausting (e.g., \"That outfield was rabak\").",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What is book-out?",
+      "expect": [
+        "book out|bookout"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Based on the provided glossary, **book out** (or **bookout**) is the act of leaving the military camp for time off, typically on weekends, at the end of the work week.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Book-out is the act of leaving the military camp for time off, typically on weekends.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What is PES B 4?",
+      "expect": [
+        "pes b4"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "PES B4 is a medical classification (Physical Employment Standard) assigned after a CMPB medical screening. It indicates that an individual is suitable for some combat vocations and combat support vocations in the SAF, as well as some frontline operational and frontline support vocations in the SCDF and SPF.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "PES B4 is a medical classification suitable for some combat vocations and combat support vocations in the SAF, as well as some frontline operational and frontline support vocations in the SCDF and SPF.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "Is SAR21 heavy?",
+      "expect": [
+        "SAR 21"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know. The provided glossary does not specify the weight of the SAR 21.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know. The glossary defines the SAR 21 as the \"Singapore Assault Rifle, 21st century; your one-night stand in BMT,\" but it does not specify its weight.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What is standby bed?",
+      "expect": [
+        "Stand by bed"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Stand by bed is to clean the bunk spotlessly for inspection.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "**Stand by bed** is the task of cleaning your bunk spotlessly for inspection.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What does stand-by area mean?",
+      "expect": [
+        "SBA"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "Stand-by area (SBA) refers to a bunk inspection.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Stand-by area (SBA) refers to a bunk inspection.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "spelling",
+      "query": "What does chaokeng mean?",
+      "expect": [
+        "Chao Keng"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "**Chao Keng** means feigning sickness to avoid training or duties.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "**Chao Keng** refers to feigning sickness to avoid training or duties.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "paraphrase",
+      "query": "What happens if I fail my fitness test as an NSman?",
+      "expect": [
+        "ns fit|remedial training"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know. The provided glossary does not define the consequences for failing a fitness test as an NSman.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "If you are an NSman who fails your IPPT, you are required to undergo NS FIT (NS Fitness Improvement Training), which is the current programme for structured fitness remediation.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "paraphrase",
+      "query": "What is the date I finish full-time NS called?",
+      "expect": [
+        "ORD"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I don't know. The provided glossary does not define the specific term for the date one finishes full-time NS.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "The date you finish full-time National Service is called your **ORD** (Operationally Ready Date).",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "paraphrase",
+      "query": "Where do recruits do basic training?",
+      "expect": [
+        "tekong|bmtc|bmt"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "The provided glossary does not specify the physical location where recruits undergo basic training. I do not know.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Recruits undergo Basic Military Training (BMT) at Pulau Tekong.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "paraphrase",
+      "query": "What do you call someone who pretends to be sick to skip training?",
+      "expect": [
+        "Chao Keng"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "Someone who feigns sickness to avoid training or duties is called **Chao Keng**.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "paraphrase",
+      "query": "What's the punishment where you can't leave camp on weekends?",
+      "expect": [
+        "SOL|Sign extra"
+      ],
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know. As there are no glossary entries provided, I cannot define that specific punishment using the provided source material.",
+          "pass": false
+        },
+        "full": {
+          "mode": "full",
+          "answer": "The punishment is known as **SOL** (Stoppage of leave) or **sign extra** (which requires weekend stay-in at camp for extra duties). Another form of restriction is **confinement**, which prevents recruits from booking out of camp.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "unknown",
+      "query": "What does jialat mean?",
+      "expect_none": true,
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know. As there is no definition provided in the glossary excerpts, I cannot define this term based on the provided source material.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know. This term is not defined in the provided glossary.",
+          "pass": true
+        }
+      }
+    },
+    {
+      "category": "unknown",
+      "query": "What is a zombie parade?",
+      "expect_none": true,
+      "answers": {
+        "rag": {
+          "mode": "rag",
+          "answer": "I do not know.",
+          "pass": true
+        },
+        "full": {
+          "mode": "full",
+          "answer": "I do not know.",
+          "pass": true
+        }
+      }
+    }
+  ]
+}
