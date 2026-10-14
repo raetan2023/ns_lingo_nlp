@@ -41,6 +41,9 @@ MAX_QUESTION_CHARS = 300
 # Each question costs one LLM call, billed to whoever owns the API key.
 RATE_LIMIT_CALLS = 20
 RATE_LIMIT_WINDOW_S = 60 * 60
+# Cap across all users together, so many people at once can't run up the bill.
+GLOBAL_RATE_LIMIT_CALLS = 200
+GLOBAL_KEY = "all"
 
 HELP_TEXT = (
     "Ask me about NS lingo! For example:\n"
@@ -54,23 +57,25 @@ log = logging.getLogger("ns_lingo_bot")
 
 
 class RateLimiter:
-    """At most `max_calls` per user in any rolling `window_s` seconds."""
+    """At most `max_calls` per key (a user ID, or GLOBAL_KEY) in any rolling `window_s` seconds."""
 
     def __init__(self, max_calls: int, window_s: int):
         self.max_calls = max_calls
         self.window_s = window_s
-        self._calls: dict[int, deque[float]] = defaultdict(deque)
+        self._calls: dict[int | str, deque[float]] = defaultdict(deque)
 
-    def check(self, user_id: int) -> int:
-        """Record a call and return 0 if allowed, else seconds until the next free slot."""
+    def wait(self, key: int | str) -> int:
+        """0 if a call is allowed now, else seconds until the next free slot. Records nothing."""
         now = time.monotonic()
-        calls = self._calls[user_id]
+        calls = self._calls[key]
         while calls and now - calls[0] >= self.window_s:
             calls.popleft()
         if len(calls) >= self.max_calls:
             return int(self.window_s - (now - calls[0])) + 1
-        calls.append(now)
         return 0
+
+    def record(self, key: int | str) -> None:
+        self._calls[key].append(time.monotonic())
 
 
 def answer_question(question: str, glossary: list[dict], ask) -> str:
@@ -97,6 +102,7 @@ class NSLingoBot(discord.Client):
         self.glossary = glossary
         self.guild_id = guild_id
         self.limiter = RateLimiter(RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
+        self.global_limiter = RateLimiter(GLOBAL_RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
         self.tree = app_commands.CommandTree(self)
         self._register_commands()
 
@@ -127,9 +133,15 @@ class NSLingoBot(discord.Client):
             return HELP_TEXT
         if len(question) > MAX_QUESTION_CHARS:
             return f"That's a bit long. Please keep questions under {MAX_QUESTION_CHARS} characters."
-        wait = self.limiter.check(user_id)
+        # Check both limits before recording, so a refused question doesn't use up either.
+        wait = self.limiter.wait(user_id)
         if wait:
             return f"You've hit the limit of {RATE_LIMIT_CALLS} questions an hour. Try again in {wait // 60 + 1} min."
+        wait = self.global_limiter.wait(GLOBAL_KEY)
+        if wait:
+            return f"I'm getting a lot of questions right now. Try again in {wait // 60 + 1} min."
+        self.limiter.record(user_id)
+        self.global_limiter.record(GLOBAL_KEY)
 
         log.info("user=%s q=%r", user_id, question)
         try:
