@@ -109,7 +109,7 @@ The project is split into five sequential stages:
 | **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
 | **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (58 curated entries); crowdsourcing optional |
 | **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`); keyword + local-embedding retrieval, 37/40 on `retrieval_eval.py` | In progress |
-| **5 — Bot** | Discord bot (RAG + Gemini) — `bot/discord_bot.py`, see [discord-bot.md](discord-bot.md) | Live 24/7 on Google Cloud (since 13/10/26) |
+| **5 — Bot** | Discord + Telegram bots (RAG + Gemini) — `bot/discord_bot.py`, `bot/telegram_bot.py`, see [discord-bot.md](discord-bot.md), [telegram-bot.md](telegram-bot.md) | Live 24/7 on Google Cloud (since 13/10/26) |
 
 ---
 
@@ -371,7 +371,10 @@ ns_lingo_nlp/
 │   ├── answer_eval.py       # RAG vs full-glossary answer eval
 │   ├── llm.py               # LLM client (OpenRouter / Gemini)
 │   ├── eval_prompts.py      # Shared eval questions + system prompt
-│   └── discord_bot.py       # Discord bot
+│   ├── answering.py         # Shared limits + RAG + LLM call
+│   ├── discord_bot.py       # Discord bot
+│   ├── telegram_bot.py      # Telegram bot
+│   └── run_bots.py          # Runs both in one process (server)
 │
 └── notebooks/
 ```

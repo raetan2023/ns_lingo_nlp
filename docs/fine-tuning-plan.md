@@ -107,7 +107,9 @@ Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 |-------|---------|
 | `rag.py` | Glossary merge + search |
 | `llm.py` | LLM client shared with the evals |
-| `discord_bot.py` | `/ns` slash command, @mentions and DMs; 20 questions/user/hour, 200/hour overall |
+| `answering.py` | Shared limits (20 questions/user/hour, 200/hour overall) + RAG + LLM call |
+| `discord_bot.py` | `/ns` slash command, @mentions and DMs |
+| `telegram_bot.py` | Private chats, `/ns`, replies in groups ([telegram-bot.md](telegram-bot.md)) |
 | `.env` | `OPENROUTER_API_KEY` (or `GEMINI_API_KEY`), `DISCORD_BOT_TOKEN` |
 
 **Flow:**

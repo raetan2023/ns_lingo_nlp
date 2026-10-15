@@ -66,7 +66,10 @@
 | `bot/answer_eval.py` | Runs the 40 cases through the LLM in RAG and/or full-glossary mode; outputs `answer_eval_results.txt` |
 | `bot/eval_prompts.py` | Shared NS eval questions and system prompts |
 | `bot/llm.py` | LLM client: OpenRouter if `OPENROUTER_API_KEY` set, else Gemini; builds the RAG prompt |
+| `bot/answering.py` | Shared by both bots: rate limits (per user + global), glossary search, LLM call |
 | `bot/discord_bot.py` | Discord bot: `/ns`, @mentions and DMs → RAG → LLM reply. Setup in [discord-bot.md](discord-bot.md) |
+| `bot/telegram_bot.py` | Telegram bot: private chats, `/ns`, replies in groups. Setup in [telegram-bot.md](telegram-bot.md) |
+| `bot/run_bots.py` | Runs Discord + Telegram in one process (what the server runs) |
 
 ## `docs/`
 
@@ -78,4 +81,5 @@
 | `docs/model-comparison-2026-07.md` | Archived Gemini vs SEA-LION zero-shot comparison |
 | `docs/glossary-pipeline.md` | Focused guide: glossary file roles, review workflow, merge policy |
 | `docs/project-map.md` | This file — maps every folder and file with descriptions |
+| `docs/telegram-bot.md` | Telegram bot setup (BotFather, privacy mode), running, server switch |
 | `docs/discord-bot.md` | Discord bot setup (token, invite, `.env`), running, cost and limits, Google Cloud hosting and deploys |

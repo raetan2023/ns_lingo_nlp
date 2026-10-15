@@ -15,13 +15,10 @@ Usage:
 
 from __future__ import annotations
 
-import asyncio
 import logging
 import os
 import re
 import sys
-import time
-from collections import defaultdict, deque
 from pathlib import Path
 
 BOT_DIR = Path(__file__).resolve().parent
@@ -32,18 +29,10 @@ import discord
 from discord import app_commands
 from dotenv import load_dotenv
 
-from llm import make_asker
-from rag import format_context, merge_glossary, search_glossary
+from answering import MAX_QUESTION_CHARS, Answerer, make_answerer
 
 REPO_ROOT = BOT_DIR.parent
 DISCORD_MAX_CHARS = 2000
-MAX_QUESTION_CHARS = 300
-# Each question costs one LLM call, billed to whoever owns the API key.
-RATE_LIMIT_CALLS = 20
-RATE_LIMIT_WINDOW_S = 60 * 60
-# Cap across all users together, so many people at once can't run up the bill.
-GLOBAL_RATE_LIMIT_CALLS = 200
-GLOBAL_KEY = "all"
 
 HELP_TEXT = (
     "Ask me about NS lingo! For example:\n"
@@ -56,33 +45,9 @@ HELP_TEXT = (
 log = logging.getLogger("ns_lingo_bot")
 
 
-class RateLimiter:
-    """At most `max_calls` per key (a user ID, or GLOBAL_KEY) in any rolling `window_s` seconds."""
-
-    def __init__(self, max_calls: int, window_s: int):
-        self.max_calls = max_calls
-        self.window_s = window_s
-        self._calls: dict[int | str, deque[float]] = defaultdict(deque)
-
-    def wait(self, key: int | str) -> int:
-        """0 if a call is allowed now, else seconds until the next free slot. Records nothing."""
-        now = time.monotonic()
-        calls = self._calls[key]
-        while calls and now - calls[0] >= self.window_s:
-            calls.popleft()
-        if len(calls) >= self.max_calls:
-            return int(self.window_s - (now - calls[0])) + 1
-        return 0
-
-    def record(self, key: int | str) -> None:
-        self._calls[key].append(time.monotonic())
-
-
-def answer_question(question: str, glossary: list[dict], ask) -> str:
-    """Retrieve glossary context, ask the LLM, and format a Discord-sized reply."""
-    hits = search_glossary(question, glossary)
-    answer = ask(question, format_context(hits)) or "Sorry, I couldn't come up with an answer."
-    footer = f"\n-# Glossary: {', '.join(h['term'] for h in hits)}" if hits else ""
+def format_reply(answer: str, terms: list[str]) -> str:
+    """Discord-sized reply with a small glossary footer."""
+    footer = f"\n-# Glossary: {', '.join(terms)}" if terms else ""
     room = DISCORD_MAX_CHARS - len(footer)
     if len(answer) > room:
         answer = answer[: room - 1] + "…"
@@ -90,7 +55,7 @@ def answer_question(question: str, glossary: list[dict], ask) -> str:
 
 
 class NSLingoBot(discord.Client):
-    def __init__(self, ask, glossary: list[dict], guild_id: int | None = None):
+    def __init__(self, answerer: Answerer, guild_id: int | None = None):
         # No privileged intents needed: Discord still sends message content for
         # DMs and for messages that mention the bot.
         super().__init__(
@@ -98,11 +63,8 @@ class NSLingoBot(discord.Client):
             # Never let a reply ping @everyone, roles or users, whatever the LLM writes.
             allowed_mentions=discord.AllowedMentions.none(),
         )
-        self.ask = ask
-        self.glossary = glossary
+        self.answerer = answerer
         self.guild_id = guild_id
-        self.limiter = RateLimiter(RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
-        self.global_limiter = RateLimiter(GLOBAL_RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
         self.tree = app_commands.CommandTree(self)
         self._register_commands()
 
@@ -128,27 +90,8 @@ class NSLingoBot(discord.Client):
         log.info("Logged in as %s (id %s)", self.user, self.user.id)
 
     async def handle(self, user_id: int, question: str) -> str:
-        question = question.strip()
-        if not question:
-            return HELP_TEXT
-        if len(question) > MAX_QUESTION_CHARS:
-            return f"That's a bit long. Please keep questions under {MAX_QUESTION_CHARS} characters."
-        # Check both limits before recording, so a refused question doesn't use up either.
-        wait = self.limiter.wait(user_id)
-        if wait:
-            return f"You've hit the limit of {RATE_LIMIT_CALLS} questions an hour. Try again in {wait // 60 + 1} min."
-        wait = self.global_limiter.wait(GLOBAL_KEY)
-        if wait:
-            return f"I'm getting a lot of questions right now. Try again in {wait // 60 + 1} min."
-        self.limiter.record(user_id)
-        self.global_limiter.record(GLOBAL_KEY)
-
-        log.info("user=%s q=%r", user_id, question)
-        try:
-            return await asyncio.to_thread(answer_question, question, self.glossary, self.ask)
-        except Exception:
-            log.exception("Failed to answer %r", question)
-            return "Sorry, something went wrong on my side. Try again in a bit."
+        result = await self.answerer.handle(f"discord:{user_id}", question)
+        return format_reply(*result) if result else HELP_TEXT
 
     async def on_message(self, message: discord.Message) -> None:
         if message.author.bot:
@@ -173,12 +116,7 @@ def main() -> int:
         return 1
     guild_id = os.getenv("DISCORD_GUILD_ID")
 
-    ask, model = make_asker()
-    glossary = merge_glossary()
-    log.info("Model %s, %d glossary entries. Loading embedding model...", model, len(glossary))
-    search_glossary("warm up", glossary)  # load embeddings now, not on the first question
-
-    bot = NSLingoBot(ask, glossary, int(guild_id) if guild_id else None)
+    bot = NSLingoBot(make_answerer(), int(guild_id) if guild_id else None)
     bot.run(token, log_handler=None)
     return 0
 

@@ -1,6 +1,8 @@
 # Discord bot
 
 `bot/discord_bot.py` answers NS lingo questions in Discord, grounded in the glossary.
+There's a Telegram version too ([telegram-bot.md](telegram-bot.md)); both share `bot/answering.py`
+(limits, glossary search, LLM call) and run together on the server via `bot/run_bots.py`.
 
 ```
 question ──► bot/rag.py (keyword + local embeddings, free) ──► glossary excerpts
@@ -52,8 +54,12 @@ Mentions and DMs work straight away either way.
 ```powershell
 conda activate ns_lingo_nlp
 python -m pip install -r requirements.txt
-python bot/discord_bot.py
+python bot/discord_bot.py      # Discord only
+python bot/run_bots.py         # Discord + Telegram (whichever tokens are in .env)
 ```
+
+Don't run it locally while the server is running too: with the same token, both copies answer
+every question.
 
 Startup takes ~20s while the embedding model loads. Run locally like this for testing; the
 live bot runs on a server (see Hosting below).
@@ -63,8 +69,8 @@ live bot runs on a server (see Hosting below).
 | Setting | Value | Where |
 |---------|-------|-------|
 | LLM cost | ~$0.0001 per question (Gemini 3.1 Flash Lite via OpenRouter) | billed to the API key owner |
-| Rate limit | 20 questions per user per rolling hour | `RATE_LIMIT_CALLS` in `discord_bot.py` |
-| Global limit | 200 questions per rolling hour across all users | `GLOBAL_RATE_LIMIT_CALLS` |
+| Rate limit | 20 questions per user per rolling hour | `RATE_LIMIT_CALLS` in `answering.py` |
+| Global limit | 200 questions per rolling hour across all users, Discord and Telegram combined | `GLOBAL_RATE_LIMIT_CALLS` |
 | Max question length | 300 characters | `MAX_QUESTION_CHARS` |
 
 Set a credit limit on the OpenRouter key as a backstop. Replies never ping anyone
@@ -80,7 +86,8 @@ so it needs an always-on machine.
 The live bot runs on a **Google Cloud free-tier e2-micro VM** (us-central1, Debian 12, 30GB
 standard disk, 2GB swap for the 1GB RAM). The code lives at `~/ns_lingo_nlp` with its own venv
 (CPU-only `torch`), and runs as the `systemd` service `ns-lingo`, so it starts on boot and
-restarts after crashes. The VM's `.env` holds the same keys as above.
+restarts after crashes. The service runs `bot/run_bots.py`, which starts Discord and Telegram in
+one process so the embedding model is only loaded once (the VM has 1GB RAM). The VM's `.env` holds the same keys as above.
 
 Cost: almost all covered by the free tier (about $0.03/month left over). A $1 budget alert is set
 on the billing account.
