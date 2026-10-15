@@ -53,7 +53,8 @@ flowchart LR
 
 ### `curated.json` — forum-validated glossary
 
-- **42 entries** after human review and cleanup (July 2026)
+- **42 entries** after human review and cleanup (July 2026); **58** as of 15/10/26
+- Also the place for manual fixes: a curated entry with the same term overrides a vague seed entry (e.g. `hentak kaki`)
 - **Lean schema** (see below)
 - Complements `seed.json`; `prepare_data.py` should dedupe by term when building training pairs
 

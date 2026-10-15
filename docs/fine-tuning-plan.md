@@ -12,10 +12,10 @@ See also [ARCHITECTURE.md](ARCHITECTURE.md) and [glossary-pipeline.md](glossary-
 
 | Question | Answer |
 |----------|--------|
-| Glossary ready for RAG? | **Yes** — 50 curated + 292 seed entries |
+| Glossary ready for RAG? | **Yes** — 58 curated + 292 seed entries |
 | Best zero-shot model tested? | **Gemini 3.1 Flash Lite** (beats SEA-LION 8B) |
 | RAG prototype built? | **Yes** — `bot/rag.py`, `bot/rag_eval.py` |
-| Discord bot? | Not yet |
+| Discord bot? | **Yes** — live 24/7 on Google Cloud since 13/10/26 |
 
 ---
 
@@ -39,7 +39,7 @@ Fine-tuning a small local model is unlikely to beat **Gemini + grounded glossary
 flowchart LR
     subgraph glossary [Glossary]
         seed[seed.json 292]
-        curated[curated.json 50]
+        curated[curated.json 58]
     end
     subgraph bot_layer [Bot layer]
         rag[bot/rag.py lookup]
@@ -107,7 +107,7 @@ Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 |-------|---------|
 | `rag.py` | Glossary merge + search |
 | `llm.py` | LLM client shared with the evals |
-| `discord_bot.py` | `/ns` slash command, @mentions and DMs; 20 questions/user/hour |
+| `discord_bot.py` | `/ns` slash command, @mentions and DMs; 20 questions/user/hour, 200/hour overall |
 | `.env` | `OPENROUTER_API_KEY` (or `GEMINI_API_KEY`), `DISCORD_BOT_TOKEN` |
 
 **Flow:**
@@ -116,7 +116,7 @@ Current scores (27/09/26): retrieval 37/40 (33/40 keyword-only), answers 34/40.
 3. Gemini answers grounded in excerpts
 4. Reply in Discord
 
-Setup and running: [discord-bot.md](discord-bot.md).
+Setup, running and hosting: [discord-bot.md](discord-bot.md). Hosted on a Google Cloud e2-micro VM since 13/10/26.
 
 ---
 
@@ -137,7 +137,7 @@ Known gaps: common words matching acronyms (`mom` → MOM, `pop` → POP); "date
 ## Phase 4 — Glossary + eval hygiene
 
 - Fix weak seed entries (`Rabak: (help)`, `SBA` definition)
-- Add missing curated terms from eval failures
+- Add missing curated terms from eval failures and real bot questions (15/10/26: drill commands, SM, ERAC; replaced vague `hentak kaki` seed entries)
 - Expand `bot/eval_prompts.py` with held-out cases
 - Re-run `rag_eval.py` after each glossary batch
 

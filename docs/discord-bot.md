@@ -55,8 +55,8 @@ python -m pip install -r requirements.txt
 python bot/discord_bot.py
 ```
 
-Startup takes ~20s while the embedding model loads. The bot is online only while this
-process runs. To keep it up 24/7 it needs to run on an always-on machine or host.
+Startup takes ~20s while the embedding model loads. Run locally like this for testing; the
+live bot runs on a server (see Hosting below).
 
 ## Cost and limits
 
@@ -73,7 +73,28 @@ Set a credit limit on the OpenRouter key as a backstop. Replies never ping anyon
 ## Hosting (keeping it online 24/7)
 
 The bot keeps a live connection to Discord and loads a ~90MB embedding model (`torch`, ~1GB RAM),
-so it needs an always-on machine. Not decided yet (27/09/26).
+so it needs an always-on machine.
+
+### Current setup (since 13/10/26)
+
+The live bot runs on a **Google Cloud free-tier e2-micro VM** (us-central1, Debian 12, 30GB
+standard disk, 2GB swap for the 1GB RAM). The code lives at `~/ns_lingo_nlp` with its own venv
+(CPU-only `torch`), and runs as the `systemd` service `ns-lingo`, so it starts on boot and
+restarts after crashes. The VM's `.env` holds the same keys as above.
+
+Cost: almost all covered by the free tier (about $0.03/month left over). A $1 budget alert is set
+on the billing account.
+
+**Deploying an update** (after pushing to GitHub), on the VM:
+
+```bash
+cd ~/ns_lingo_nlp && git pull && sudo systemctl restart ns-lingo
+```
+
+Check it's running with `sudo systemctl status ns-lingo`, and see logs with
+`journalctl -u ns-lingo -f`.
+
+### Other options considered
 
 | Option | Cost | Notes |
 |--------|------|-------|
@@ -88,3 +109,8 @@ On a server, run it as a `systemd` service so it starts on boot and restarts aft
 
 Questions are logged to the console (`user=... q='...'`). When the bot gets one wrong, add it to
 `bot/retrieval_cases.json` with the expected term and rerun `python bot/retrieval_eval.py`.
+
+If a term is missing or its definition is too vague (e.g. the seed `hentak kaki` entry only said
+"Malay drill command"), add an entry to `data/glossary/curated.json`. A curated entry with the
+same term replaces the seed one. Put English names in `variants` (e.g. `about turn`, `mark time`)
+so English questions find the Malay drill command. Then push and deploy (above).

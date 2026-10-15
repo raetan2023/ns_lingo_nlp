@@ -9,7 +9,7 @@ The project owner is a CS undergraduate in Singapore, new to NLP and AI. The pro
 ---
 
 ## Current Stage
-* Glossary validation complete for MVP; **Gemini + RAG bot path** (see [fine-tuning-plan.md](fine-tuning-plan.md)).
+* Discord bot live 24/7 on Google Cloud (see [discord-bot.md](discord-bot.md)); now improving glossary entries from real questions.
 
 ## Google Doc
 https://docs.google.com/document/d/12e5w7t01ktPG1FdnyjvCXDvqB_FRq2o2jgoGjcZszCo/edit?usp=sharing
@@ -110,6 +110,13 @@ Keon:
 4. Tested full glossary in prompt — same answer score as RAG + embeddings but ~25x cost; staying with keyword RAG
 5. `requirements.txt` converted from UTF-16 to UTF-8 (pip couldn't read it)
 6. Built `bot/discord_bot.py` (`/ns`, mentions, DMs) — setup in docs/discord-bot.md
+
+15/10/26
+Keon:
+1. Hosted the Discord bot 24/7 on a Google Cloud free-tier e2-micro VM as a `systemd` service (~$0.03/month after free tier; $1 budget alert)
+2. Added a global rate limit: 200 questions/hour across all users, on top of 20/user/hour. Refused questions don't use up either limit
+3. New curated terms: akan melari cepat lari, cepat lari, SM, ERAC, Ke Belakang Pusing, Masuk Baris
+4. Curated `hentak kaki` and `Hentak Kaki Cepat Hentak` replace the vague seed definitions; English variants (about turn, mark time, fall in) find the Malay commands
 
 ---
 

@@ -37,7 +37,7 @@
 | `data/glossary/candidates.json` | Forum frequency candidates (93 terms). Triage file: `reviewed` or `rejected`. Definitions empty. |
 | `data/glossary/candidates_annotated.json` | Same 93 terms with SEA-LION annotations (definitions, register, POS, confidence). Awaiting human validation. |
 | `data/glossary/candidates_nsr.json` | Ephemeral Gemini intermediate output from `llm_extract.py` — not always in repo. Merges into `seed.json` after review. |
-| `data/glossary/curated.json` | Forum-validated glossary (50 entries). Lean schema: `term`, `definition`, `variants`, `register`, `part_of_speech`, `source`, `definition_source`, `related_terms`, `example_sentences`, `notes`. |
+| `data/glossary/curated.json` | Forum-validated glossary plus manual fixes (58 entries); overrides seed entries with the same term. Lean schema: `term`, `definition`, `variants`, `register`, `part_of_speech`, `source`, `definition_source`, `related_terms`, `example_sentences`, `notes`. |
 
 ## `corpus/`
 
@@ -78,4 +78,4 @@
 | `docs/model-comparison-2026-07.md` | Archived Gemini vs SEA-LION zero-shot comparison |
 | `docs/glossary-pipeline.md` | Focused guide: glossary file roles, review workflow, merge policy |
 | `docs/project-map.md` | This file — maps every folder and file with descriptions |
-| `docs/discord-bot.md` | Discord bot setup (token, invite, `.env`), running, cost and limits |
+| `docs/discord-bot.md` | Discord bot setup (token, invite, `.env`), running, cost and limits, Google Cloud hosting and deploys |

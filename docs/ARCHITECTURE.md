@@ -61,7 +61,7 @@ corpus/extract.py  (SEA-LION: aisingapore/Llama-SEA-LION-v3-8B)
     → data/glossary/candidates_annotated.json   (same 93 + LLM annotations)
 
 Human triage in candidates.json (reviewed / rejected)
-    → data/glossary/curated.json              (42 validated terms, lean schema)
+    → data/glossary/curated.json              (58 entries, lean schema)
 ```
 
 ### Path B — Dictionaries + NSR site → seed (Rae's track)
@@ -88,7 +88,7 @@ Manual review of Gemini output
 | `seed.json` | 292 | Dictionaries + `seed_glossary.py` + Gemini NSR merge | **Frozen baseline** for models. Schema: `term`, `definition`, `category`, `source`. Do not merge forum candidates here. |
 | `candidates.json` | 93 | `extract.py` ← `frequency.py` | Triage list from forum frequency. Mark `reviewed` or `rejected`. Definitions intentionally empty. |
 | `candidates_annotated.json` | 93 | Same terms + SEA-LION via `extract.py` | Pre-annotated definitions (`register`, `part_of_speech`, `confidence`). Awaiting human validation. |
-| `curated.json` | 42 | Human-reviewed forum terms | Lean schema with `variants`, `related_terms`, `definition_source`. Complements seed. |
+| `curated.json` | 58 | Human-reviewed forum terms + manual fixes | Lean schema with `variants`, `related_terms`, `definition_source`. Complements seed. |
 | `candidates_nsr.json` | — | `llm_extract.py` (Gemini) | Ephemeral intermediate output before manual merge into `seed.json`. |
 
 ### `seed.json` "frozen" policy
@@ -107,9 +107,9 @@ The project is split into five sequential stages:
 |-------|------------------|--------|
 | **1 — Scrape existing dictionaries** | `seed.json` with 292 entries | Done |
 | **2 — Forum data + frequency analysis** | Raw Reddit/HWZ text → cleaned → frequency list → candidate terms | Done |
-| **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (50 curated entries); crowdsourcing optional |
+| **3 — LLM extraction + crowdsourcing** | Annotated candidates → human review → `curated.json` | Done (58 curated entries); crowdsourcing optional |
 | **4 — RAG + Gemini** | Glossary-grounded answers (`bot/rag.py`, `bot/rag_eval.py`); keyword + local-embedding retrieval, 37/40 on `retrieval_eval.py` | In progress |
-| **5 — Bot** | Discord bot (RAG + Gemini) — `bot/discord_bot.py`, see [discord-bot.md](discord-bot.md) | Built |
+| **5 — Bot** | Discord bot (RAG + Gemini) — `bot/discord_bot.py`, see [discord-bot.md](discord-bot.md) | Live 24/7 on Google Cloud (since 13/10/26) |
 
 ---
 
@@ -291,7 +291,7 @@ Bot work is **not blocked on crowdsourcing**; it **is blocked on glossary qualit
 
 | Gate | Status |
 |------|--------|
-| Valid `curated.json` with definitions | Done (50 entries) |
+| Valid `curated.json` with definitions | Done (58 entries) |
 | `seed.json` baseline (292 entries) | Done |
 | Model comparison (Gemini vs SEA-LION) | Done — see [model-comparison-2026-07.md](model-comparison-2026-07.md) |
 | RAG lookup (`bot/rag.py`) | Done — keyword + spelling tolerance + local embeddings |
@@ -351,7 +351,7 @@ ns_lingo_nlp/
 │       ├── candidates.json              # Forum candidates — triage (93 terms)
 │       ├── candidates_annotated.json   # SEA-LION annotations (93 terms)
 │       ├── candidates_nsr.json         # Gemini intermediate (ephemeral)
-│       └── curated.json                # Forum-validated terms (50 entries, lean schema)
+│       └── curated.json                # Forum-validated terms + manual fixes (58 entries)
 │
 ├── scraper/
 │   ├── hwz_scraper.py
