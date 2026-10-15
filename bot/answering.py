@@ -12,49 +12,45 @@ from __future__ import annotations
 import asyncio
 import logging
 import time
-from collections import defaultdict, deque
+from collections import deque
 
 from llm import make_asker
 from rag import format_context, merge_glossary, search_glossary
 
 MAX_QUESTION_CHARS = 300
-# Each question costs one LLM call, billed to whoever owns the API key.
-RATE_LIMIT_CALLS = 20
-RATE_LIMIT_WINDOW_S = 60 * 60
-# Cap across all users on all platforms together, so many people at once can't run up the bill.
+# Each question costs one LLM call, billed to whoever owns the API key. One cap across
+# all users on all platforms together, so the bill can't run away.
 GLOBAL_RATE_LIMIT_CALLS = 200
-GLOBAL_KEY = "all"
+RATE_LIMIT_WINDOW_S = 60 * 60
 
 log = logging.getLogger("ns_lingo_bot")
 
 
 class RateLimiter:
-    """At most `max_calls` per key (a user key, or GLOBAL_KEY) in any rolling `window_s` seconds."""
+    """At most `max_calls` in any rolling `window_s` seconds."""
 
     def __init__(self, max_calls: int, window_s: int):
         self.max_calls = max_calls
         self.window_s = window_s
-        self._calls: dict[str, deque[float]] = defaultdict(deque)
+        self._calls: deque[float] = deque()
 
-    def wait(self, key: str) -> int:
+    def wait(self) -> int:
         """0 if a call is allowed now, else seconds until the next free slot. Records nothing."""
         now = time.monotonic()
-        calls = self._calls[key]
-        while calls and now - calls[0] >= self.window_s:
-            calls.popleft()
-        if len(calls) >= self.max_calls:
-            return int(self.window_s - (now - calls[0])) + 1
+        while self._calls and now - self._calls[0] >= self.window_s:
+            self._calls.popleft()
+        if len(self._calls) >= self.max_calls:
+            return int(self.window_s - (now - self._calls[0])) + 1
         return 0
 
-    def record(self, key: str) -> None:
-        self._calls[key].append(time.monotonic())
+    def record(self) -> None:
+        self._calls.append(time.monotonic())
 
 
 class Answerer:
     def __init__(self, ask, glossary: list[dict]):
         self.ask = ask
         self.glossary = glossary
-        self.limiter = RateLimiter(RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
         self.global_limiter = RateLimiter(GLOBAL_RATE_LIMIT_CALLS, RATE_LIMIT_WINDOW_S)
 
     def warm_up(self) -> None:
@@ -63,7 +59,7 @@ class Answerer:
     async def handle(self, user_key: str, question: str) -> tuple[str, list[str]] | None:
         """(answer, glossary terms used), or None for an empty question (caller shows help).
 
-        `user_key` should be platform-prefixed (e.g. "discord:123") so IDs can't collide.
+        `user_key` is platform-prefixed (e.g. "discord:123") and only used for logging.
         Refusals (too long, rate limited, errors) come back as an answer with no terms.
         """
         question = question.strip()
@@ -71,15 +67,10 @@ class Answerer:
             return None
         if len(question) > MAX_QUESTION_CHARS:
             return f"That's a bit long. Please keep questions under {MAX_QUESTION_CHARS} characters.", []
-        # Check both limits before recording, so a refused question doesn't use up either.
-        wait = self.limiter.wait(user_key)
-        if wait:
-            return f"You've hit the limit of {RATE_LIMIT_CALLS} questions an hour. Try again in {wait // 60 + 1} min.", []
-        wait = self.global_limiter.wait(GLOBAL_KEY)
+        wait = self.global_limiter.wait()
         if wait:
             return f"I'm getting a lot of questions right now. Try again in {wait // 60 + 1} min.", []
-        self.limiter.record(user_key)
-        self.global_limiter.record(GLOBAL_KEY)
+        self.global_limiter.record()
 
         log.info("user=%s q=%r", user_key, question)
         try:

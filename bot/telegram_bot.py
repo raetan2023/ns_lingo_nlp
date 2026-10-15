@@ -3,9 +3,9 @@ NS Lingo Telegram bot: explains Singapore NS slang, grounded in the glossary.
 
 People can ask it:
     a private chat message          any text
-    /ns <question>                  in private chats or groups
+    @bot <question>                 in groups (needs privacy mode off, see docs)
     a reply to one of its messages  in groups
-    @bot <question>                 in groups, only if privacy mode is off (see docs)
+    /ns <question>                  anywhere (still works, not advertised)
 
 Same answers and limits as the Discord bot (answering.py). Setup: docs/telegram-bot.md
 
@@ -38,13 +38,25 @@ from answering import Answerer, make_answerer
 REPO_ROOT = BOT_DIR.parent
 TELEGRAM_MAX_CHARS = 4096
 
-HELP_TEXT = (
-    "Ask me about NS lingo! For example:\n"
-    "- what does rabak mean?\n"
-    "- kena extra after SBA then cannot book out\n"
-    "- what do you call someone who pretends to be sick?\n\n"
-    "Message me here, or in a group use /ns <question> or reply to one of my messages."
-)
+
+def help_text(n_terms: int, username: str) -> str:
+    return (
+        "<b>NS Lingo</b> explains Singapore National Service slang in plain English.\n"
+        "Heard a term from someone in NS and no idea what it means? Just ask.\n\n"
+        "<b>Try asking</b>\n"
+        "• <i>what does rabak mean?</i>\n"
+        "• <i>what is hentak kaki?</i>\n"
+        "• <i>kena extra after SBA then cannot book out</i>\n"
+        "• <i>what do you call someone who pretends to be sick?</i>\n\n"
+        "<b>How to ask</b>\n"
+        "• Here: type a word or a whole sentence\n"
+        f"• In a group: tag me, e.g. <i>@{username} what does rabak mean?</i>, or reply to one of my messages\n\n"
+        "<b>Good to know</b>\n"
+        f"• Answers come from a glossary of {n_terms} NS terms, listed under each answer\n"
+        "• I can still get things wrong, so double-check anything important\n"
+        "• I don't remember earlier messages, so ask each question in full"
+    )
+
 
 log = logging.getLogger("ns_lingo_bot")
 
@@ -68,12 +80,17 @@ def format_reply(answer: str, terms: list[str]) -> str:
 
 
 def build_application(token: str, answerer: Answerer) -> Application:
+    async def send_help(update: Update) -> None:
+        # The bot's @username is only known once it's connected, so build this per call.
+        text = help_text(len(answerer.glossary), update.get_bot().username)
+        await update.effective_message.reply_text(text, parse_mode=ParseMode.HTML)
+
     async def reply(update: Update, question: str) -> None:
         message = update.effective_message
         await message.chat.send_action(ChatAction.TYPING)
         result = await answerer.handle(f"telegram:{update.effective_user.id}", question)
         if result is None:
-            await message.reply_text(HELP_TEXT)
+            await send_help(update)
             return
         try:
             await message.reply_text(format_reply(*result), parse_mode=ParseMode.HTML)
@@ -84,7 +101,7 @@ def build_application(token: str, answerer: Answerer) -> Application:
             await message.reply_text(plain[:TELEGRAM_MAX_CHARS])
 
     async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-        await update.effective_message.reply_text(HELP_TEXT)
+        await send_help(update)
 
     async def ns_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         await reply(update, " ".join(context.args))

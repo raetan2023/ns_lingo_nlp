@@ -8,9 +8,9 @@ same LLM, same answers. Shared logic is in `bot/answering.py`.
 | How | Where | Example |
 |-----|-------|---------|
 | Just send a message | Private chat with the bot | `what does rabak mean?` |
-| `/ns <question>` | Private chat or group | `/ns kena extra after SBA then cannot book out` |
+| Tag the bot: `@botname <question>` | Group (needs privacy mode off, below) | `@nslingo_bot what is ERAC` |
 | Reply to one of the bot's messages | Group | (reply) `what about SM?` |
-| `@botname <question>` | Group, **only if privacy mode is off** (below) | `@nslingo_bot what is ERAC` |
+| `/ns <question>` | Private chat or group (still works, not advertised) | `/ns kena extra after SBA then cannot book out` |
 
 `/start` and `/help` show examples. Replies end with an italic `Glossary: ...` line listing the
 entries used. Each question is answered on its own; the bot doesn't remember earlier messages.
@@ -29,10 +29,11 @@ entries used. Each question is answered on its own; the bot doesn't remember ear
    ```
 5. Optional: `/setdescription` and `/setuserpic`.
 
-**Group privacy mode** is on by default: in groups the bot only sees `/ns` commands and replies
-to its own messages, which is all it needs. To also answer `@botname` mentions, turn it off with
-`/setprivacy` → pick the bot → **Disable**, then remove and re-add the bot to the group. With it
-off, Telegram sends the bot every group message, but it ignores ones that don't mention it.
+**Turn off group privacy mode** (needed for tagging). It's on by default, and then in groups
+Telegram only sends the bot `/ns` commands and replies to its own messages, not messages that tag
+it. In BotFather: `/setprivacy` → pick the bot → **Disable**. Then remove and re-add the bot to any
+group it's already in, since the setting only applies when it joins. With it off, Telegram sends
+the bot every group message, but it ignores the ones that don't tag it or reply to it.
 
 ### 2. Add to `.env` (repo root, never committed)
 
@@ -55,8 +56,8 @@ stop one of them.
 
 ## Limits
 
-Same as Discord ([discord-bot.md](discord-bot.md#cost-and-limits)): 20 questions per user per
-hour, 300 characters per question, and the 200/hour global limit is shared across both platforms.
+Same as Discord ([discord-bot.md](discord-bot.md#cost-and-limits)): 300 characters per question,
+and 200 questions an hour across everyone, shared by both platforms. There's no per-user limit.
 Replies are capped at Telegram's 4096 characters.
 
 ## Server (Google Cloud VM)

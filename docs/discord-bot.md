@@ -69,8 +69,7 @@ live bot runs on a server (see Hosting below).
 | Setting | Value | Where |
 |---------|-------|-------|
 | LLM cost | ~$0.0001 per question (Gemini 3.1 Flash Lite via OpenRouter) | billed to the API key owner |
-| Rate limit | 20 questions per user per rolling hour | `RATE_LIMIT_CALLS` in `answering.py` |
-| Global limit | 200 questions per rolling hour across all users, Discord and Telegram combined | `GLOBAL_RATE_LIMIT_CALLS` |
+| Rate limit | 200 questions per rolling hour across all users, Discord and Telegram combined (no per-user limit) | `GLOBAL_RATE_LIMIT_CALLS` in `answering.py` |
 | Max question length | 300 characters | `MAX_QUESTION_CHARS` |
 
 Set a credit limit on the OpenRouter key as a backstop. Replies never ping anyone

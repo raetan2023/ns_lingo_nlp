@@ -66,7 +66,7 @@
 | `bot/answer_eval.py` | Runs the 40 cases through the LLM in RAG and/or full-glossary mode; outputs `answer_eval_results.txt` |
 | `bot/eval_prompts.py` | Shared NS eval questions and system prompts |
 | `bot/llm.py` | LLM client: OpenRouter if `OPENROUTER_API_KEY` set, else Gemini; builds the RAG prompt |
-| `bot/answering.py` | Shared by both bots: rate limits (per user + global), glossary search, LLM call |
+| `bot/answering.py` | Shared by both bots: rate limit (200/hour across everyone), glossary search, LLM call |
 | `bot/discord_bot.py` | Discord bot: `/ns`, @mentions and DMs → RAG → LLM reply. Setup in [discord-bot.md](discord-bot.md) |
 | `bot/telegram_bot.py` | Telegram bot: private chats, `/ns`, replies in groups. Setup in [telegram-bot.md](telegram-bot.md) |
 | `bot/run_bots.py` | Runs Discord + Telegram in one process (what the server runs) |
