@@ -664,5 +664,134 @@
     "related_terms": [],
     "example_sentences": [],
     "notes": ""
+  },
+  {
+    "term": "akan melari, cepat lari",
+    "definition": "Drill command to start running. 'Akan melari' means 'will run' (get ready) and 'cepat lari' means 'run fast' (go).",
+    "variants": [
+      "akan melari cepat lari",
+      "akan melari"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "cepat lari"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "cepat lari",
+    "definition": "Malay for 'run fast'. The command word of 'akan melari, cepat lari' that starts the squad running.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "akan melari, cepat lari"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "sm",
+    "definition": "Sergeant Major: the senior specialist appointment in charge of discipline and turnout, e.g. CSM (company) or RSM (battalion/school).",
+    "variants": [
+      "sergeant major"
+    ],
+    "register": "informal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "csm",
+      "rsm"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "erac",
+    "definition": "Electronic Risk Assessment Card: the digital form filled in before a training activity, listing its hazards and the safety measures in place.",
+    "variants": [
+      "eRAC",
+      "electronic risk assessment card"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "hentak kaki",
+    "definition": "Malay for 'stamp feet'. The drill command to mark time: march on the spot without moving forward. 'Hentak kaki' is the warning word, and 'cepat hentak' ('stamp quickly') is the command word to start.",
+    "variants": [
+      "mark time"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "Hentak Kaki Cepat Hentak"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "Hentak Kaki Cepat Hentak",
+    "definition": "The full drill command 'hentak kaki, cepat hentak', meaning 'mark time, quick mark time'. The squad marches on the spot, lifting and stamping their feet in step without moving forward, until told to go forward or halt.",
+    "variants": [
+      "hentak kaki, cepat hentak"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "hentak kaki"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "Ke Belakang Pusing",
+    "definition": "Malay for 'about turn'. The drill command to turn 180° to face the opposite direction, pivoting on the right heel and left toe, then bringing the left foot up beside the right.",
+    "variants": [
+      "kebelakang pusing",
+      "about turn"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "Kekanan Pusing",
+      "Kekiri Pusing"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "Masuk Baris",
+    "definition": "Malay for 'fall in'. The command to get into your place in the formation and come to attention, ready for the next command.",
+    "variants": [
+      "fall in"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "Keluar Baris"
+    ],
+    "example_sentences": [],
+    "notes": ""
   }
 ]
