@@ -793,5 +793,163 @@
     ],
     "example_sentences": [],
     "notes": ""
+  },
+  {
+    "term": "ffi",
+    "definition": "Fitness For Instruction: a medical check by the Medical Officer (MO) to confirm you're fit for training or an upcoming activity, and to record any injuries or conditions.",
+    "variants": [
+      "fitness for instruction"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ord ffi",
+      "db ffi",
+      "ippt ffi",
+      "deployment ffi"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "ord ffi",
+    "definition": "The FFI (Fitness For Instruction) check before you ORD. You declare any injuries or conditions from your time in NS so they're on record before you leave full-time NS.",
+    "variants": [
+      "ord medical check"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ffi",
+      "ORD"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "db ffi",
+    "definition": "The FFI (Fitness For Instruction) check before someone goes into Detention Barracks (DB), to confirm they're fit to serve their sentence.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ffi",
+      "DB"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "ippt ffi",
+    "definition": "The FFI (Fitness For Instruction) check before taking IPPT, to confirm you're fit to do the test.",
+    "variants": [],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ffi",
+      "ippt"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "deployment ffi",
+    "definition": "The FFI (Fitness For Instruction) check before an overseas deployment or exercise, to confirm you're fit to go.",
+    "variants": [
+      "overseas ffi"
+    ],
+    "register": "formal",
+    "part_of_speech": "phrase",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ffi"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "ascc",
+    "definition": "Admin Specialist Cadet Course: the course that trains NSFs to become specialists (sergeants) in administrative roles.",
+    "variants": [
+      "admin specialist cadet course"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "hri"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "hri",
+    "definition": "Human Resource Institute: the SAF school that trains soldiers for human resource and admin roles.",
+    "variants": [
+      "human resource institute"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [
+      "ascc"
+    ],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "alti",
+    "definition": "Army Logistics Training Institute: the SAF school that trains soldiers for logistics roles, such as supply, transport and maintenance.",
+    "variants": [
+      "army logistics training institute"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "pw",
+    "definition": "Prisoner of War. In NS it comes up in training and exercises, e.g. drills on searching, guarding and escorting captured enemy personnel.",
+    "variants": [
+      "pow",
+      "prisoner of war",
+      "prisoners of war"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [],
+    "example_sentences": [],
+    "notes": ""
+  },
+  {
+    "term": "dow",
+    "definition": "Died of Wounds: a casualty category for someone who survives the initial injury but dies later, usually after reaching medical care. Different from KIA (Killed in Action), where the person dies on the spot. Heard in exercises and casualty-handling or medic training.",
+    "variants": [
+      "died of wounds"
+    ],
+    "register": "formal",
+    "part_of_speech": "acronym",
+    "source": "manual",
+    "definition_source": "manual",
+    "related_terms": [],
+    "example_sentences": [],
+    "notes": ""
   }
 ]
